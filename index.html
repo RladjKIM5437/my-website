@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Background Floating Glow Orbs -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
 
     <!-- Header & Navigation -->
     <header class="main-header">
@@ -112,13 +116,13 @@
                                 <span class="stat-label">BIM 프로젝트 수행</span>
                             </div>
                         </div>
-                        <div class="card-featured-image-wrapper">
-                            <img src="youtube_banner.jpg" alt="AUCTOR BIM TV Banner" class="featured-image" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80';">
+                        <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="card-featured-image-wrapper">
+                            <img src="hero_visual.jpg" alt="스마트 건설 & BIM" class="featured-image" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80';">
                             <div class="featured-image-overlay">
-                                <span class="overlay-title">AUCTOR BIM TV</span>
-                                <p class="overlay-subtitle">유튜브 구독자 1.4만+ 채널 운영</p>
+                                <span class="overlay-title">AUCTOR 스마트 건설 & BIM</span>
+                                <p class="overlay-subtitle">Revit, Navisworks 설계 및 교육 솔루션</p>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -137,10 +141,13 @@
             <div class="about-grid">
                 <!-- Left Column: Quick Profile & Credentials -->
                 <div class="profile-card-col">
-                    <div class="profile-card">
+                    <div class="profile-card reveal">
                         <div class="profile-photo-wrapper">
-                            <div class="profile-avatar">
-                                <i data-lucide="user" class="avatar-icon"></i>
+                            <div class="profile-image-container">
+                                <img src="profile.jpg" alt="대표 김대중" class="profile-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="profile-avatar-fallback" style="display:none;">
+                                    <i data-lucide="user" class="avatar-icon"></i>
+                                </div>
                             </div>
                             <div class="profile-name-tag">
                                 <h3>김대중</h3>
@@ -151,7 +158,7 @@
                         <div class="profile-meta-list">
                             <div class="meta-item">
                                 <i data-lucide="mail"></i>
-                                <span>djkim5437@gmail.com</span>
+                                <span>leo.kim@auctor.co.kr</span>
                             </div>
                             <div class="meta-item">
                                 <i data-lucide="linkedin"></i>
@@ -159,32 +166,24 @@
                             </div>
                             <div class="meta-item">
                                 <i data-lucide="book-open"></i>
-                                <span>저서: Easy BIM 시리즈 (필명: 페이서킴)</span>
+                                <span>건설인적자원위원회 BIM 초급 교재 집필<br>Easy BIM 시리즈</span>
                             </div>
                         </div>
 
                         <div class="profile-credentials">
-                            <h4>대표 보유 기술 & 자격</h4>
-                            <div class="tech-tags">
-                                <span class="tag">BIM Project PM</span>
-                                <span class="tag">Autodesk Revit</span>
-                                <span class="tag">Navisworks</span>
-                                <span class="tag">AutoCAD Expert</span>
-                                <span class="tag">Twinmotion</span>
-                                <span class="tag">3D Modeling</span>
-                            </div>
+                            <h4>주요 자격</h4>
                             <ul class="cert-list">
-                                <li><i data-lucide="check-circle-2"></i> 직업훈련교사 3급 (건축설계)</li>
-                                <li><i data-lucide="check-circle-2"></i> 실내건축산업기사</li>
-                                <li><i data-lucide="check-circle-2"></i> 전산응용기계제도기능사</li>
-                                <li><i data-lucide="check-circle-2"></i> Autodesk Certified User</li>
+                                <li><i data-lucide="check-circle-2"></i> 건축공학석사</li>
+                                <li><i data-lucide="check-circle-2"></i> 직업훈련교사</li>
+                                <li><i data-lucide="check-circle-2"></i> 능력개발교육원 강사</li>
+                                <li><i data-lucide="check-circle-2"></i> BIM PM</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <!-- Right Column: Academic & Careers Timeline -->
-                <div class="timeline-col">
+                <div class="timeline-col reveal">
                     <div class="timeline-tabs">
                         <button class="tab-btn active" onclick="switchTimeline('career')">실무 & 강의 경력</button>
                         <button class="tab-btn" onclick="switchTimeline('education')">학력 & 연구 정보</button>
@@ -236,8 +235,7 @@
                                 <div class="timeline-date">2026.03 - Present</div>
                                 <div class="timeline-info">
                                     <h4 class="timeline-title">한국기술교육대학교 대학원 | 건축공학 박사과정 재학</h4>
-                                    <p class="timeline-text"><strong>주요 연구분야: 스마트 팜 (Smart Farm) 기술 및 모듈러 공법 (Modular Construction)</strong></p>
-                                    <p class="timeline-subtext">기존 건축 공법에 스마트 설비 및 프리패브(Prefab) 기술을 융합하는 연구를 진행하고 있습니다.</p>
+                                    <p class="timeline-text">한국기술교육대학교 건축공학과 스마트건설연구실</p>
                                 </div>
                             </div>
                             <div class="timeline-item">
@@ -245,15 +243,13 @@
                                 <div class="timeline-date">2021.09 - 2024.02</div>
                                 <div class="timeline-info">
                                     <h4 class="timeline-title">한국기술교육대학교 대학원 | 건축공학 석사 졸업</h4>
-                                    <p class="timeline-text">건축 시공 및 BIM 융합 공학 연구 수행, 석사학위 취득.</p>
                                 </div>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-date">1998.03 - 2005.02</div>
                                 <div class="timeline-info">
-                                    <h4 class="timeline-title">경희대학교 | 생명공학 및 식량자원학 학사 졸업</h4>
-                                    <p class="timeline-text">생명자원 기반 지식 수학 (부전공: 건축공학 편입/이수).</p>
+                                    <h4 class="timeline-title">경희대학교 | 생명공학 전공 졸업</h4>
                                 </div>
                             </div>
                             <div class="timeline-item">
@@ -261,7 +257,6 @@
                                 <div class="timeline-date">1996.03 - 1998.02</div>
                                 <div class="timeline-info">
                                     <h4 class="timeline-title">순천제일대학교 | 건축설비 전문학사</h4>
-                                    <p class="timeline-text">건축 환경 설비 및 설계 기초 수학.</p>
                                 </div>
                             </div>
                         </div>
@@ -282,7 +277,7 @@
 
             <div class="services-grid">
                 <!-- Service 1: BIM Education -->
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon-wrapper">
                         <i data-lucide="graduation-cap"></i>
                     </div>
@@ -300,7 +295,7 @@
                 </div>
 
                 <!-- Service 2: BIM Outsourcing -->
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon-wrapper">
                         <i data-lucide="file-spreadsheet"></i>
                     </div>
@@ -332,7 +327,7 @@
 
             <div class="research-grid">
                 <!-- Research Card 1: Smart Farm -->
-                <div class="research-card">
+                <div class="research-card reveal">
                     <div class="research-image-placeholder">
                         <i data-lucide="sprout" class="research-card-icon"></i>
                         <span>Smart Farm Research</span>
@@ -351,7 +346,7 @@
                 </div>
 
                 <!-- Research Card 2: Modular Construction -->
-                <div class="research-card">
+                <div class="research-card reveal">
                     <div class="research-image-placeholder">
                         <i data-lucide="layout-grid" class="research-card-icon"></i>
                         <span>Modular Construction</span>
@@ -383,7 +378,7 @@
 
             <!-- Naver Cafe & Youtube Intro Cards -->
             <div class="channel-grid">
-                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="channel-card youtube-card">
+                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="channel-card youtube-card reveal">
                     <div class="channel-icon-bg">
                         <i data-lucide="youtube"></i>
                     </div>
@@ -394,7 +389,7 @@
                     </div>
                 </a>
 
-                <a href="https://cafe.naver.com/pseb" target="_blank" rel="noopener noreferrer" class="channel-card cafe-card">
+                <a href="https://cafe.naver.com/pseb" target="_blank" rel="noopener noreferrer" class="channel-card cafe-card reveal">
                     <div class="channel-icon-bg">
                         <i data-lucide="users"></i>
                     </div>
@@ -409,7 +404,7 @@
             <!-- YouTube Video Placeholders -->
             <h3 class="video-grid-title text-center"><i data-lucide="play-square"></i> 추천 유튜브 교육 영상</h3>
             <div class="video-grid">
-                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="video-card">
+                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="video-card reveal">
                     <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&w=400&q=80');">
                         <div class="play-overlay">
                             <i data-lucide="play"></i>
@@ -421,7 +416,7 @@
                     </div>
                 </a>
 
-                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="video-card">
+                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="video-card reveal">
                     <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=400&q=80');">
                         <div class="play-overlay">
                             <i data-lucide="play"></i>
@@ -433,7 +428,7 @@
                     </div>
                 </a>
 
-                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="video-card">
+                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="video-card reveal">
                     <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80');">
                         <div class="play-overlay">
                             <i data-lucide="play"></i>
@@ -452,7 +447,7 @@
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="contact-grid">
-                <div class="contact-info-col">
+                <div class="contact-info-col reveal">
                     <span class="section-subtitle">CONTACT US</span>
                     <h2 class="section-title">BIM 프로젝트 및 교육 문의</h2>
                     <p class="contact-intro-desc">
@@ -464,20 +459,20 @@
                             <div class="method-icon"><i data-lucide="mail"></i></div>
                             <div>
                                 <h5>이메일 문의</h5>
-                                <p>djkim5437@gmail.com / sword76@naver.com</p>
+                                <p>leo.kim@auctor.co.kr</p>
                             </div>
                         </div>
                         <div class="method-card">
                             <div class="method-icon"><i data-lucide="map-pin"></i></div>
                             <div>
                                 <h5>회사 및 연구실 위치</h5>
-                                <p>대한민국 인천광역시 부평구 (본사) / 한국기술교육대학교 건축공학과 스마트 건설 연구실</p>
+                                <p>인천광역시 부평구 갈월서로 45, 21335 (본사) / 한국기술교육대학교 건축공학과 스마트 건설 연구실</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="contact-form-col">
+                <div class="contact-form-col reveal">
                     <form id="contactForm" class="contact-form">
                         <div class="form-row">
                             <div class="form-group">
@@ -521,7 +516,7 @@
                     <span class="logo-text">AUCTOR</span>
                 </div>
                 <p class="footer-copy">© 2026 AUCTOR. All Rights Reserved.</p>
-                <p class="footer-address">대표: 김대중 | 개인정보책임자: 김대중 | 대표 이메일: djkim5437@gmail.com</p>
+                <p class="footer-address">대표: 김대중 | 개인정보책임자: 김대중 | 대표 이메일: leo.kim@auctor.co.kr | 주소: 인천광역시 부평구 갈월서로 45 (21335)</p>
             </div>
             <div class="footer-right">
                 <div class="footer-sns-links">
@@ -618,17 +613,42 @@
             }
         }
 
-        // Contact Form alert simulation
+        // Contact Form mailto redirection
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
+            const subjectSelect = document.getElementById('subject');
+            const subjectText = subjectSelect.options[subjectSelect.selectedIndex].text;
             const message = document.getElementById('message').value;
 
-            alert(`감사합니다, ${name}님! 문의 내용이 정상적으로 접수되었습니다. 대표 이메일(djkim5437@gmail.com)로 빠르게 답변 드리겠습니다.`);
+            // Pre-populate mailto link details
+            const mailtoUrl = `mailto:leo.kim@auctor.co.kr?subject=${encodeURIComponent('[AUCTOR 문의] ' + subjectText)}&body=${encodeURIComponent('보내는 분: ' + name + '\n회신 이메일: ' + email + '\n\n[문의 내용]\n' + message)}`;
+
+            // Open user's native email client
+            window.location.href = mailtoUrl;
+
+            alert(`감사합니다, ${name}님! 입력하신 정보로 메일 작성 창이 실행됩니다. 메일 창에서 [보내기] 버튼을 누르시면 leo.kim@auctor.co.kr로 메일이 발송됩니다.`);
             contactForm.reset();
+        });
+
+        // Scroll Reveal logic
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Stop observing after animation triggers
+                }
+            });
+        }, {
+            threshold: 0.1, // Trigger when 10% of element is visible
+            rootMargin: '0px 0px -50px 0px' // Offset triggers slightly for better feel
+        });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
         });
     </script>
 </body>
