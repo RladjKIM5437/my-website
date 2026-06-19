@@ -43,7 +43,12 @@ body.dark-theme {
     
     --accent-gradient: linear-gradient(135deg, #0066ff 0%, #3b82f6 100%);
     --card-shadow: 0 10px 35px -10px rgba(0, 0, 0, 0.5);
-    --hover-shadow: 0 20px 40px -15px rgba(0, 102, 255, 0.2);
+
+    /* Fixed Dark Mode Background */
+    background-image: 
+        radial-gradient(rgba(0, 102, 255, 0.08) 1.5px, transparent 1.5px),
+        linear-gradient(to right, rgba(6, 11, 22, 0.98) 30%, rgba(6, 11, 22, 0.75) 60%, rgba(6, 11, 22, 0) 100%),
+        url('hero_visual.jpg');
 }
 
 /* 2. Base & Reset Styles */
@@ -66,9 +71,15 @@ body {
     overflow-x: hidden;
     transition: background-color var(--transition-normal), color var(--transition-normal);
     
-    /* Subtle Architectural CAD Dot-Grid Background */
-    background-image: radial-gradient(rgba(0, 71, 171, 0.04) 1.5px, transparent 1.5px);
-    background-size: 32px 32px;
+    /* Subtle Architectural CAD Dot-Grid Background & Fixed Image Background */
+    background-image: 
+        radial-gradient(rgba(0, 71, 171, 0.04) 1.5px, transparent 1.5px),
+        linear-gradient(to right, rgba(255, 255, 255, 0.95) 30%, rgba(255, 255, 255, 0.7) 60%, rgba(255, 255, 255, 0) 100%),
+        url('hero_visual.jpg');
+    background-size: 32px 32px, cover, cover;
+    background-position: center, center, center right;
+    background-repeat: repeat, no-repeat, no-repeat;
+    background-attachment: scroll, fixed, fixed;
 }
 
 .container {
@@ -290,6 +301,7 @@ img {
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
+    background: transparent;
 }
 
 /* Technical grid/line design background */
@@ -602,7 +614,12 @@ section {
 
 /* 6. About CEO Section */
 .about-section {
-    background-color: var(--bg-card);
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.dark-theme .about-section {
+    background-color: transparent;
 }
 
 .about-grid {
@@ -885,7 +902,12 @@ section {
 
 /* 7. Services Section */
 .services-section {
-    background-color: var(--bg-main);
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.dark-theme .services-section {
+    background-color: transparent;
 }
 
 .services-grid {
@@ -995,7 +1017,12 @@ section {
 
 /* 8. Research Section */
 .research-section {
-    background-color: var(--bg-card);
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.dark-theme .research-section {
+    background-color: transparent;
 }
 
 .research-grid {
@@ -1080,7 +1107,12 @@ section {
 
 /* 9. Media & Naver Cafe Section */
 .media-section {
-    background-color: var(--bg-main);
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.dark-theme .media-section {
+    background-color: transparent;
 }
 
 .channel-grid {
@@ -1264,8 +1296,13 @@ section {
 
 /* 10. Contact Section */
 .contact-section {
-    background-color: var(--bg-card);
+    background-color: transparent;
     position: relative;
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.dark-theme .contact-section {
+    background-color: transparent;
 }
 
 .contact-grid {
@@ -1375,9 +1412,13 @@ section {
 
 /* 11. Footer Section */
 .main-footer {
-    background-color: var(--bg-main);
+    background-color: transparent;
     border-top: 1px solid var(--border-color);
     padding: 48px 0;
+}
+
+body.dark-theme .main-footer {
+    background-color: transparent;
 }
 
 .footer-container {
@@ -1559,4 +1600,63 @@ body.dark-theme .channel-card:hover,
 body.dark-theme .video-card:hover {
     box-shadow: 0 20px 45px -10px rgba(0, 102, 255, 0.25), 
                 0 0 20px -3px rgba(0, 102, 255, 0.15);
+}
+
+/* 14. Multilingual Toggle Styles & Layout */
+.lang-selector {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 2px 8px;
+    border-radius: 12px;
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.lang-btn:hover {
+    color: var(--text-primary);
+}
+
+.lang-btn.active {
+    color: white;
+    background: var(--accent-gradient);
+    font-weight: 700;
+}
+
+.lang-divider {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    color: var(--border-color);
+    user-select: none;
+}
+
+.mobile-lang-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Hide inactive language elements natively via CSS */
+html[lang="ko"] .lang-en {
+    display: none !important;
+}
+html[lang="en"] .lang-ko {
+    display: none !important;
 }
