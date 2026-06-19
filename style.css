@@ -656,14 +656,15 @@ body.dark-theme .about-section {
     align-items: center;
     justify-content: center;
     border: 2px solid var(--border-color);
-    background-color: var(--bg-card);
+    background-color: #ffffff; /* 흰색 배경으로 검은색 로고 대비 부여 */
+    padding: 6px;
     flex-shrink: 0;
 }
 
 .profile-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* 로고가 잘리지 않고 비율을 유지하도록 설정 */
 }
 
 .profile-avatar-fallback {
