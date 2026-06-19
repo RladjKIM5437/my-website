@@ -229,7 +229,7 @@ img {
     gap: 16px;
 }
 
-.theme-toggle-btn, .mobile-menu-btn {
+.theme-toggle-btn, .mask-toggle-btn, .mobile-menu-btn {
     background: none;
     border: none;
     cursor: pointer;
@@ -244,7 +244,7 @@ img {
     transition: background-color var(--transition-fast), border-color var(--transition-fast);
 }
 
-.theme-toggle-btn:hover, .mobile-menu-btn:hover {
+.theme-toggle-btn:hover, .mask-toggle-btn:hover, .mobile-menu-btn:hover {
     background-color: var(--border-color);
 }
 
@@ -650,7 +650,7 @@ body.dark-theme .about-section {
 .profile-image-container {
     width: 70px;
     height: 70px;
-    border-radius: 50%;
+    border-radius: 12px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -919,12 +919,39 @@ body.dark-theme .services-section {
 .service-card {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
-    padding: 40px;
+    padding: 0;
     border-radius: 16px;
     box-shadow: var(--card-shadow);
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.service-image-wrapper {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.service-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.service-card:hover .service-card-image {
+    transform: scale(1.05);
 }
 
 .service-card::before {
@@ -1047,28 +1074,22 @@ body.dark-theme .research-section {
     box-shadow: var(--hover-shadow);
 }
 
-.research-image-placeholder {
+.research-image-wrapper {
     height: 200px;
-    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(13, 148, 136, 0.1) 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-color);
-    gap: 12px;
+    overflow: hidden;
+    position: relative;
     border-bottom: 1px solid var(--border-color);
 }
 
-.research-card-icon {
-    width: 48px;
-    height: 48px;
+.research-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
 }
 
-.research-image-placeholder span {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 1px;
+.research-card:hover .research-card-image {
+    transform: scale(1.05);
 }
 
 .research-card-content {
@@ -1453,8 +1474,8 @@ body.dark-theme .main-footer {
 }
 
 .footer-sns-links a {
-    width: 38px;
-    height: 38px;
+    width: 56px;
+    height: 56px;
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 50%;
@@ -1462,12 +1483,66 @@ body.dark-theme .main-footer {
     align-items: center;
     justify-content: center;
     color: var(--text-secondary);
-    transition: transform var(--transition-fast), color var(--transition-fast);
+    transition: transform var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.footer-sns-links a.sns-youtube svg,
+.footer-sns-links a.sns-facebook svg,
+.footer-sns-links a.sns-instagram svg,
+.footer-sns-links a.sns-threads svg {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-sns-links a.sns-naver svg,
+.footer-sns-links a.sns-linkedin svg,
+.footer-sns-links a.sns-x svg {
+    width: 27px;
+    height: 27px;
 }
 
 .footer-sns-links a:hover {
-    color: var(--primary-color);
     transform: translateY(-3px);
+}
+
+.sns-youtube:hover {
+    color: #ff0000 !important;
+    border-color: rgba(255, 0, 0, 0.4) !important;
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.2) !important;
+}
+
+.sns-naver:hover {
+    color: #03c75a !important;
+    border-color: rgba(3, 199, 90, 0.4) !important;
+    box-shadow: 0 0 12px rgba(3, 199, 90, 0.2) !important;
+}
+
+.sns-linkedin:hover {
+    color: #0077b5 !important;
+    border-color: rgba(0, 119, 181, 0.4) !important;
+    box-shadow: 0 0 12px rgba(0, 119, 181, 0.2) !important;
+}
+
+.sns-facebook:hover {
+    color: #1877f2 !important;
+    border-color: rgba(24, 119, 242, 0.4) !important;
+    box-shadow: 0 0 12px rgba(24, 119, 242, 0.2) !important;
+}
+
+.sns-instagram:hover {
+    color: #e1306c !important;
+    border-color: rgba(225, 48, 108, 0.4) !important;
+    box-shadow: 0 0 12px rgba(225, 48, 108, 0.2) !important;
+}
+
+.sns-threads:hover, .sns-x:hover {
+    color: var(--text-primary) !important;
+    border-color: var(--text-primary) !important;
+    box-shadow: 0 0 12px rgba(15, 23, 42, 0.15) !important;
+}
+
+body.dark-theme .sns-threads:hover, body.dark-theme .sns-x:hover {
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.2) !important;
 }
 
 /* 12. Responsive Breakpoints */
@@ -1505,6 +1580,9 @@ body.dark-theme .main-footer {
     .services-grid, .research-grid, .channel-grid, .video-grid {
         grid-template-columns: 1fr;
     }
+    .service-card-content {
+        padding: 30px 24px;
+    }
     .form-row {
         grid-template-columns: 1fr;
     }
@@ -1515,6 +1593,11 @@ body.dark-theme .main-footer {
     }
     .footer-left {
         align-items: center;
+    }
+    .footer-sns-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
     }
 }
 
@@ -1659,4 +1742,145 @@ html[lang="ko"] .lang-en {
 }
 html[lang="en"] .lang-ko {
     display: none !important;
+}
+
+/* ==========================================================================
+   15. Unified Email Contact Styles
+   ========================================================================== */
+
+.contact-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 60px 40px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    backdrop-filter: blur(var(--backdrop-blur));
+    transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--hover-shadow);
+}
+
+.contact-card .section-subtitle {
+    margin-bottom: 8px;
+}
+
+.contact-card .section-title {
+    margin-bottom: 24px;
+}
+
+.contact-card .contact-intro-desc {
+    max-width: 650px;
+    margin: 0 auto 40px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.mail-inquiry-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: rgba(0, 71, 171, 0.04);
+    border: 1px solid rgba(0, 71, 171, 0.15);
+    border-radius: 16px;
+    padding: 36px;
+    margin-bottom: 40px;
+}
+
+body.dark-theme .mail-inquiry-box {
+    background: rgba(0, 102, 255, 0.05);
+    border: 1px solid rgba(0, 102, 255, 0.2);
+}
+
+.mail-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: 'Outfit', sans-serif;
+}
+
+.mail-badge i {
+    width: 24px;
+    height: 24px;
+}
+
+.btn-mail-contact {
+    padding: 16px 32px;
+    font-size: 17px;
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: 0 10px 25px -5px rgba(var(--primary-rgb), 0.3);
+}
+
+.direct-contact-methods-horizontal {
+    border-top: 1px solid var(--border-color);
+    padding-top: 36px;
+    display: flex;
+    justify-content: center;
+}
+
+.method-card-inline {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+    max-width: 600px;
+}
+
+.method-card-inline .method-icon {
+    width: 54px;
+    height: 54px;
+    background-color: rgba(var(--primary-rgb), 0.08);
+    color: var(--primary-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.method-card-inline h5 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.method-card-inline p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .contact-card {
+        padding: 40px 24px;
+    }
+    
+    .mail-badge {
+        font-size: 18px;
+    }
+    
+    .btn-mail-contact {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+    
+    .method-card-inline {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
 }
