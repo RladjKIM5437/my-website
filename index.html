@@ -13,7 +13,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-theme">
     <!-- Background Floating Glow Orbs -->
     <div class="glow-orb orb-1"></div>
     <div class="glow-orb orb-2"></div>
@@ -29,14 +29,36 @@
             </a>
             
             <nav class="nav-menu" id="navMenu">
-                <a href="#about" class="nav-link">대표 소개</a>
-                <a href="#services" class="nav-link">주요 서비스</a>
-                <a href="#research" class="nav-link">스마트팜 & 모듈러</a>
-                <a href="#media" class="nav-link">미디어 & 카페</a>
-                <a href="#contact" class="nav-link contact-btn-nav">문의하기</a>
+                <a href="#about" class="nav-link">
+                    <span class="lang-ko">대표 소개</span>
+                    <span class="lang-en">About</span>
+                </a>
+                <a href="#services" class="nav-link">
+                    <span class="lang-ko">주요 서비스</span>
+                    <span class="lang-en">Services</span>
+                </a>
+                <a href="#research" class="nav-link">
+                    <span class="lang-ko">스마트팜 & 모듈러</span>
+                    <span class="lang-en">Research</span>
+                </a>
+                <a href="#media" class="nav-link">
+                    <span class="lang-ko">미디어 & 카페</span>
+                    <span class="lang-en">Media & Cafe</span>
+                </a>
+                <a href="#contact" class="nav-link contact-btn-nav">
+                    <span class="lang-ko">문의하기</span>
+                    <span class="lang-en">Contact</span>
+                </a>
             </nav>
 
             <div class="header-actions">
+                <!-- Language Selector -->
+                <div class="lang-selector">
+                    <button class="lang-btn" data-lang="ko">KO</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <!-- Theme Toggle Button -->
                 <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme">
                     <i data-lucide="moon" class="theme-icon-dark"></i>
                     <i data-lucide="sun" class="theme-icon-light" style="display: none;"></i>
@@ -52,11 +74,34 @@
     <!-- Mobile Drawer Navigation -->
     <div class="mobile-drawer" id="mobileDrawer">
         <nav class="mobile-nav-links">
-            <a href="#about" class="mobile-nav-link">대표 소개</a>
-            <a href="#services" class="mobile-nav-link">주요 서비스</a>
-            <a href="#research" class="mobile-nav-link">스마트팜 & 모듈러</a>
-            <a href="#media" class="mobile-nav-link">미디어 & 카페</a>
-            <a href="#contact" class="mobile-nav-link mobile-contact-btn">문의하기</a>
+            <a href="#about" class="mobile-nav-link">
+                <span class="lang-ko">대표 소개</span>
+                <span class="lang-en">About</span>
+            </a>
+            <a href="#services" class="mobile-nav-link">
+                <span class="lang-ko">주요 서비스</span>
+                <span class="lang-en">Services</span>
+            </a>
+            <a href="#research" class="mobile-nav-link">
+                <span class="lang-ko">스마트팜 & 모듈러</span>
+                <span class="lang-en">Research</span>
+            </a>
+            <a href="#media" class="mobile-nav-link">
+                <span class="lang-ko">미디어 & 카페</span>
+                <span class="lang-en">Media & Cafe</span>
+            </a>
+            <a href="#contact" class="mobile-nav-link mobile-contact-btn">
+                <span class="lang-ko">문의하기</span>
+                <span class="lang-en">Contact</span>
+            </a>
+            <!-- Mobile Language Selector -->
+            <div class="mobile-lang-wrapper">
+                <div class="lang-selector">
+                    <button class="lang-btn" data-lang="ko">KO</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+            </div>
         </nav>
     </div>
 
@@ -75,21 +120,30 @@
                     <span class="badge-dot"></span>
                     <span class="badge-text">BIM & SMART CONSTRUCTION PARTNER</span>
                 </div>
-                <h1 class="hero-title">
+                <h1 class="hero-title lang-ko">
                     스마트 건설과<br>
                     <span class="text-gradient">BIM 엔지니어링</span>의 미래
                 </h1>
-                <p class="hero-desc">
+                <h1 class="hero-title lang-en">
+                    The Future of<br>
+                    <span class="text-gradient">Smart Construction & BIM</span>
+                </h1>
+                <p class="hero-desc lang-ko">
                     AUCTOR는 오토데스크 Revit 및 Navisworks 실무 교육, 고품질 BIM 프로젝트 외주 모델링, 그리고 학계와 연계한 스마트 팜 & 모듈러 공법 연구를 통해 건설 산업의 디지털 트랜스포메이션을 실현합니다.
+                </p>
+                <p class="hero-desc lang-en">
+                    AUCTOR leads Autodesk Revit & Navisworks practical training, high-quality BIM outsourcing, and cutting-edge Smart Farm & Modular Construction research, driving digital transformation in the construction industry.
                 </p>
                 <div class="hero-actions-btns">
                     <a href="#contact" class="btn btn-primary">
-                        <span>프로젝트/교육 문의</span>
+                        <span class="lang-ko">프로젝트/교육 문의</span>
+                        <span class="lang-en">Inquire Now</span>
                         <i data-lucide="arrow-right"></i>
                     </a>
                     <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                         <i data-lucide="youtube"></i>
-                        <span>유튜브 채널</span>
+                        <span class="lang-ko">유튜브 채널</span>
+                        <span class="lang-en">YouTube Channel</span>
                     </a>
                 </div>
             </div>
@@ -105,22 +159,27 @@
                         <div class="project-stat-grid">
                             <div class="stat-item">
                                 <span class="stat-number">12+</span>
-                                <span class="stat-label">실무 경력 (년)</span>
+                                <span class="stat-label lang-ko">실무 경력 (년)</span>
+                                <span class="stat-label lang-en">Exp (Years)</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-number">50+</span>
-                                <span class="stat-label">교육 출강/컨설팅</span>
+                                <span class="stat-label lang-ko">교육 출강/컨설팅</span>
+                                <span class="stat-label lang-en">Lectures / Consult</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-number">30+</span>
-                                <span class="stat-label">BIM 프로젝트 수행</span>
+                                <span class="stat-label lang-ko">BIM 프로젝트 수행</span>
+                                <span class="stat-label lang-en">BIM Projects</span>
                             </div>
                         </div>
                         <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="card-featured-image-wrapper">
-                            <img src="hero_visual.jpg" alt="스마트 건설 & BIM" class="featured-image" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80';">
+                            <img src="youtube_banner.jpg" alt="AUCTOR 유튜브 채널" class="featured-image" onerror="this.src='https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&w=800&q=80';">
                             <div class="featured-image-overlay">
-                                <span class="overlay-title">AUCTOR 스마트 건설 & BIM</span>
-                                <p class="overlay-subtitle">Revit, Navisworks 설계 및 교육 솔루션</p>
+                                <span class="overlay-title lang-ko">AUCTOR 공식 유튜브 채널</span>
+                                <span class="overlay-title lang-en">AUCTOR Official YouTube</span>
+                                <p class="overlay-subtitle lang-ko">Revit & Navisworks 실무 강좌 및 CAD 팁</p>
+                                <p class="overlay-subtitle lang-en">Revit & Navisworks Lectures & CAD Tips</p>
                             </div>
                         </a>
                     </div>
@@ -134,7 +193,8 @@
         <div class="container">
             <div class="section-header text-center">
                 <span class="section-subtitle">CEO PROFILE</span>
-                <h2 class="section-title">전문성과 연구력을 겸비한 리더</h2>
+                <h2 class="section-title lang-ko">전문성과 연구력을 겸비한 리더</h2>
+                <h2 class="section-title lang-en">A Leader with Expertise and Research Power</h2>
                 <div class="section-divider"></div>
             </div>
 
@@ -150,8 +210,10 @@
                                 </div>
                             </div>
                             <div class="profile-name-tag">
-                                <h3>김대중</h3>
-                                <p>BIM Consultant / AUCTOR 대표</p>
+                                <h3 class="lang-ko">김대중</h3>
+                                <h3 class="lang-en">Kim Dae-jung</h3>
+                                <p class="lang-ko">BIM Consultant / AUCTOR 대표</p>
+                                <p class="lang-en">BIM Consultant / CEO of AUCTOR</p>
                             </div>
                         </div>
                         
@@ -166,17 +228,35 @@
                             </div>
                             <div class="meta-item">
                                 <i data-lucide="book-open"></i>
-                                <span>건설인적자원위원회 BIM 초급 교재 집필<br>Easy BIM 시리즈</span>
+                                <span class="lang-ko">건설인적자원위원회 BIM 초급 교재 집필<br>Easy BIM 시리즈</span>
+                                <span class="lang-en">Introductory BIM textbook author (Construction HRD Committee)<br>Author of Easy BIM Series</span>
                             </div>
                         </div>
 
                         <div class="profile-credentials">
-                            <h4>주요 자격</h4>
+                            <h4 class="lang-ko">주요 자격</h4>
+                            <h4 class="lang-en">Key Credentials</h4>
                             <ul class="cert-list">
-                                <li><i data-lucide="check-circle-2"></i> 건축공학석사</li>
-                                <li><i data-lucide="check-circle-2"></i> 직업훈련교사</li>
-                                <li><i data-lucide="check-circle-2"></i> 능력개발교육원 강사</li>
-                                <li><i data-lucide="check-circle-2"></i> BIM PM</li>
+                                <li>
+                                    <i data-lucide="check-circle-2"></i>
+                                    <span class="lang-ko">건축공학석사</span>
+                                    <span class="lang-en">M.S. in Architectural Engineering</span>
+                                </li>
+                                <li>
+                                    <i data-lucide="check-circle-2"></i>
+                                    <span class="lang-ko">직업훈련교사</span>
+                                    <span class="lang-en">Vocational Training Teacher License</span>
+                                </li>
+                                <li>
+                                    <i data-lucide="check-circle-2"></i>
+                                    <span class="lang-ko">능력개발교육원 강사</span>
+                                    <span class="lang-en">HRD Korea Institute Instructor</span>
+                                </li>
+                                <li>
+                                    <i data-lucide="check-circle-2"></i>
+                                    <span class="lang-ko">BIM PM</span>
+                                    <span class="lang-en">BIM Project Manager</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -185,8 +265,14 @@
                 <!-- Right Column: Academic & Careers Timeline -->
                 <div class="timeline-col reveal">
                     <div class="timeline-tabs">
-                        <button class="tab-btn active" onclick="switchTimeline('career')">실무 & 강의 경력</button>
-                        <button class="tab-btn" onclick="switchTimeline('education')">학력 & 연구 정보</button>
+                        <button class="tab-btn active" onclick="switchTimeline('career')">
+                            <span class="lang-ko">실무 & 강의 경력</span>
+                            <span class="lang-en">Career & Lectures</span>
+                        </button>
+                        <button class="tab-btn" onclick="switchTimeline('education')">
+                            <span class="lang-ko">학력 & 연구 정보</span>
+                            <span class="lang-en">Education & Research</span>
+                        </button>
                     </div>
 
                     <!-- Career Timeline -->
@@ -196,32 +282,40 @@
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-date">2023.09 - Present</div>
                                 <div class="timeline-info">
-                                    <h4 class="timeline-title">옥토르 (AUCTOR) | 대표 & BIM 컨설턴트</h4>
-                                    <p class="timeline-text">BIM 프로젝트 PM 및 설계 아웃소싱 관리, 스마트 팜 모델 구축(농협 양평, 양재), Revit & Navisworks 기업/기관 맞춤형 교육 총괄.</p>
+                                    <h4 class="timeline-title lang-ko">옥토르 (AUCTOR) | 대표 & BIM 컨설턴트</h4>
+                                    <h4 class="timeline-title lang-en">AUCTOR | CEO & BIM Consultant</h4>
+                                    <p class="timeline-text lang-ko">BIM 프로젝트 PM 및 설계 아웃소싱 관리, 스마트 팜 모델 구축(농협 양평, 양재), Revit & Navisworks 기업/기관 맞춤형 교육 총괄.</p>
+                                    <p class="timeline-text lang-en">BIM project management, outsourcing control, Smart Farm modeling (Nonghyup Yangpyeong, Yangjae), and custom Revit & Navisworks training for companies/institutions.</p>
                                 </div>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-date">2018.01 - Present</div>
                                 <div class="timeline-info">
-                                    <h4 class="timeline-title">건설기술교육원 | BIM 전문과정 교수</h4>
-                                    <p class="timeline-text">BIM NCS 강사 및 BIM 융합 과정, 스마트 건설기술 교육 프로그램 기획 및 강의.</p>
+                                    <h4 class="timeline-title lang-ko">건설기술교육원 | BIM 전문과정 교수</h4>
+                                    <h4 class="timeline-title lang-en">KICTE | Professor of BIM Courses</h4>
+                                    <p class="timeline-text lang-ko">BIM NCS 강사 및 BIM 융합 과정, 스마트 건설기술 교육 프로그램 기획 및 강의.</p>
+                                    <p class="timeline-text lang-en">BIM NCS certified trainer, planning and teaching BIM convergence and smart construction technical courses.</p>
                                 </div>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-date">2026.04 - Present</div>
                                 <div class="timeline-info">
-                                    <h4 class="timeline-title">현대건설 기술교육원 | BIM 강의</h4>
-                                    <p class="timeline-text">현대건설 기술교육원 내 BIM 실무 중심 교육 진행.</p>
+                                    <h4 class="timeline-title lang-ko">현대건설 기술교육원 | BIM 강의</h4>
+                                    <h4 class="timeline-title lang-en">Hyundai E&C Technical Education Institute | BIM Lecture</h4>
+                                    <p class="timeline-text lang-ko">현대건설 기술교육원 내 BIM 실무 중심 교육 진행.</p>
+                                    <p class="timeline-text lang-en">Conducting practical and hands-on BIM lectures for Hyundai E&C vocational programs.</p>
                                 </div>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-date">2020.07 - 2025.06</div>
                                 <div class="timeline-info">
-                                    <h4 class="timeline-title">대연건설㈜ | BIM Manager / 부장</h4>
-                                    <p class="timeline-text">아파트형 공장, 골프장 클럽 하우스, 플랜트 설비 등 BIM 모델 작성 및 간섭 검수 총괄 관리.</p>
+                                    <h4 class="timeline-title lang-ko">대연건설㈜ | BIM Manager / 부장</h4>
+                                    <h4 class="timeline-title lang-en">Daeyeon Construction Co., Ltd | BIM Manager / GM</h4>
+                                    <p class="timeline-text lang-ko">아파트형 공장, 골프장 클럽 하우스, 플랜트 설비 등 BIM 모델 작성 및 간섭 검수 총괄 관리.</p>
+                                    <p class="timeline-text lang-en">Supervised BIM modeling, drawing check, and interference detection for factories, clubhouses, and industrial facilities.</p>
                                 </div>
                             </div>
                         </div>
@@ -234,29 +328,34 @@
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-date">2026.03 - Present</div>
                                 <div class="timeline-info">
-                                    <h4 class="timeline-title">한국기술교육대학교 대학원 | 건축공학 박사과정 재학</h4>
-                                    <p class="timeline-text">한국기술교육대학교 건축공학과 스마트건설연구실</p>
+                                    <h4 class="timeline-title lang-ko">한국기술교육대학교 대학원 | 건축공학 박사과정 재학</h4>
+                                    <h4 class="timeline-title lang-en">Korea Univ. of Technology & Education Graduate School | Ph.D. Candidate in Architectural Engineering</h4>
+                                    <p class="timeline-text lang-ko">한국기술교육대학교 건축공학과 스마트건설연구실</p>
+                                    <p class="timeline-text lang-en">Smart Construction Laboratory, Dept. of Architectural Engineering, KUTE</p>
                                 </div>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-date">2021.09 - 2024.02</div>
                                 <div class="timeline-info">
-                                    <h4 class="timeline-title">한국기술교육대학교 대학원 | 건축공학 석사 졸업</h4>
+                                    <h4 class="timeline-title lang-ko">한국기술교육대학교 대학원 | 건축공학 석사 졸업</h4>
+                                    <h4 class="timeline-title lang-en">Korea Univ. of Technology & Education Graduate School | M.S. in Architectural Engineering</h4>
                                 </div>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-date">1998.03 - 2005.02</div>
                                 <div class="timeline-info">
-                                    <h4 class="timeline-title">경희대학교 | 생명공학 전공 졸업</h4>
+                                    <h4 class="timeline-title lang-ko">경희대학교 | 생명공학 전공 졸업</h4>
+                                    <h4 class="timeline-title lang-en">Kyung Hee University | B.S. in Biotechnology</h4>
                                 </div>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-date">1996.03 - 1998.02</div>
                                 <div class="timeline-info">
-                                    <h4 class="timeline-title">순천제일대학교 | 건축설비 전문학사</h4>
+                                    <h4 class="timeline-title lang-ko">순천제일대학교 | 건축설비 전문학사</h4>
+                                    <h4 class="timeline-title lang-en">Suncheon First College | Associate Degree in Architectural Services & Equipment</h4>
                                 </div>
                             </div>
                         </div>
@@ -271,7 +370,8 @@
         <div class="container">
             <div class="section-header text-center">
                 <span class="section-subtitle">OUR SERVICES</span>
-                <h2 class="section-title">스마트 건설을 실현하는 핵심 솔루션</h2>
+                <h2 class="section-title lang-ko">스마트 건설을 실현하는 핵심 솔루션</h2>
+                <h2 class="section-title lang-en">Core Solutions for Smart Construction</h2>
                 <div class="section-divider"></div>
             </div>
 
@@ -281,16 +381,37 @@
                     <div class="service-icon-wrapper">
                         <i data-lucide="graduation-cap"></i>
                     </div>
-                    <h3>BIM 전문 교육</h3>
-                    <p class="service-intro">Revit & Navisworks 실무 중심 교육</p>
-                    <p class="service-desc">
+                    <h3 class="lang-ko">BIM 전문 교육</h3>
+                    <h3 class="lang-en">BIM Training Courses</h3>
+                    <p class="service-intro lang-ko">Revit & Navisworks 실무 중심 교육</p>
+                    <p class="service-intro lang-en">Practical Revit & Navisworks Training</p>
+                    <p class="service-desc lang-ko">
                         NCS 기준에 맞춘 실무 BIM 교육부터 대기업(삼성물산, LG전자 등) 기술 지원 및 출강 교육을 담당해 왔습니다. 단순한 프로그램 사용법이 아닌, 도면화/Family 구축/MEP 설비 모델링/공정 시뮬레이션 등 실무와 연계된 고도화 교육을 제공합니다.
                     </p>
+                    <p class="service-desc lang-en">
+                        We deliver practical BIM lectures based on NCS standards, along with corporate training for major companies (Samsung C&T, LG Electronics, etc.). We focus on real-world pipelines including Family creation, MEP utilities modeling, and schedule simulation.
+                    </p>
                     <ul class="service-features">
-                        <li><i data-lucide="check"></i> Revit Architecture / Structure / MEP 교육</li>
-                        <li><i data-lucide="check"></i> Navisworks 공정 간섭 검토 실무</li>
-                        <li><i data-lucide="check"></i> 기업 맞춤형 Family 라이브러리 구축 및 컨설팅</li>
-                        <li><i data-lucide="check"></i> 공공기관 & 국비 지원 교육 프로그램 개발</li>
+                        <li>
+                            <i data-lucide="check"></i>
+                            <span class="lang-ko">Revit Architecture / Structure / MEP 교육</span>
+                            <span class="lang-en">Revit Architecture / Structure / MEP Master Classes</span>
+                        </li>
+                        <li>
+                            <i data-lucide="check"></i>
+                            <span class="lang-ko">Navisworks 공정 간섭 검토 실무</span>
+                            <span class="lang-en">Navisworks Interference & Clash Detection</span>
+                        </li>
+                        <li>
+                            <i data-lucide="check"></i>
+                            <span class="lang-ko">기업 맞춤형 Family 라이브러리 구축 및 컨설팅</span>
+                            <span class="lang-en">Custom Family Library Development & Consulting</span>
+                        </li>
+                        <li>
+                            <i data-lucide="check"></i>
+                            <span class="lang-ko">공공기관 & 국비 지원 교육 프로그램 개발</span>
+                            <span class="lang-en">National & Public Vocational Programs Planning</span>
+                        </li>
                     </ul>
                 </div>
 
@@ -299,16 +420,37 @@
                     <div class="service-icon-wrapper">
                         <i data-lucide="file-spreadsheet"></i>
                     </div>
-                    <h3>BIM 프로젝트 아웃소싱</h3>
-                    <p class="service-intro">정밀한 모델 구축 및 기술 지원</p>
-                    <p class="service-desc">
+                    <h3 class="lang-ko">BIM 프로젝트 아웃소싱</h3>
+                    <h3 class="lang-en">BIM Project Outsourcing</h3>
+                    <p class="service-intro lang-ko">정밀한 3D 모델 구축 및 기술 지원</p>
+                    <p class="service-intro lang-en">Accurate 3D Modeling & Technical Support</p>
+                    <p class="service-desc lang-ko">
                         다양한 건축·구조·설비 용역 프로젝트를 대행하여 진행합니다. 시공 단계에서의 간섭을 사전 예방하고, 정밀한 내역 및 물량 산출로 비용을 최적화할 수 있도록 업계 최고 수준의 모델 품질을 약속합니다.
                     </p>
+                    <p class="service-desc lang-en">
+                        We undertake diverse architectural, structural, and MEP modeling contracts. We minimize construction phase clashes beforehand and optimize building costs through high-precision quantity estimation and advanced spatial coordination.
+                    </p>
                     <ul class="service-features">
-                        <li><i data-lucide="check"></i> 연수원, 수영장, 아파트 등 다수 구조 모델링</li>
-                        <li><i data-lucide="check"></i> 공장 및 플랜트 기계/배관(MEP) 모델링</li>
-                        <li><i data-lucide="check"></i> GS 파르나스 호텔 커튼월 등 상세 디테일 지원</li>
-                        <li><i data-lucide="check"></i> 해외 공장 BIM 구축 및 글로벌 협업 전환 설계</li>
+                        <li>
+                            <i data-lucide="check"></i>
+                            <span class="lang-ko">연수원, 수영장, 아파트 등 다수 구조 모델링</span>
+                            <span class="lang-en">Structural modeling for training centers, pools, apartments</span>
+                        </li>
+                        <li>
+                            <i data-lucide="check"></i>
+                            <span class="lang-ko">공장 및 플랜트 기계/배관(MEP) 모델링</span>
+                            <span class="lang-en">High-tech Plant MEP utility & piping modeling</span>
+                        </li>
+                        <li>
+                            <i data-lucide="check"></i>
+                            <span class="lang-ko">GS 파르나스 호텔 커튼월 등 상세 디테일 지원</span>
+                            <span class="lang-en">Curtain wall detail design support (e.g. GS Parnas Hotel)</span>
+                        </li>
+                        <li>
+                            <i data-lucide="check"></i>
+                            <span class="lang-ko">해외 공장 BIM 구축 및 글로벌 협업 전환 설계</span>
+                            <span class="lang-en">Global factory BIM modeling & conversion (Hyundai/Kia Motors)</span>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -320,8 +462,10 @@
         <div class="container">
             <div class="section-header text-center">
                 <span class="section-subtitle">RESEARCH & INNOVATION</span>
-                <h2 class="section-title">스마트 팜 & 모듈러 공법 연구</h2>
-                <p class="section-header-desc">한국기술교육대학교 박사과정 연계, 건축공학과 첨단 미래 공법의 융합 연구</p>
+                <h2 class="section-title lang-ko">스마트 팜 & 모듈러 공법 연구</h2>
+                <h2 class="section-title lang-en">Smart Farm & Modular Construction</h2>
+                <p class="section-header-desc lang-ko">한국기술교육대학교 박사과정 연계, 건축공학과 첨단 미래 공법의 융합 연구</p>
+                <p class="section-header-desc lang-en">Ph.D. research integration at KUTE, merging advanced tech with traditional building methods</p>
                 <div class="section-divider"></div>
             </div>
 
@@ -333,14 +477,18 @@
                         <span>Smart Farm Research</span>
                     </div>
                     <div class="research-card-content">
-                        <h3>스마트 팜 (Smart Farm) 설계 & 최적화</h3>
-                        <p class="research-desc-text">
+                        <h3 class="lang-ko">스마트 팜 (Smart Farm) 설계 & 최적화</h3>
+                        <h3 class="lang-en">Smart Farm Engineering & Design</h3>
+                        <p class="research-desc-text lang-ko">
                             정보통신기술(ICT)을 이용해 자라나는 환경을 최적으로 통제하는 지능화된 스마트 팜 시설 설계 연구입니다. 농협 양평 및 양재 등 스마트 팜 모델 구축 실무 경험을 바탕으로, BIM을 활용하여 스마트 팜의 설비 배치 최적화 및 에너지 효율 향상을 위한 통합 시뮬레이션 모델을 연구합니다.
                         </p>
+                        <p class="research-desc-text lang-en">
+                            Research on smart agriculture facilities using ICT to control growing environments. Drawing on Nonghyup smart farm projects, we research BIM-integrated simulations for equipment layout optimization and solar/thermal energy efficiency.
+                        </p>
                         <div class="research-keywords">
-                            <span class="kwd">#ICT융합</span>
-                            <span class="kwd">#스마트팜BIM</span>
-                            <span class="kwd">#설비최적화</span>
+                            <span class="kwd">#ICT</span>
+                            <span class="kwd">#SmartFarmBIM</span>
+                            <span class="kwd">#Optimization</span>
                         </div>
                     </div>
                 </div>
@@ -352,14 +500,18 @@
                         <span>Modular Construction</span>
                     </div>
                     <div class="research-card-content">
-                        <h3>모듈러 공법 (Modular Construction)</h3>
-                        <p class="research-desc-text">
+                        <h3 class="lang-ko">모듈러 공법 (Modular Construction)</h3>
+                        <h3 class="lang-en">Modular Construction & OSC</h3>
+                        <p class="research-desc-text lang-ko">
                             공장에서 건물의 주요 구조물과 내외장재를 유닛(Unit) 형태로 70~80% 이상 사전 제작한 후 현장에서 조립하는 스마트 프리패브 공법입니다. BIM의 디테일한 3D 설계를 활용하여 모듈 간 정밀 접합부를 설계하고, 제작 오류를 방지하며 현장 조립 공기(工期)를 단축하는 제조 기반 건축(DfMA) 솔루션을 연구합니다.
+                        </p>
+                        <p class="research-desc-text lang-en">
+                            A prefab method constructing 70-80% of unit structures in factories before assembling them on site. We focus on DfMA (Design for Manufacture & Assembly), modular joints precision control, and onsite project schedule reduction using BIM.
                         </p>
                         <div class="research-keywords">
                             <span class="kwd">#DfMA</span>
-                            <span class="kwd">#프리패브</span>
-                            <span class="kwd">#공기단축</span>
+                            <span class="kwd">#Prefabrication</span>
+                            <span class="kwd">#OSC</span>
                         </div>
                     </div>
                 </div>
@@ -372,7 +524,8 @@
         <div class="container">
             <div class="section-header text-center">
                 <span class="section-subtitle">COMMUNITY & MEDIA</span>
-                <h2 class="section-title">AUCTOR BIM 미디어 & 커뮤니티</h2>
+                <h2 class="section-title lang-ko">AUCTOR BIM 미디어 & 커뮤니티</h2>
+                <h2 class="section-title lang-en">BIM Media & Communities</h2>
                 <div class="section-divider"></div>
             </div>
 
@@ -383,9 +536,15 @@
                         <i data-lucide="youtube"></i>
                     </div>
                     <div class="channel-info-text">
-                        <h3>AUCTOR BIM TV 유튜브</h3>
-                        <p>Revit, Navisworks 실무 강좌와 AutoCAD 팁 등 1.4만 구독자와 함께 성장하는 BIM 영상 교육 채널입니다.</p>
-                        <span class="btn-channel-go">구독하러 가기 <i data-lucide="external-link"></i></span>
+                        <h3 class="lang-ko">AUCTOR BIM TV 유튜브</h3>
+                        <h3 class="lang-en">AUCTOR BIM TV YouTube</h3>
+                        <p class="lang-ko">Revit, Navisworks 실무 강좌와 AutoCAD 팁 등 1.4만 구독자와 함께 성장하는 BIM 영상 교육 채널입니다.</p>
+                        <p class="lang-en">A video training channel sharing Revit, Navisworks courses and AutoCAD tips with 14k+ subscribers.</p>
+                        <span class="btn-channel-go">
+                            <span class="lang-ko">구독하러 가기</span>
+                            <span class="lang-en">Subscribe</span>
+                            <i data-lucide="external-link"></i>
+                        </span>
                     </div>
                 </a>
 
@@ -394,15 +553,24 @@
                         <i data-lucide="users"></i>
                     </div>
                     <div class="channel-info-text">
-                        <h3>네이버 카페 (PSEB)</h3>
-                        <p>현업 BIM 실무자 및 학습자들이 모여 팁을 공유하고, 자료를 나누는 BIM·CAD 전문 지식 공유 커뮤니티입니다.</p>
-                        <span class="btn-channel-go">카페 방문하기 <i data-lucide="external-link"></i></span>
+                        <h3 class="lang-ko">네이버 카페 (PSEB)</h3>
+                        <h3 class="lang-en">Naver Cafe (PSEB)</h3>
+                        <p class="lang-ko">현업 BIM 실무자 및 학습자들이 모여 팁을 공유하고, 자료를 나누는 BIM·CAD 전문 지식 공유 커뮤니티입니다.</p>
+                        <p class="lang-en">A knowledge-sharing hub where BIM professionals and students exchange Revit families, templates, and tips.</p>
+                        <span class="btn-channel-go">
+                            <span class="lang-ko">카페 방문하기</span>
+                            <span class="lang-en">Visit Cafe</span>
+                            <i data-lucide="external-link"></i>
+                        </span>
                     </div>
                 </a>
             </div>
 
             <!-- YouTube Video Placeholders -->
-            <h3 class="video-grid-title text-center"><i data-lucide="play-square"></i> 추천 유튜브 교육 영상</h3>
+            <h3 class="video-grid-title text-center"><i data-lucide="play-square"></i> 
+                <span class="lang-ko">추천 유튜브 교육 영상</span>
+                <span class="lang-en">Featured YouTube Lectures</span>
+            </h3>
             <div class="video-grid">
                 <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="video-card reveal">
                     <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&w=400&q=80');">
@@ -411,8 +579,10 @@
                         </div>
                     </div>
                     <div class="video-details">
-                        <h4>[Revit 실무] 레빗 기초부터 다지는 3D 건축 설계 입문</h4>
-                        <p>기초 인터페이스 설정 및 핵심 설계 도구 사용 방법 강의</p>
+                        <h4 class="lang-ko">[Revit 실무] 레빗 기초부터 다지는 3D 건축 설계 입문</h4>
+                        <h4 class="lang-en">[Revit Basics] Introduction to 3D Architectural Design</h4>
+                        <p class="lang-ko">기초 인터페이스 설정 및 핵심 설계 도구 사용 방법 강의</p>
+                        <p class="lang-en">Guide to basic interface configuration and core modeling tools</p>
                     </div>
                 </a>
 
@@ -423,8 +593,10 @@
                         </div>
                     </div>
                     <div class="video-details">
-                        <h4>[Navisworks] 공정 시뮬레이션 및 간섭 체크 검수 가이드</h4>
-                        <p>프로젝트 시공 전 오류를 예방하는 디지털 트윈 활용 가이드</p>
+                        <h4 class="lang-ko">[Navisworks] 공정 시뮬레이션 및 간섭 체크 검수 가이드</h4>
+                        <h4 class="lang-en">[Navisworks] Schedule Simulation & Clash Detection</h4>
+                        <p class="lang-ko">프로젝트 시공 전 오류를 예방하는 디지털 트윈 활용 가이드</p>
+                        <p class="lang-en">Digital Twin guide to prevent errors prior to construction site entry</p>
                     </div>
                 </a>
 
@@ -435,8 +607,10 @@
                         </div>
                     </div>
                     <div class="video-details">
-                        <h4>[Revit Family] 고수처럼 다루는 매개변수 패밀리 작성 기법</h4>
-                        <p>효율적인 BIM 프로젝트 자재 관리를 위한 매개변수 응용법</p>
+                        <h4 class="lang-ko">[Revit Family] 고수처럼 다루는 매개변수 패밀리 작성 기법</h4>
+                        <h4 class="lang-en">[Revit Family] Advanced Parametric Family Techniques</h4>
+                        <p class="lang-ko">효율적인 BIM 프로젝트 자재 관리를 위한 매개변수 응용법</p>
+                        <p class="lang-en">Leveraging parameters for efficient asset and material management</p>
                     </div>
                 </a>
             </div>
@@ -449,24 +623,37 @@
             <div class="contact-grid">
                 <div class="contact-info-col reveal">
                     <span class="section-subtitle">CONTACT US</span>
-                    <h2 class="section-title">BIM 프로젝트 및 교육 문의</h2>
-                    <p class="contact-intro-desc">
+                    <h2 class="section-title lang-ko">BIM 프로젝트 및 교육 문의</h2>
+                    <h2 class="section-title lang-en">Inquiries (Projects & Training)</h2>
+                    <p class="contact-intro-desc lang-ko">
                         Revit/Navisworks 강의 출강, 패밀리 구축 컨설팅, BIM 모델링 외주 용역 등 상담이 필요하신 내용을 남겨주시면 성심껏 답변드리겠습니다.
+                    </p>
+                    <p class="contact-intro-desc lang-en">
+                        For Revit/Navisworks lectures, family library consulting, or BIM outsourcing projects, please leave your inquiry below. We will get back to you promptly.
                     </p>
 
                     <div class="direct-contact-methods">
                         <div class="method-card">
                             <div class="method-icon"><i data-lucide="mail"></i></div>
                             <div>
-                                <h5>이메일 문의</h5>
+                                <h5 class="lang-ko">이메일 문의</h5>
+                                <h5 class="lang-en">Email Us</h5>
                                 <p>leo.kim@auctor.co.kr</p>
                             </div>
                         </div>
                         <div class="method-card">
                             <div class="method-icon"><i data-lucide="map-pin"></i></div>
                             <div>
-                                <h5>회사 및 연구실 위치</h5>
-                                <p>인천광역시 부평구 갈월서로 45, 21335 (본사) / 한국기술교육대학교 건축공학과 스마트 건설 연구실</p>
+                                <h5 class="lang-ko">회사 및 연구실 위치</h5>
+                                <h5 class="lang-en">Office & Lab Location</h5>
+                                <p class="lang-ko">
+                                    Office - 인천광역시 부평구 갈월서로 45, 21335<br>
+                                    Lab - 한국기술교육대학교 2공학관 스마트 건설 연구실
+                                </p>
+                                <p class="lang-en">
+                                    Office - 45, Garwolseo-ro, Bupyeong-gu, Incheon, 21335<br>
+                                    Lab - Smart Construction Research Lab, 2nd Engineering Building, KUTE
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -476,30 +663,52 @@
                     <form id="contactForm" class="contact-form">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="name">이름 / 회사명</label>
+                                <label for="name">
+                                    <span class="lang-ko">이름 / 회사명</span>
+                                    <span class="lang-en">Name / Company</span>
+                                </label>
                                 <input type="text" id="name" name="name" placeholder="홍길동 / 옥토르" required>
                             </div>
                             <div class="form-group">
-                                <label for="email">이메일 주소</label>
+                                <label for="email">
+                                    <span class="lang-ko">이메일 주소</span>
+                                    <span class="lang-en">Email Address</span>
+                                </label>
                                 <input type="email" id="email" name="email" placeholder="example@domain.com" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="subject">문의 유형</label>
+                            <label for="subject">
+                                <span class="lang-ko">문의 유형</span>
+                                <span class="lang-en">Inquiry Type</span>
+                            </label>
                             <select id="subject" name="subject" required>
-                                <option value="" disabled selected>선택해 주세요</option>
-                                <option value="education">BIM 교육 출강 / 실무 강의 문의</option>
-                                <option value="project">BIM 모델링 외주 / 프로젝트 문의</option>
-                                <option value="research">스마트 팜 & 모듈러 공법 공동 연구 문의</option>
-                                <option value="other">기타 문의사항</option>
+                                <option value="" disabled selected class="lang-ko">선택해 주세요</option>
+                                <option value="" disabled selected class="lang-en">Please select</option>
+                                
+                                <option value="education" class="lang-ko">BIM 교육 출강 / 실무 강의 문의</option>
+                                <option value="education" class="lang-en">BIM Training / Lecture Inquiry</option>
+                                
+                                <option value="project" class="lang-ko">BIM 모델링 외주 / 프로젝트 문의</option>
+                                <option value="project" class="lang-en">BIM Modeling / Project Outsourcing</option>
+                                
+                                <option value="research" class="lang-ko">스마트 팜 & 모듈러 공법 공동 연구 문의</option>
+                                <option value="research" class="lang-en">Smart Farm & Modular Joint Research</option>
+                                
+                                <option value="other" class="lang-ko">기타 문의사항</option>
+                                <option value="other" class="lang-en">Other Inquiries</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="message">상세 내용</label>
+                            <label for="message">
+                                <span class="lang-ko">상세 내용</span>
+                                <span class="lang-en">Message Details</span>
+                            </label>
                             <textarea id="message" name="message" rows="5" placeholder="문의하실 구체적인 일정, 대상, 프로젝트 규모 등을 입력해 주세요." required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">
-                            <span>문의 메일 보내기</span>
+                            <span class="lang-ko">문의 메일 보내기</span>
+                            <span class="lang-en">Submit Inquiry</span>
                             <i data-lucide="send"></i>
                         </button>
                     </form>
@@ -516,7 +725,8 @@
                     <span class="logo-text">AUCTOR</span>
                 </div>
                 <p class="footer-copy">© 2026 AUCTOR. All Rights Reserved.</p>
-                <p class="footer-address">대표: 김대중 | 개인정보책임자: 김대중 | 대표 이메일: leo.kim@auctor.co.kr | 주소: 인천광역시 부평구 갈월서로 45 (21335)</p>
+                <p class="footer-address lang-ko">대표: 김대중 | 개인정보책임자: 김대중 | 대표 이메일: leo.kim@auctor.co.kr | 주소: 인천광역시 부평구 갈월서로 45 (21335)</p>
+                <p class="footer-address lang-en">CEO: Kim Dae-jung | Information Officer: Kim Dae-jung | Email: leo.kim@auctor.co.kr | Address: 45, Garwolseo-ro, Bupyeong-gu, Incheon (21335)</p>
             </div>
             <div class="footer-right">
                 <div class="footer-sns-links">
@@ -539,7 +749,7 @@
         const themeIconLight = document.querySelector('.theme-icon-light');
 
         // Check stored theme or system preference
-        const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const currentTheme = localStorage.getItem('theme') || 'dark';
         
         if (currentTheme === 'dark') {
             document.body.classList.add('dark-theme');
@@ -563,6 +773,34 @@
                 themeIconLight.style.display = 'none';
             }
         });
+
+        // Language Selector logic
+        const langBtns = document.querySelectorAll('.lang-btn');
+        let currentLang = localStorage.getItem('lang') || 'ko';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            document.documentElement.setAttribute('lang', lang);
+            
+            // Update active states on all language buttons
+            langBtns.forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                setLanguage(btn.getAttribute('data-lang'));
+            });
+        });
+
+        // Initialize language
+        setLanguage(currentLang);
 
         // Mobile Menu logic
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
