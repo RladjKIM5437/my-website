@@ -1,10 +1,602 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>내 첫 웹사이트</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUCTOR BIM - BIM 전문가 김대중</title>
+    <style>
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+        }
+
+        body {
+            color: #333333;
+            background-color: #fcfcfc;
+            line-height: 1.6;
+        }
+
+        a {
+            text-transform: none;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #2b5a9e;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 600;
+            color: #555555;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2b5a9e;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid #eef1f6;
+        }
+
+        .hero-title {
+            font-size: 42px;
+            font-weight: 800;
+            color: #111111;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: #666666;
+            max-width: 700px;
+            margin: 0 auto 35px auto;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #2b5a9e;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #1e4375;
+        }
+
+        .btn-secondary {
+            background-color: #ffffff;
+            color: #333333;
+            border: 1px solid #cccccc;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Section Layout */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-bg {
+            background-color: #f7f9fc;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            color: #111111;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: #2b5a9e;
+            margin: 12px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Profile Block */
+        .profile-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        @media (max-width: 768px) {
+            .profile-wrapper {
+                flex-direction: column;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero-title {
+                font-size: 32px;
+            }
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #111111;
+        }
+
+        .profile-tag {
+            display: inline-block;
+            background-color: #eef3fa;
+            color: #2b5a9e;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .profile-desc {
+            font-size: 16px;
+            color: #555555;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .research-box {
+            background-color: #ffffff;
+            border-left: 4px solid #2b5a9e;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .research-box h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #2b5a9e;
+        }
+
+        /* Services Grid */
+        .grid-2 {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: separate;
+            border-spacing: 20px 0;
+        }
+
+        .grid-cell {
+            display: table-cell;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 8px;
+            border: 1px solid #eaeaea;
+            vertical-align: top;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        @media (max-width: 768px) {
+            .grid-2, .grid-cell {
+                display: block;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        .service-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #2b5a9e;
+        }
+
+        .service-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #111111;
+        }
+
+        .service-list li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #555555;
+        }
+
+        .service-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #2b5a9e;
+            font-weight: bold;
+        }
+
+        /* Projects Table */
+        .project-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .project-table th, .project-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .project-table th {
+            background-color: #2b5a9e;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .project-table td {
+            font-size: 14px;
+            color: #444444;
+        }
+
+        .project-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .project-category {
+            font-weight: 600;
+            color: #2b5a9e;
+        }
+
+        /* YouTube Showcase */
+        .video-grid {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: separate;
+            border-spacing: 20px 0;
+        }
+
+        .video-card {
+            display: table-cell;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+            vertical-align: top;
+        }
+
+        @media (max-width: 768px) {
+            .video-grid, .video-card {
+                display: block;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 180px;
+            background-color: #222222;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            flex-direction: column;
+            gap: 8px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="%23ffffff"><path d="M8 5v14l11-7z"/></svg>') center/cover;
+        }
+
+        .video-content {
+            padding: 20px;
+        }
+
+        .video-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #111111;
+            margin-bottom: 8px;
+        }
+
+        .video-text {
+            font-size: 14px;
+            color: #666666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #aaaaaa;
+            padding: 50px 0;
+            font-size: 14px;
+        }
+
+        .footer-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-logo {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .footer-info p {
+            margin-bottom: 6px;
+        }
+
+        .footer-links a {
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #333333;
+            width: 100%;
+            color: #666666;
+        }
+    </style>
 </head>
 <body>
-    <h1>안녕하세요! 제 웹사이트에 오신 것을 환영합니다.</h1>
-    <p>지금 열심히 만드는 중입니다.</p>
+
+    <header>
+        <div class="container header-container">
+            <div class="logo">AUCTOR <span>BIM</span></div>
+            <nav class="nav-links">
+                <a href="#about">소개</a>
+                <a href="#services">주요 업무</a>
+                <a href="#projects">프로젝트</a>
+                <a href="#youtube">유튜브 채널</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">AUCTOR BIM TV<br>실무 중심의 BIM 교육 및 프로젝트 파트너</h1>
+            <p class="hero-subtitle">12년 이상의 현업 경력을 바탕으로 한 최고 수준의 Revit, Navisworks 맞춤형 교육 및 정밀한 BIM 설계 외주 용역 서비스를 제공합니다.</p>
+            <div class="hero-buttons">
+                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" class="btn btn-primary">유튜브 채널 방문</a>
+                <a href="https://cafe.naver.com/pseb" target="_blank" class="btn btn-secondary">네이버 공식 카페</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">대표 소개</h2>
+            <div class="profile-wrapper">
+                <div class="profile-info">
+                    <h3>김대중 대표</h3>
+                    <div class="profile-tag">BIM 전문가 / 건축공학 박사과정</div>
+                    <p class="profile-desc">
+                        안녕하세요! 옥토르(AUCTOR) BIM 대표 김대중입니다. 저는 10년이 넘는 시간 동안 건축설계 현장 및 전문 교육 기관에서 BIM(Building Information Modeling) 기술의 실무 적용과 확산을 주도해 왔습니다. 단군소프트, 윤플러스건축사사무소, 대연건설 등에서 축적한 탄탄한 프로젝트 관리 역량을 바탕으로, 기업 및 개인에게 가장 핵심적인 최적의 솔루션을 제공합니다.
+                    </p>
+                    <div class="research-box">
+                        <h4>🎓 현재 연구 분야 (한국기술교육대학교 대학원 박사과정)</h4>
+                        <p class="profile-desc" style="margin-bottom:0; font-size:15px;">
+                            건설 산업의 디지털 전환 및 스마트화에 기여하기 위해 <strong>스마트 팜 모델 구축</strong> 및 <strong>모듈러 공법(모듈화 건축)</strong>과 BIM 기술의 결합을 깊이 있게 연구하고 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-bg">
+        <div class="container">
+            <h2 class="section-title">주요 비즈니스 분야</h2>
+            <div class="grid-2">
+                <div class="grid-cell">
+                    <div class="service-icon">📖</div>
+                    <h3 class="service-title">BIM 전문 교육 (메인 서비스)</h3>
+                    <ul class="service-list">
+                        <li>Autodesk Revit / Navisworks 수준별 맞춤 교육</li>
+                        <li>국비지원 교육 과정 및 건설기술교육원 스마트 과정 위탁 운영</li>
+                        <li>기업 대상 Revit MEP Family 구축 및 맞춤형 기술 지원</li>
+                        <li>'Easy BIM Series' 교재 기반의 체계적인 커리큘럼</li>
+                    </ul>
+                </div>
+                <div class="grid-cell">
+                    <div class="service-icon">🏗️</div>
+                    <h3 class="service-title">BIM 프로젝트 용역 (외주 수행)</h3>
+                    <ul class="service-list">
+                        <li>건축물(아파트, 연수원, 공공시설 등) 정밀 구조 및 MEP 모델링</li>
+                        <li>설계 오류 사전 진단을 위한 대규모 간섭 검토 및 최적화</li>
+                        <li>첨단 미래 농업을 위한 스마트 팜 BIM 모델 구축 (농협 프로젝트 등)</li>
+                        <li>해외 공장 전환 설계 및 커튼월 3D 구축 지원</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">주요 프로젝트 및 교육 실적</h2>
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">분야</th>
+                        <th>수행 프로젝트 및 교육 내용</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="project-category">스마트 건설</td>
+                        <td>농협 양평 & 양재 스마트 팜 모델 구축 프로젝트 관리</td>
+                    </tr>
+                    <tr>
+                        <td class="project-category">구조/건축 모델링</td>
+                        <td>오산 롯데 연수원, 춘천 NHN 연수원, LH 김해 율하 아파트 BIM 구조 모델링</td>
+                    </tr>
+                    <tr>
+                        <td class="project-category">공공/상업 시설</td>
+                        <td>순천시 수영장 MEP 간섭 최적화 모델링, GS 파르나스 호텔 커튼 월 구축 지원</td>
+                    </tr>
+                    <tr>
+                        <td class="project-category">글로벌 제조시설</td>
+                        <td>현대 다이모스 해외 공장 구축, 현대·기아차 멕시코 공장 전환 설계 파견 업무</td>
+                    </tr>
+                    <tr>
+                        <td class="project-category">기업 교육 출강</td>
+                        <td>삼성물산 BIM 기술 교육, 창원 LG전자 Revit MEP Family 구축 및 기술 지원</td>
+                    </tr>
+                    <tr>
+                        <td class="project-category">국가 사업 참여</td>
+                        <td>국토교통부 건설인적자원개발위원회 BIM 교재 개발 참여</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="youtube" class="section-bg">
+        <div class="container">
+            <h2 class="section-title">AUCTOR BIM TV 최신 동영상</h2>
+            <p style="text-align: center; margin-top: -30px; margin-bottom: 40px; color: #666666;">유튜브 채널에서 제공하는 실무 노하우 및 강의 영상을 만나보세요.</p>
+            
+            <div class="video-grid">
+                <div class="video-card">
+                    <a href="https://www.youtube.com/@BIM_Ch1" target="_blank">
+                        <div class="video-placeholder">
+                            <span>AUCTOR BIM TV 강의 보기</span>
+                        </div>
+                    </a>
+                    <div class="video-content">
+                        <h4 class="video-title">Revit 기초 및 실무 모델링 가이드</h4>
+                        <p class="video-text">BIM 설계의 시작인 레빗(Revit)의 기본 인터페이스부터 실무 팁까지 체계적으로 설명합니다.</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <a href="https://www.youtube.com/@BIM_Ch1" target="_blank">
+                        <div class="video-placeholder">
+                            <span>AUCTOR BIM TV 강의 보기</span>
+                        </div>
+                    </a>
+                    <div class="video-content">
+                        <h4 class="video-title">Navisworks 공정 검토 및 간섭 체크</h4>
+                        <p class="video-text">시공 전 리스크를 완벽하게 제어할 수 있는 나비스웍스(Navisworks) 핵심 활용법 동영상입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-wrapper">
+            <div class="footer-info">
+                <div class="footer-logo">AUCTOR BIM</div>
+                <p>대표자: 김대중 | 이메일: sword76@naver.com</p>
+                <p>주소: 인천광역시 부평구 갈월서로</p>
+                <p>필명: 페이서킴 (Easy BIM Series 저자)</p>
+            </div>
+            <div class="footer-links">
+                <h4 style="color: #ffffff; margin-bottom: 15px; font-size: 15px;">Quick Links</h4>
+                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank">유튜브 채널 (AUCTOR BIM TV)</a>
+                <a href="https://cafe.naver.com/pseb" target="_blank">네이버 카페 (AutoCAD/BIM 전문 카페)</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 AUCTOR BIM. All Rights Reserved.
+        </div>
+    </footer>
+
 </body>
 </html>
