@@ -1,894 +1,1886 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AUCTOR - 스마트 건설 & BIM 엔지니어링 파트너</title>
-    <meta name="description" content="AUCTOR는 Revit/Navisworks 전문 교육, BIM 프로젝트 아웃소싱 및 스마트 팜, 모듈러 공법 연구 개발을 선도하는 전문 엔지니어링 기업입니다.">
-    <!-- Google Fonts: Inter & Outfit & Noto Sans KR -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="style.css">
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4568919581145437" crossorigin="anonymous"></script>
-</head>
-<body class="dark-theme">
-    <!-- Background Floating Glow Orbs -->
-    <div class="glow-orb orb-1"></div>
-    <div class="glow-orb orb-2"></div>
-    <div class="glow-orb orb-3"></div>
+/* ==========================================================================
+   AUCTOR BIM Landing Page Styles
+   Design Language: Premium Modern Architectural, Sleek Tech Accent, Glassmorphic
+   ========================================================================== */
 
-    <!-- Header & Navigation -->
-    <header class="main-header">
-        <div class="container header-container">
-            <a href="#" class="logo-area">
-                <img src="logo.jpg" alt="AUCTOR Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span class="logo-fallback-icon" style="display:none;"><i data-lucide="building-2"></i></span>
-                <span class="logo-text">AUCTOR</span>
-            </a>
-            
-            <nav class="nav-menu" id="navMenu">
-                <a href="#about" class="nav-link">
-                    <span class="lang-ko">대표 소개</span>
-                    <span class="lang-en">About</span>
-                </a>
-                <a href="#services" class="nav-link">
-                    <span class="lang-ko">주요 서비스</span>
-                    <span class="lang-en">Services</span>
-                </a>
-                <a href="#research" class="nav-link">
-                    <span class="lang-ko">스마트팜 & 모듈러</span>
-                    <span class="lang-en">Research</span>
-                </a>
-                <a href="#media" class="nav-link">
-                    <span class="lang-ko">미디어 & 카페</span>
-                    <span class="lang-en">Media & Cafe</span>
-                </a>
-                <a href="#contact" class="nav-link contact-btn-nav">
-                    <span class="lang-ko">문의하기</span>
-                    <span class="lang-en">Contact</span>
-                </a>
-            </nav>
+/* 1. Theme Configuration & Global Variables */
+:root {
+    /* Colors (Cobalt Blue & White Theme) */
+    --primary-color: #0047AB;        /* Cobalt Blue Accent */
+    --primary-hover: #003682;
+    --primary-rgb: 0, 71, 171;
+    
+    --bg-main: #ffffff;              /* Crisp White */
+    --bg-surface: rgba(244, 247, 252, 0.85); /* Cool Light Gray-Blue */
+    --bg-card: #ffffff;
+    --border-color: rgba(200, 215, 235, 0.6);
+    
+    --text-primary: #0f172a;        /* Deep Slate */
+    --text-secondary: #334155;      /* Slate Gray */
+    --text-muted: #64748b;
+    
+    --accent-gradient: linear-gradient(135deg, #0047AB 0%, #0076ff 100%);
+    --card-shadow: 0 10px 30px -10px rgba(0, 71, 171, 0.08);
+    --hover-shadow: 0 20px 40px -15px rgba(0, 71, 171, 0.15);
+    --backdrop-blur: 12px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-            <div class="header-actions">
-                <!-- Language Selector -->
-                <div class="lang-selector">
-                    <button class="lang-btn" data-lang="ko">KO</button>
-                    <span class="lang-divider">|</span>
-                    <button class="lang-btn" data-lang="en">EN</button>
-                </div>
-                <!-- Theme Toggle Button -->
-                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme">
-                    <i data-lucide="moon" class="theme-icon-dark"></i>
-                    <i data-lucide="sun" class="theme-icon-light" style="display: none;"></i>
-                </button>
-                <!-- Masking Toggle Button -->
-                <button id="maskToggle" class="mask-toggle-btn" aria-label="Toggle Sensitive Data Masking">
-                    <i data-lucide="eye"></i>
-                </button>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Menu">
-                    <i data-lucide="menu" class="menu-icon"></i>
-                    <i data-lucide="x" class="close-icon" style="display: none;"></i>
-                </button>
-            </div>
-        </div>
-    </header>
+/* Dark Mode Variables Override (Deep Cobalt & White Text) */
+body.dark-theme {
+    --bg-main: #060b16;              /* Deep Navy Space */
+    --bg-surface: rgba(13, 21, 39, 0.8); /* Dark Cobalt Surface */
+    --bg-card: #0d1527;              /* Deep Navy Slate */
+    --border-color: rgba(0, 71, 171, 0.2);
+    
+    --text-primary: #ffffff;         /* Pure White */
+    --text-secondary: #cbd5e1;      /* Cool Gray */
+    --text-muted: #64748b;
+    
+    --accent-gradient: linear-gradient(135deg, #0066ff 0%, #3b82f6 100%);
+    --card-shadow: 0 10px 35px -10px rgba(0, 0, 0, 0.5);
 
-    <!-- Mobile Drawer Navigation -->
-    <div class="mobile-drawer" id="mobileDrawer">
-        <nav class="mobile-nav-links">
-            <a href="#about" class="mobile-nav-link">
-                <span class="lang-ko">대표 소개</span>
-                <span class="lang-en">About</span>
-            </a>
-            <a href="#services" class="mobile-nav-link">
-                <span class="lang-ko">주요 서비스</span>
-                <span class="lang-en">Services</span>
-            </a>
-            <a href="#research" class="mobile-nav-link">
-                <span class="lang-ko">스마트팜 & 모듈러</span>
-                <span class="lang-en">Research</span>
-            </a>
-            <a href="#media" class="mobile-nav-link">
-                <span class="lang-ko">미디어 & 카페</span>
-                <span class="lang-en">Media & Cafe</span>
-            </a>
-            <a href="#contact" class="mobile-nav-link mobile-contact-btn">
-                <span class="lang-ko">문의하기</span>
-                <span class="lang-en">Contact</span>
-            </a>
-            <!-- Mobile Language Selector -->
-            <div class="mobile-lang-wrapper">
-                <div class="lang-selector">
-                    <button class="lang-btn" data-lang="ko">KO</button>
-                    <span class="lang-divider">|</span>
-                    <button class="lang-btn" data-lang="en">EN</button>
-                </div>
-            </div>
-        </nav>
-    </div>
+    /* Fixed Dark Mode Background */
+    background-image: 
+        radial-gradient(rgba(0, 102, 255, 0.08) 1.5px, transparent 1.5px),
+        linear-gradient(to right, rgba(6, 11, 22, 0.98) 30%, rgba(6, 11, 22, 0.75) 60%, rgba(6, 11, 22, 0) 100%),
+        url('hero_visual.jpg');
+}
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-bg-visual">
-            <div class="visual-line line1"></div>
-            <div class="visual-line line2"></div>
-            <div class="visual-line line3"></div>
-            <div class="visual-circle circle1"></div>
-            <div class="visual-circle circle2"></div>
-        </div>
-        <div class="container hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="badge-dot"></span>
-                    <span class="badge-text">BIM & SMART CONSTRUCTION PARTNER</span>
-                </div>
-                <h1 class="hero-title lang-ko">
-                    스마트 건설과<br>
-                    <span class="text-gradient">BIM 엔지니어링</span>의 미래
-                </h1>
-                <h1 class="hero-title lang-en">
-                    The Future of<br>
-                    <span class="text-gradient">Smart Construction & BIM</span>
-                </h1>
-                <p class="hero-desc lang-ko">
-                    AUCTOR는 오토데스크 Revit 및 Navisworks 실무 교육, 고품질 BIM 프로젝트 외주 모델링, 그리고 학계와 연계한 스마트 팜 & 모듈러 공법 연구를 통해 건설 산업의 디지털 트랜스포메이션을 실현합니다.
-                </p>
-                <p class="hero-desc lang-en">
-                    AUCTOR leads Autodesk Revit & Navisworks practical training, high-quality BIM outsourcing, and cutting-edge Smart Farm & Modular Construction research, driving digital transformation in the construction industry.
-                </p>
-                <div class="hero-actions-btns">
-                    <a href="#contact" class="btn btn-primary">
-                        <span class="lang-ko">프로젝트/교육 문의</span>
-                        <span class="lang-en">Inquire Now</span>
-                        <i data-lucide="arrow-right"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                        <i data-lucide="youtube"></i>
-                        <span class="lang-ko">유튜브 채널</span>
-                        <span class="lang-en">YouTube Channel</span>
-                    </a>
-                </div>
-            </div>
-            <div class="hero-visual-card-wrapper">
-                <div class="hero-visual-card">
-                    <div class="card-inner-header">
-                        <div class="window-dot red"></div>
-                        <div class="window-dot yellow"></div>
-                        <div class="window-dot green"></div>
-                        <span class="window-title">AUCTOR BIM Project Status</span>
-                    </div>
-                    <div class="card-inner-body">
-                        <div class="project-stat-grid">
-                            <div class="stat-item">
-                                <span class="stat-number">12+</span>
-                                <span class="stat-label lang-ko">실무 경력 (년)</span>
-                                <span class="stat-label lang-en">Exp (Years)</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">50+</span>
-                                <span class="stat-label lang-ko">교육 출강/컨설팅</span>
-                                <span class="stat-label lang-en">Lectures / Consult</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">30+</span>
-                                <span class="stat-label lang-ko">BIM 프로젝트 수행</span>
-                                <span class="stat-label lang-en">BIM Projects</span>
-                            </div>
-                        </div>
-                        <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="card-featured-image-wrapper">
-                            <img src="youtube_banner.jpg" alt="AUCTOR 유튜브 채널" class="featured-image" onerror="this.src='https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&w=800&q=80';">
-                            <div class="featured-image-overlay">
-                                <span class="overlay-title lang-ko">AUCTOR 공식 유튜브 채널</span>
-                                <span class="overlay-title lang-en">AUCTOR Official YouTube</span>
-                                <p class="overlay-subtitle lang-ko">Revit & Navisworks 실무 강좌 및 CAD 팁</p>
-                                <p class="overlay-subtitle lang-en">Revit & Navisworks Lectures & CAD Tips</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+/* 2. Base & Reset Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    <!-- About CEO Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-subtitle">CEO PROFILE</span>
-                <h2 class="section-title lang-ko">전문성과 연구력을 겸비한 리더</h2>
-                <h2 class="section-title lang-en">A Leader with Expertise and Research Power</h2>
-                <div class="section-divider"></div>
-            </div>
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Offset for sticky header */
+}
 
-            <div class="about-grid">
-                <!-- Left Column: Quick Profile & Credentials -->
-                <div class="profile-card-col">
-                    <div class="profile-card reveal">
-                        <div class="profile-photo-wrapper">
-                            <div class="profile-image-container">
-                                <img src="profile.jpg" alt="김대중 대표 / CEO Kim Dae-jung" class="profile-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="profile-avatar-fallback" style="display:none;">
-                                    <i data-lucide="user" class="avatar-icon"></i>
-                                </div>
-                            </div>
-                            <div class="profile-name-tag">
-                                <h3 class="lang-ko"><span class="maskable" data-original="김대중" data-masked="김*중">김대중</span></h3>
-                                <h3 class="lang-en"><span class="maskable" data-original="Kim Dae-jung" data-masked="Kim *">Kim Dae-jung</span></h3>
-                                <p class="lang-ko">BIM Consultant / AUCTOR 대표</p>
-                                <p class="lang-en">BIM Consultant / CEO of AUCTOR</p>
-                            </div>
-                        </div>
-                        
-                        <div class="profile-meta-list">
-                            <div class="meta-item">
-                                <i data-lucide="mail"></i>
-                                <span><span class="maskable" data-original="leo.kim@auctor.co.kr" data-masked="l***.k**@auctor.co.kr">leo.kim@auctor.co.kr</span></span>
-                            </div>
-                            <div class="meta-item">
-                                <i data-lucide="linkedin"></i>
-                                <a href="https://www.linkedin.com/in/cadking" target="_blank" class="maskable-link" data-original-href="https://www.linkedin.com/in/cadking" data-masked-href="#" data-original-text="linkedin.com/in/cadking" data-masked-text="linkedin.com/in/c******">linkedin.com/in/cadking</a>
-                            </div>
-                            <div class="meta-item">
-                                <i data-lucide="book-open"></i>
-                                <span class="lang-ko">건설인적자원위원회 BIM 초급 교재 집필<br>Easy BIM 시리즈</span>
-                                <span class="lang-en">Introductory BIM textbook author (Construction HRD Committee)<br>Author of Easy BIM Series</span>
-                            </div>
-                        </div>
+body {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+    
+    /* Subtle Architectural CAD Dot-Grid Background & Fixed Image Background */
+    background-image: 
+        radial-gradient(rgba(0, 71, 171, 0.04) 1.5px, transparent 1.5px),
+        linear-gradient(to right, rgba(255, 255, 255, 0.95) 30%, rgba(255, 255, 255, 0.7) 60%, rgba(255, 255, 255, 0) 100%),
+        url('hero_visual.jpg');
+    background-size: 32px 32px, cover, cover;
+    background-position: center, center, center right;
+    background-repeat: repeat, no-repeat, no-repeat;
+    background-attachment: scroll, fixed, fixed;
+}
 
-                        <div class="profile-credentials">
-                            <h4 class="lang-ko">주요 자격</h4>
-                            <h4 class="lang-en">Key Credentials</h4>
-                            <ul class="cert-list">
-                                <li>
-                                    <i data-lucide="check-circle-2"></i>
-                                    <span class="lang-ko">건축공학석사</span>
-                                    <span class="lang-en">M.S. in Architectural Engineering</span>
-                                </li>
-                                <li>
-                                    <i data-lucide="check-circle-2"></i>
-                                    <span class="lang-ko">직업훈련교사</span>
-                                    <span class="lang-en">Vocational Training Teacher License</span>
-                                </li>
-                                <li>
-                                    <i data-lucide="check-circle-2"></i>
-                                    <span class="lang-ko">능력개발교육원 강사</span>
-                                    <span class="lang-en">HRD Korea Institute Instructor</span>
-                                </li>
-                                <li>
-                                    <i data-lucide="check-circle-2"></i>
-                                    <span class="lang-ko">BIM PM</span>
-                                    <span class="lang-en">BIM Project Manager</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
 
-                <!-- Right Column: Academic & Careers Timeline -->
-                <div class="timeline-col reveal">
-                    <div class="timeline-tabs">
-                        <button class="tab-btn active" onclick="switchTimeline('career')">
-                            <span class="lang-ko">실무 & 강의 경력</span>
-                            <span class="lang-en">Career & Lectures</span>
-                        </button>
-                        <button class="tab-btn" onclick="switchTimeline('education')">
-                            <span class="lang-ko">학력 & 연구 정보</span>
-                            <span class="lang-en">Education & Research</span>
-                        </button>
-                    </div>
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
 
-                    <!-- Career Timeline -->
-                    <div class="timeline-content active" id="careerTimeline">
-                        <div class="timeline-list">
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-date">2023.09 - Present</div>
-                                <div class="timeline-info">
-                                    <h4 class="timeline-title lang-ko"><span class="maskable" data-original="옥토르 (AUCTOR)" data-masked="*토르 (*UCTOR)">옥토르 (AUCTOR)</span> | 대표 & BIM 컨설턴트</h4>
-                                    <h4 class="timeline-title lang-en"><span class="maskable" data-original="AUCTOR" data-masked="*UCTOR">AUCTOR</span> | CEO & BIM Consultant</h4>
-                                    <p class="timeline-text lang-ko">BIM 프로젝트 PM 및 설계 아웃소싱 관리, 스마트 팜 모델 구축(<span class="maskable" data-original="농협 양평, 양재" data-masked="농* *평, *재">농협 양평, 양재</span>), Revit & Navisworks 기업/기관 맞춤형 교육 총괄.</p>
-                                    <p class="timeline-text lang-en">BIM project management, outsourcing control, Smart Farm modeling (<span class="maskable" data-original="Nonghyup Yangpyeong, Yangjae" data-masked="N******* Yangpyeong, Yangjae">Nonghyup Yangpyeong, Yangjae</span>), and custom Revit & Navisworks training for companies/institutions.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-date">2018.01 - Present</div>
-                                <div class="timeline-info">
-                                    <h4 class="timeline-title lang-ko">건설기술교육원 | BIM 전문과정 교수</h4>
-                                    <h4 class="timeline-title lang-en">KICTE | Professor of BIM Courses</h4>
-                                    <p class="timeline-text lang-ko">BIM NCS 강사 및 BIM 융합 과정, 스마트 건설기술 교육 프로그램 기획 및 강의.</p>
-                                    <p class="timeline-text lang-en">BIM NCS certified trainer, planning and teaching BIM convergence and smart construction technical courses.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-date">2026.04 - Present</div>
-                                <div class="timeline-info">
-                                    <h4 class="timeline-title lang-ko"><span class="maskable" data-original="현대건설" data-masked="현*건설">현대건설</span> 기술교육원 | BIM 강의</h4>
-                                    <h4 class="timeline-title lang-en"><span class="maskable" data-original="Hyundai E&C" data-masked="H****** E&C">Hyundai E&C</span> Technical Education Institute | BIM Lecture</h4>
-                                    <p class="timeline-text lang-ko"><span class="maskable" data-original="현대건설" data-masked="현*건설">현대건설</span> 기술교육원 내 BIM 실무 중심 교육 진행.</p>
-                                    <p class="timeline-text lang-en">Conducting practical and hands-on BIM lectures for <span class="maskable" data-original="Hyundai E&C" data-masked="H****** E&C">Hyundai E&C</span> vocational programs.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-date">2020.07 - 2025.06</div>
-                                <div class="timeline-info">
-                                    <h4 class="timeline-title lang-ko"><span class="maskable" data-original="대연건설(주)" data-masked="대*건설">대연건설㈜</span> | BIM Manager / 부장</h4>
-                                    <h4 class="timeline-title lang-en"><span class="maskable" data-original="Daeyeon Construction Co., Ltd" data-masked="D****** Construction Co., Ltd">Daeyeon Construction Co., Ltd</span> | BIM Manager / GM</h4>
-                                    <p class="timeline-text lang-ko">아파트형 공장, 골프장 클럽 하우스, 플랜트 설비 등 BIM 모델 작성 및 간섭 검수 총괄 관리.</p>
-                                    <p class="timeline-text lang-en">Supervised BIM modeling, drawing check, and interference detection for factories, clubhouses, and industrial facilities.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+button, input, select, textarea {
+    font-family: inherit;
+}
 
-                    <!-- Education Timeline -->
-                    <div class="timeline-content" id="educationTimeline">
-                        <div class="timeline-list">
-                            <div class="timeline-item highlight">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-date">2026.03 - Present</div>
-                                <div class="timeline-info">
-                                    <h4 class="timeline-title lang-ko">한국기술교육대학교 대학원 | 건축공학 박사과정 재학</h4>
-                                    <h4 class="timeline-title lang-en">Korea Univ. of Technology & Education Graduate School | Ph.D. Candidate in Architectural Engineering</h4>
-                                    <p class="timeline-text lang-ko">한국기술교육대학교 건축공학과 스마트건설연구실</p>
-                                    <p class="timeline-text lang-en">Smart Construction Laboratory, Dept. of Architectural Engineering, KUTE</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-date">2021.09 - 2024.02</div>
-                                <div class="timeline-info">
-                                    <h4 class="timeline-title lang-ko">한국기술교육대학교 대학원 | 건축공학 석사 졸업</h4>
-                                    <h4 class="timeline-title lang-en">Korea Univ. of Technology & Education Graduate School | M.S. in Architectural Engineering</h4>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-date">1998.03 - 2005.02</div>
-                                <div class="timeline-info">
-                                    <h4 class="timeline-title lang-ko">경희대학교 | 생명공학 전공 졸업</h4>
-                                    <h4 class="timeline-title lang-en">Kyung Hee University | B.S. in Biotechnology</h4>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-date">1996.03 - 1998.02</div>
-                                <div class="timeline-info">
-                                    <h4 class="timeline-title lang-ko">순천제일대학교 | 건축설비 전문학사</h4>
-                                    <h4 class="timeline-title lang-en">Suncheon First College | Associate Degree in Architectural Services & Equipment</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+ul {
+    list-style: none;
+}
 
-    <!-- Services Section -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-subtitle">OUR SERVICES</span>
-                <h2 class="section-title lang-ko">스마트 건설을 실현하는 핵심 솔루션</h2>
-                <h2 class="section-title lang-en">Core Solutions for Smart Construction</h2>
-                <div class="section-divider"></div>
-            </div>
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 
-            <div class="services-grid">
-                <!-- Service 1: BIM Education -->
-                <div class="service-card reveal">
-                    <div class="service-image-wrapper">
-                        <img src="bim_education.jpg" alt="BIM 전문 교육" class="service-card-image">
-                    </div>
-                    <div class="service-card-content">
-                        <h3 class="lang-ko">BIM 전문 교육</h3>
-                        <h3 class="lang-en">BIM Training Courses</h3>
-                        <p class="service-intro lang-ko">Revit & Navisworks 실무 중심 교육</p>
-                        <p class="service-intro lang-en">Practical Revit & Navisworks Training</p>
-                        <p class="service-desc lang-ko">
-                            NCS 기준에 맞춘 실무 BIM 교육부터 주요 기관 및 대기업(LH공사, DL이엔씨, LG 전자, 삼성물산, 한국기술교육대학교 등) 기술 지원 및 출강 교육을 담당해 왔습니다. 단순한 프로그램 사용법이 아닌, 도면화/Family 구축/MEP 설비 모델링/공정 시뮬레이션 등 실무와 연계된 고도화 교육을 제공합니다.
-                        </p>
-                        <p class="service-desc lang-en">
-                            We deliver practical BIM lectures based on NCS standards, along with training and technical support for major organizations and companies (LH Corporation, DL E&C, LG Electronics, Samsung C&T, Korea University of Technology and Education, etc.). We focus on real-world pipelines including Family creation, MEP utilities modeling, and schedule simulation.
-                        </p>
-                        <ul class="service-features">
-                            <li>
-                                <i data-lucide="check"></i>
-                                <span class="lang-ko">Revit Architecture / Structure / MEP 교육</span>
-                                <span class="lang-en">Revit Architecture / Structure / MEP Master Classes</span>
-                            </li>
-                            <li>
-                                <i data-lucide="check"></i>
-                                <span class="lang-ko">Navisworks 공정 간섭 검토 실무</span>
-                                <span class="lang-en">Navisworks Interference & Clash Detection</span>
-                            </li>
-                            <li>
-                                <i data-lucide="check"></i>
-                                <span class="lang-ko">기업 맞춤형 Family 라이브러리 구축 및 컨설팅</span>
-                                <span class="lang-en">Custom Family Library Development & Consulting</span>
-                            </li>
-                            <li>
-                                <i data-lucide="check"></i>
-                                <span class="lang-ko">공공기관 & 국비 지원 교육 프로그램 개발</span>
-                                <span class="lang-en">National & Public Vocational Programs Planning</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+.text-center {
+    text-align: center;
+}
 
-                <!-- Service 2: BIM Outsourcing -->
-                <div class="service-card reveal">
-                    <div class="service-image-wrapper">
-                        <img src="bim_outsourcing.jpg" alt="BIM 프로젝트 아웃소싱" class="service-card-image">
-                    </div>
-                    <div class="service-card-content">
-                        <h3 class="lang-ko">BIM 프로젝트 아웃소싱</h3>
-                        <h3 class="lang-en">BIM Project Outsourcing</h3>
-                        <p class="service-intro lang-ko">정밀한 3D 모델 구축 및 기술 지원</p>
-                        <p class="service-intro lang-en">Accurate 3D Modeling & Technical Support</p>
-                        <p class="service-desc lang-ko">
-                            다양한 건축·구조·설비 용역 프로젝트를 대행하여 진행합니다. 시공 단계에서의 간섭을 사전 예방하고, 정밀한 내역 및 물량 산출로 비용을 최적화할 수 있도록 업계 최고 수준의 모델 품질을 약속합니다.
-                        </p>
-                        <p class="service-desc lang-en">
-                            We undertake diverse architectural, structural, and MEP modeling contracts. We minimize construction phase clashes beforehand and optimize building costs through high-precision quantity estimation and advanced spatial coordination.
-                        </p>
-                        <ul class="service-features">
-                            <li>
-                                <i data-lucide="check"></i>
-                                <span class="lang-ko">연수원, 수영장, 아파트 등 다수 구조 모델링</span>
-                                <span class="lang-en">Structural modeling for training centers, pools, apartments</span>
-                            </li>
-                            <li>
-                                <i data-lucide="check"></i>
-                                <span class="lang-ko">공장 및 플랜트 기계/배관(MEP) 모델링</span>
-                                <span class="lang-en">High-tech Plant MEP utility & piping modeling</span>
-                            </li>
-                            <li>
-                                <i data-lucide="check"></i>
-                                <span class="lang-ko">GS 파르나스 호텔 커튼월 등 상세 디테일 지원</span>
-                                <span class="lang-en">Curtain wall detail design support (e.g. GS Parnas Hotel)</span>
-                            </li>
-                            <li>
-                                <i data-lucide="check"></i>
-                                <span class="lang-ko">해외 공장 BIM 구축 및 글로벌 협업 전환 설계</span>
-                                <span class="lang-en">Global factory BIM modeling & conversion (Hyundai/Kia Motors)</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+/* Typography Accent Styles */
+.text-gradient {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
 
-    <!-- Research Showcase Section -->
-    <section id="research" class="research-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-subtitle">RESEARCH & INNOVATION</span>
-                <h2 class="section-title lang-ko">스마트 팜 & 모듈러 공법 연구</h2>
-                <h2 class="section-title lang-en">Smart Farm & Modular Construction</h2>
-                <p class="section-header-desc lang-ko">한국기술교육대학교 박사과정 연계, 건축공학과 첨단 미래 공법의 융합 연구</p>
-                <p class="section-header-desc lang-en">Ph.D. research integration at KUTE, merging advanced tech with traditional building methods</p>
-                <div class="section-divider"></div>
-            </div>
+/* 3. Header & Navigation */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 1000;
+    background-color: var(--bg-surface);
+    backdrop-filter: blur(var(--backdrop-blur));
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
 
-            <div class="research-grid">
-                <!-- Research Card 1: Smart Farm -->
-                <div class="research-card reveal">
-                    <div class="research-image-wrapper">
-                        <img src="smart_farm.jpg" alt="Smart Farm Research" class="research-card-image">
-                    </div>
-                    <div class="research-card-content">
-                        <h3 class="lang-ko">스마트 팜 (Smart Farm) 설계 & 최적화</h3>
-                        <h3 class="lang-en">Smart Farm Engineering & Design</h3>
-                        <p class="research-desc-text lang-ko">
-                            정보통신기술(ICT)을 이용해 자라나는 환경을 최적으로 통제하는 지능화된 스마트 팜 시설 설계 연구입니다. 농협 양평 및 양재 등 스마트 팜 모델 구축 실무 경험을 바탕으로, BIM을 활용하여 스마트 팜의 설비 배치 최적화 및 에너지 효율 향상을 위한 통합 시뮬레이션 모델을 연구합니다.
-                        </p>
-                        <p class="research-desc-text lang-en">
-                            Research on smart agriculture facilities using ICT to control growing environments. Drawing on Nonghyup smart farm projects, we research BIM-integrated simulations for equipment layout optimization and solar/thermal energy efficiency.
-                        </p>
-                        <div class="research-keywords">
-                            <span class="kwd">#ICT</span>
-                            <span class="kwd">#SmartFarmBIM</span>
-                            <span class="kwd">#Optimization</span>
-                        </div>
-                    </div>
-                </div>
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
 
-                <!-- Research Card 2: Modular Construction -->
-                <div class="research-card reveal">
-                    <div class="research-image-wrapper">
-                        <img src="modular.jpg" alt="Modular Construction" class="research-card-image">
-                    </div>
-                    <div class="research-card-content">
-                        <h3 class="lang-ko">모듈러 공법 (Modular Construction)</h3>
-                        <h3 class="lang-en">Modular Construction & OSC</h3>
-                        <p class="research-desc-text lang-ko">
-                            공장에서 건물의 주요 구조물과 내외장재를 유닛(Unit) 형태로 70~80% 이상 사전 제작한 후 현장에서 조립하는 스마트 프리패브 공법입니다. BIM의 디테일한 3D 설계를 활용하여 모듈 간 정밀 접합부를 설계하고, 제작 오류를 방지하며 현장 조립 공기(工期)를 단축하는 제조 기반 건축(DfMA) 솔루션을 연구합니다.
-                        </p>
-                        <p class="research-desc-text lang-en">
-                            A prefab method constructing 70-80% of unit structures in factories before assembling them on site. We focus on DfMA (Design for Manufacture & Assembly), modular joints precision control, and onsite project schedule reduction using BIM.
-                        </p>
-                        <div class="research-keywords">
-                            <span class="kwd">#DfMA</span>
-                            <span class="kwd">#Prefabrication</span>
-                            <span class="kwd">#OSC</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-    <!-- YouTube & Naver Cafe Section -->
-    <section id="media" class="media-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-subtitle">COMMUNITY & MEDIA</span>
-                <h2 class="section-title lang-ko">AUCTOR BIM 미디어 & 커뮤니티</h2>
-                <h2 class="section-title lang-en">BIM Media & Communities</h2>
-                <div class="section-divider"></div>
-            </div>
+.logo-img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 4px;
+}
 
-            <!-- Naver Cafe & Youtube Intro Cards -->
-            <div class="channel-grid">
-                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="channel-card youtube-card reveal">
-                    <div class="channel-icon-bg">
-                        <i data-lucide="youtube"></i>
-                    </div>
-                    <div class="channel-info-text">
-                        <h3 class="lang-ko">AUCTOR BIM TV 유튜브</h3>
-                        <h3 class="lang-en">AUCTOR BIM TV YouTube</h3>
-                        <p class="lang-ko">Revit, Navisworks 실무 강좌와 AutoCAD 팁 등 1.4만 구독자와 함께 성장하는 BIM 영상 교육 채널입니다.</p>
-                        <p class="lang-en">A video training channel sharing Revit, Navisworks courses and AutoCAD tips with 14k+ subscribers.</p>
-                        <span class="btn-channel-go">
-                            <span class="lang-ko">구독하러 가기</span>
-                            <span class="lang-en">Subscribe</span>
-                            <i data-lucide="external-link"></i>
-                        </span>
-                    </div>
-                </a>
+.logo-fallback-icon {
+    font-size: 24px;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
 
-                <a href="https://cafe.naver.com/pseb" target="_blank" rel="noopener noreferrer" class="channel-card cafe-card reveal">
-                    <div class="channel-icon-bg">
-                        <i data-lucide="users"></i>
-                    </div>
-                    <div class="channel-info-text">
-                        <h3 class="lang-ko">네이버 카페 (PSEB)</h3>
-                        <h3 class="lang-en">Naver Cafe (PSEB)</h3>
-                        <p class="lang-ko">현업 BIM 실무자 및 학습자들이 모여 팁을 공유하고, 자료를 나누는 BIM·CAD 전문 지식 공유 커뮤니티입니다.</p>
-                        <p class="lang-en">A knowledge-sharing hub where BIM professionals and students exchange Revit families, templates, and tips.</p>
-                        <span class="btn-channel-go">
-                            <span class="lang-ko">카페 방문하기</span>
-                            <span class="lang-en">Visit Cafe</span>
-                            <i data-lucide="external-link"></i>
-                        </span>
-                    </div>
-                </a>
-            </div>
+.logo-text {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 1px;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-            <!-- YouTube Video Placeholders -->
-            <h3 class="video-grid-title text-center"><i data-lucide="play-square"></i> 
-                <span class="lang-ko">추천 유튜브 교육 영상</span>
-                <span class="lang-en">Featured YouTube Lectures</span>
-            </h3>
-            <div class="video-grid">
-                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="video-card reveal">
-                    <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&w=400&q=80');">
-                        <div class="play-overlay">
-                            <i data-lucide="play"></i>
-                        </div>
-                    </div>
-                    <div class="video-details">
-                        <h4 class="lang-ko">[Revit 실무] 레빗 기초부터 다지는 3D 건축 설계 입문</h4>
-                        <h4 class="lang-en">[Revit Basics] Introduction to 3D Architectural Design</h4>
-                        <p class="lang-ko">기초 인터페이스 설정 및 핵심 설계 도구 사용 방법 강의</p>
-                        <p class="lang-en">Guide to basic interface configuration and core modeling tools</p>
-                    </div>
-                </a>
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
 
-                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="video-card reveal">
-                    <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=400&q=80');">
-                        <div class="play-overlay">
-                            <i data-lucide="play"></i>
-                        </div>
-                    </div>
-                    <div class="video-details">
-                        <h4 class="lang-ko">[Navisworks] 공정 시뮬레이션 및 간섭 체크 검수 가이드</h4>
-                        <h4 class="lang-en">[Navisworks] Schedule Simulation & Clash Detection</h4>
-                        <p class="lang-ko">프로젝트 시공 전 오류를 예방하는 디지털 트윈 활용 가이드</p>
-                        <p class="lang-en">Digital Twin guide to prevent errors prior to construction site entry</p>
-                    </div>
-                </a>
+.nav-link {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    position: relative;
+    padding: 6px 0;
+}
 
-                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="video-card reveal">
-                    <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80');">
-                        <div class="play-overlay">
-                            <i data-lucide="play"></i>
-                        </div>
-                    </div>
-                    <div class="video-details">
-                        <h4 class="lang-ko">[Revit Family] 고수처럼 다루는 매개변수 패밀리 작성 기법</h4>
-                        <h4 class="lang-en">[Revit Family] Advanced Parametric Family Techniques</h4>
-                        <p class="lang-ko">효율적인 BIM 프로젝트 자재 관리를 위한 매개변수 응용법</p>
-                        <p class="lang-en">Leveraging parameters for efficient asset and material management</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
+.nav-link:hover {
+    color: var(--text-primary);
+}
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="contact-card reveal">
-                <span class="section-subtitle">CONTACT US</span>
-                <h2 class="section-title lang-ko">BIM 프로젝트 및 교육 문의</h2>
-                <h2 class="section-title lang-en">Inquiries (Projects & Training)</h2>
-                
-                <p class="contact-intro-desc lang-ko">
-                    Revit/Navisworks 강의 출강, 패밀리 구축 컨설팅, BIM 모델링 외주 용역 등 상담이 필요하신 내용을 아래 메일 주소로 보내주시면 확인 후 성심껏 신속하게 답변해 드리겠습니다.
-                </p>
-                <p class="contact-intro-desc lang-en">
-                    For Revit/Navisworks lectures, family library consulting, or BIM outsourcing projects, please send your inquiries to the email address below. We will get back to you promptly.
-                </p>
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-gradient);
+    transition: width var(--transition-normal);
+}
 
-                <div class="mail-inquiry-box">
-                    <span class="mail-badge"><i data-lucide="mail"></i> <span class="maskable" data-original="leo.kim@auctor.co.kr" data-masked="l***.k**@auctor.co.kr">leo.kim@auctor.co.kr</span></span>
-                    <a href="mailto:leo.kim@auctor.co.kr" class="btn btn-primary btn-mail-contact maskable-link-href" data-original-href="mailto:leo.kim@auctor.co.kr" data-masked-href="#">
-                        <span class="lang-ko">메일로 문의 주세요</span>
-                        <span class="lang-en">Send Email Inquiry</span>
-                        <i data-lucide="send"></i>
-                    </a>
-                </div>
+.nav-link:hover::after {
+    width: 100%;
+}
 
-                <div class="direct-contact-methods-horizontal">
-                    <div class="method-card-inline">
-                        <div class="method-icon"><i data-lucide="map-pin"></i></div>
-                        <div>
-                            <h5 class="lang-ko">회사 및 연구실 위치</h5>
-                            <h5 class="lang-en">Office & Lab Location</h5>
-                            <p class="lang-ko">
-                                Office - <span class="maskable" data-original="인천광역시 부평구 갈월서로 45" data-masked="인천광역시 부평구 ******">인천광역시 부평구 갈월서로 45</span>, 21335<br>
-                                Lab - 한국기술교육대학교 2공학관 스마트 건설 연구실
-                            </p>
-                            <p class="lang-en">
-                                Office - <span class="maskable" data-original="45, Garwolseo-ro, Bupyeong-gu, Incheon" data-masked="******, Bupyeong-gu, Incheon">45, Garwolseo-ro, Bupyeong-gu, Incheon</span>, 21335<br>
-                                Lab - Smart Construction Research Lab, 2nd Engineering Building, KUTE
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+.contact-btn-nav {
+    background: var(--accent-gradient);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast) !important;
+}
 
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="container footer-container">
-            <div class="footer-left">
-                <div class="footer-logo">
-                    <span class="logo-text">AUCTOR</span>
-                </div>
-                <p class="footer-copy">© 2026 AUCTOR. All Rights Reserved.</p>
-                <p class="footer-address lang-ko">대표: <span class="maskable" data-original="김대중" data-masked="김*중">김대중</span> | 개인정보책임자: <span class="maskable" data-original="김대중" data-masked="김*중">김대중</span> | 대표 이메일: <span class="maskable" data-original="leo.kim@auctor.co.kr" data-masked="l***.k**@auctor.co.kr">leo.kim@auctor.co.kr</span> | 주소: <span class="maskable" data-original="인천광역시 부평구 갈월서로 45" data-masked="인천광역시 부평구 ******">인천광역시 부평구 갈월서로 45</span> (21335)</p>
-                <p class="footer-address lang-en">CEO: <span class="maskable" data-original="Kim Dae-jung" data-masked="Kim *">Kim Dae-jung</span> | Information Officer: <span class="maskable" data-original="Kim Dae-jung" data-masked="Kim *">Kim Dae-jung</span> | Email: <span class="maskable" data-original="leo.kim@auctor.co.kr" data-masked="l***.k**@auctor.co.kr">leo.kim@auctor.co.kr</span> | Address: <span class="maskable" data-original="45, Garwolseo-ro, Bupyeong-gu, Incheon" data-masked="******, Bupyeong-gu, Incheon">45, Garwolseo-ro, Bupyeong-gu, Incheon</span> (21335)</p>
-            </div>
-            <div class="footer-right">
-                <div class="footer-sns-links">
-                    <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="sns-youtube">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    </a>
-                    <a href="https://cafe.naver.com/pseb" target="_blank" rel="noopener noreferrer" aria-label="Naver Cafe" class="sns-naver">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M16.2 3H21v18h-4.8l-8.4-12v12H3V3h4.8l8.4 12V3z"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/cadking" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="sns-linkedin">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                    <a href="https://www.facebook.com/auctorbim" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="sns-facebook">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    </a>
-                    <a href="https://www.instagram.com/auctorbim" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="sns-instagram">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                    </a>
-                    <a href="https://www.threads.net/@auctorbim" target="_blank" rel="noopener noreferrer" aria-label="Threads" class="sns-threads">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.77 0 3.42-.46 4.86-1.27.4-.23.51-.74.26-1.13-.25-.38-.76-.48-1.13-.24C14.73 20.08 13.4 20.5 12 20.5c-4.69 0-8.5-3.81-8.5-8.5S7.31 3.5 12 3.5s8.5 3.81 8.5 8.5c0 1.83-.82 2.87-2.02 2.87-.71 0-1.23-.46-1.23-1.3v-4.18c0-.6-.35-1.14-.9-1.39-.56-.25-1.2-.18-1.68.2l-.76.62c-.68-.69-1.63-1.07-2.61-1.07-2.07 0-3.75 1.68-3.75 3.75s1.68 3.75 3.75 3.75c.98 0 1.93-.38 2.61-1.07l.15.15c.67.67 1.6 1.07 2.61 1.07 2.39 0 3.78-1.92 3.78-4.62 0-5.52-4.48-10-10-10zm-1.3 12.3c-1.24 0-2.25-1.01-2.25-2.25s1.01-2.25 2.25-2.25 2.25 1.01 2.25 2.25-1.01 2.25-2.25 2.25z"/></svg>
-                    </a>
-                    <a href="https://x.com/auctor0815" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="sns-x">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
+.contact-btn-nav:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -6px rgba(var(--primary-rgb), 0.4);
+}
 
-    <!-- Scripts -->
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+.contact-btn-nav::after {
+    display: none;
+}
 
-        // Theme Toggle logic
-        const themeToggleBtn = document.getElementById('themeToggle');
-        const themeIconDark = document.querySelector('.theme-icon-dark');
-        const themeIconLight = document.querySelector('.theme-icon-light');
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
 
-        // Check stored theme or system preference
-        const currentTheme = localStorage.getItem('theme') || 'dark';
-        
-        if (currentTheme === 'dark') {
-            document.body.classList.add('dark-theme');
-            themeIconDark.style.display = 'none';
-            themeIconLight.style.display = 'block';
-        } else {
-            document.body.classList.remove('dark-theme');
-            themeIconDark.style.display = 'block';
-            themeIconLight.style.display = 'none';
-        }
+.theme-toggle-btn, .mask-toggle-btn, .mobile-menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
 
-        themeToggleBtn.addEventListener('click', () => {
-            const isDark = document.body.classList.toggle('dark-theme');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            
-            if (isDark) {
-                themeIconDark.style.display = 'none';
-                themeIconLight.style.display = 'block';
-            } else {
-                themeIconDark.style.display = 'block';
-                themeIconLight.style.display = 'none';
-            }
-        });
+.theme-toggle-btn:hover, .mask-toggle-btn:hover, .mobile-menu-btn:hover {
+    background-color: var(--border-color);
+}
 
-        // Language Selector logic
-        const langBtns = document.querySelectorAll('.lang-btn');
-        let currentLang = localStorage.getItem('lang') || 'ko';
+.mobile-menu-btn {
+    display: none;
+}
 
-        function setLanguage(lang) {
-            currentLang = lang;
-            localStorage.setItem('lang', lang);
-            document.documentElement.setAttribute('lang', lang);
-            
-            // Update active states on all language buttons
-            langBtns.forEach(btn => {
-                if (btn.getAttribute('data-lang') === lang) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-        }
+/* Mobile Drawer (Hidden on Desktop) */
+.mobile-drawer {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: var(--bg-card);
+    z-index: 999;
+    overflow: hidden;
+    transition: height var(--transition-normal) ease-in-out;
+    border-bottom: 1px solid var(--border-color);
+}
 
-        langBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                setLanguage(btn.getAttribute('data-lang'));
-            });
-        });
+.mobile-drawer.open {
+    height: calc(100vh - 80px);
+}
 
-        // Initialize language
-        setLanguage(currentLang);
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 24px;
+    gap: 24px;
+}
 
-        // Mobile Menu logic
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileDrawer = document.getElementById('mobileDrawer');
-        const menuIcon = mobileMenuBtn.querySelector('.menu-icon');
-        const closeIcon = mobileMenuBtn.querySelector('.close-icon');
+.mobile-nav-link {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
 
-        mobileMenuBtn.addEventListener('click', () => {
-            const isOpen = mobileDrawer.classList.toggle('open');
-            if (isOpen) {
-                menuIcon.style.display = 'none';
-                closeIcon.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            } else {
-                menuIcon.style.display = 'block';
-                closeIcon.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        });
+.mobile-contact-btn {
+    text-align: center;
+    background: var(--accent-gradient);
+    color: white !important;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 12px;
+}
 
-        // Close drawer on clicking a link
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileDrawer.classList.remove('open');
-                menuIcon.style.display = 'block';
-                closeIcon.style.display = 'none';
-                document.body.style.overflow = '';
-            });
-        });
+/* 4. Hero Section */
+.hero-section {
+    position: relative;
+    padding: 160px 0 100px;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background: transparent;
+}
 
-        // Timeline Tab switching
-        function switchTimeline(tab) {
-            const careerBtn = document.querySelector('.timeline-tabs button:nth-child(1)');
-            const eduBtn = document.querySelector('.timeline-tabs button:nth-child(2)');
-            const careerTimeline = document.getElementById('careerTimeline');
-            const eduTimeline = document.getElementById('educationTimeline');
+/* Technical grid/line design background */
+.hero-bg-visual {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.6;
+    pointer-events: none;
+}
 
-            if (tab === 'career') {
-                careerBtn.classList.add('active');
-                eduBtn.classList.remove('active');
-                careerTimeline.classList.add('active');
-                eduTimeline.classList.remove('active');
-            } else {
-                careerBtn.classList.remove('active');
-                eduBtn.classList.add('active');
-                careerTimeline.classList.remove('active');
-                eduTimeline.classList.add('active');
-            }
-        }
+.visual-line {
+    position: absolute;
+    background-color: var(--border-color);
+}
 
-        // Masking helper function for names/companies
-        const maskToggleBtn = document.getElementById('maskToggle');
-        let isMasked = localStorage.getItem('masked') === 'true';
+.line1 {
+    top: 30%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+}
 
-        function setMasking(masked) {
-            isMasked = masked;
-            localStorage.setItem('masked', masked ? 'true' : 'false');
-            
-            // Mask texts
-            document.querySelectorAll('.maskable').forEach(el => {
-                const orig = el.getAttribute('data-original');
-                const mask = el.getAttribute('data-masked');
-                el.textContent = masked ? mask : orig;
-            });
+.line2 {
+    left: 45%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+}
 
-            // Mask links (both text and href)
-            document.querySelectorAll('.maskable-link').forEach(link => {
-                const origText = link.getAttribute('data-original-text');
-                const maskedText = link.getAttribute('data-masked-text');
-                const origHref = link.getAttribute('data-original-href');
-                const maskedHref = link.getAttribute('data-masked-href');
-                
-                link.textContent = masked ? maskedText : origText;
-                link.setAttribute('href', masked ? maskedHref : origHref);
-            });
+.line3 {
+    left: 75%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+}
 
-            // Mask href-only links
-            document.querySelectorAll('.maskable-link-href').forEach(link => {
-                const origHref = link.getAttribute('data-original-href');
-                const maskedHref = link.getAttribute('data-masked-href');
-                link.setAttribute('href', masked ? maskedHref : origHref);
-            });
+.visual-circle {
+    position: absolute;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+}
 
-            // Update button icon
-            if (maskToggleBtn) {
-                maskToggleBtn.innerHTML = masked ? '<i data-lucide="eye-off"></i>' : '<i data-lucide="eye"></i>';
-                lucide.createIcons();
-            }
-        }
+.circle1 {
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    right: -100px;
+}
 
-        if (maskToggleBtn) {
-            maskToggleBtn.addEventListener('click', () => {
-                setMasking(!isMasked);
-            });
-        }
+.circle2 {
+    width: 600px;
+    height: 600px;
+    bottom: -200px;
+    left: -200px;
+}
 
-        // Initialize masking on load
-        setMasking(isMasked);
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+}
 
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
 
-        // Scroll Reveal logic
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Stop observing after animation triggers
-                }
-            });
-        }, {
-            threshold: 0.1, // Trigger when 10% of element is visible
-            rootMargin: '0px 0px -50px 0px' // Offset triggers slightly for better feel
-        });
+.hero-badge {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 6px 14px;
+    border-radius: 30px;
+}
 
-        revealElements.forEach(el => {
-            revealObserver.observe(el);
-        });
-    </script>
-</body>
-</html>
+.badge-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.9); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.5; }
+    100% { transform: scale(0.9); opacity: 1; }
+}
+
+.badge-text {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    font-family: 'Outfit', sans-serif;
+}
+
+.hero-title {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.2;
+    font-family: 'Outfit', 'Noto Sans KR', sans-serif;
+}
+
+.hero-desc {
+    font-size: 17px;
+    color: var(--text-secondary);
+}
+
+.hero-actions-btns {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+/* Button styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+    border: none;
+}
+
+.btn-primary {
+    background: var(--accent-gradient);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--hover-shadow);
+}
+
+.btn-secondary {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--border-color);
+    transform: translateY(-3px);
+}
+
+/* Premium Hero Image Card */
+.hero-visual-card {
+    background-color: var(--bg-surface);
+    backdrop-filter: blur(var(--backdrop-blur));
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform var(--transition-slow);
+}
+
+.hero-visual-card:hover {
+    transform: translateY(-5px) rotate(0.5deg);
+}
+
+.card-inner-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 18px;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.window-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.window-dot.red { background-color: #ef4444; }
+.window-dot.yellow { background-color: #f59e0b; }
+.window-dot.green { background-color: #10b981; }
+
+.window-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    font-family: 'Outfit', sans-serif;
+    margin-left: 10px;
+}
+
+.card-inner-body {
+    padding: 24px;
+}
+
+.project-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.stat-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.card-featured-image-wrapper {
+    display: block;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+
+.featured-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.card-featured-image-wrapper:hover .featured-image {
+    transform: scale(1.05);
+}
+
+.featured-image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    padding: 20px;
+    color: white;
+}
+
+.overlay-title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.overlay-subtitle {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* 5. General Section Setup */
+section {
+    padding: 100px 0;
+}
+
+.section-header {
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.section-subtitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-size: 38px;
+    font-weight: 700;
+    margin-top: 8px;
+    line-height: 1.3;
+}
+
+.section-header-desc {
+    color: var(--text-secondary);
+    margin-top: 12px;
+}
+
+.section-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--accent-gradient);
+    margin: 20px auto 0;
+    border-radius: 2px;
+}
+
+/* 6. About CEO Section */
+.about-section {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.dark-theme .about-section {
+    background-color: transparent;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.profile-card {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px;
+    position: sticky;
+    top: 110px;
+    box-shadow: var(--card-shadow);
+}
+
+.profile-photo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+.profile-image-container {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border-color);
+    background-color: var(--bg-card);
+    flex-shrink: 0;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-avatar-fallback {
+    width: 100%;
+    height: 100%;
+    background: var(--accent-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.avatar-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.profile-name-tag h3 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.profile-name-tag p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.profile-meta-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.meta-item i {
+    width: 18px;
+    height: 18px;
+    color: var(--primary-color);
+}
+
+.meta-item a:hover {
+    color: var(--primary-color);
+}
+
+.profile-credentials h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.cert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cert-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.cert-list li i {
+    width: 16px;
+    height: 16px;
+    color: var(--primary-color);
+}
+
+/* Timeline Column */
+.timeline-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 8px 16px;
+    position: relative;
+    transition: color var(--transition-fast);
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -13px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-gradient);
+    border-radius: 3px 3px 0 0;
+}
+
+.timeline-content {
+    display: none;
+}
+
+.timeline-content.active {
+    display: block;
+}
+
+.timeline-list {
+    position: relative;
+    padding-left: 28px;
+}
+
+.timeline-list::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 9px;
+    width: 2px;
+    height: calc(100% - 20px);
+    background-color: var(--border-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 36px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -28px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--bg-card);
+    border: 4px solid var(--border-color);
+    transition: border-color var(--transition-fast);
+}
+
+.timeline-item:hover .timeline-dot {
+    border-color: var(--primary-color);
+}
+
+.timeline-item.highlight .timeline-dot {
+    border-color: #2dd4bf;
+    background-color: #2dd4bf;
+}
+
+.timeline-date {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+.timeline-info {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.timeline-info:hover {
+    transform: translateX(5px);
+    box-shadow: var(--card-shadow);
+}
+
+.timeline-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.timeline-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.timeline-subtext {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    border-left: 2px solid var(--border-color);
+    padding-left: 10px;
+}
+
+/* 7. Services Section */
+.services-section {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.dark-theme .services-section {
+    background-color: transparent;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+.service-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 0;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.service-image-wrapper {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.service-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.service-card:hover .service-card-image {
+    transform: scale(1.05);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent-gradient);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--hover-shadow);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(var(--primary-rgb), 0.08);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    margin-bottom: 24px;
+    transition: transform var(--transition-normal);
+}
+
+.service-card:hover .service-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.service-icon-wrapper i {
+    width: 30px;
+    height: 30px;
+}
+
+.service-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.service-intro {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.service-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.service-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.service-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.service-features li i {
+    width: 16px;
+    height: 16px;
+    color: var(--primary-color);
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+/* 8. Research Section */
+.research-section {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.dark-theme .research-section {
+    background-color: transparent;
+}
+
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+.research-card {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.research-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.research-image-wrapper {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.research-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.research-card:hover .research-card-image {
+    transform: scale(1.05);
+}
+
+.research-card-content {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.research-card-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.research-desc-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.research-keywords {
+    display: flex;
+    gap: 8px;
+}
+
+.kwd {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary-color);
+    background-color: rgba(var(--primary-rgb), 0.08);
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+/* 9. Media & Naver Cafe Section */
+.media-section {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.dark-theme .media-section {
+    background-color: transparent;
+}
+
+.channel-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-bottom: 60px;
+}
+
+.channel-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    box-shadow: var(--card-shadow);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.channel-card:hover {
+    transform: translateY(-5px);
+}
+
+.youtube-card:hover {
+    border-color: #ef4444;
+    box-shadow: 0 15px 30px -10px rgba(239, 68, 68, 0.15);
+}
+
+.cafe-card:hover {
+    border-color: #10b981;
+    box-shadow: 0 15px 30px -10px rgba(16, 185, 129, 0.15);
+}
+
+.channel-icon-bg {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+}
+
+.youtube-card .channel-icon-bg {
+    background-color: #ef4444;
+}
+
+.cafe-card .channel-icon-bg {
+    background-color: #10b981;
+}
+
+.channel-icon-bg i {
+    width: 32px;
+    height: 32px;
+}
+
+.channel-info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.channel-info-text h3 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.channel-info-text p {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.btn-channel-go {
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.youtube-card .btn-channel-go { color: #ef4444; }
+.cafe-card .btn-channel-go { color: #10b981; }
+
+.video-grid-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.video-grid-title i {
+    color: #ef4444;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.video-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.video-thumbnail {
+    aspect-ratio: 16/9;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.video-card:hover .play-overlay {
+    opacity: 1;
+}
+
+.play-overlay i {
+    width: 44px;
+    height: 44px;
+    color: white;
+    background-color: #ef4444;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.5);
+    transition: transform var(--transition-fast);
+}
+
+.video-card:hover .play-overlay i {
+    transform: scale(1.1);
+}
+
+.video-details {
+    padding: 18px;
+}
+
+.video-details h4 {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.video-details p {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* 10. Contact Section */
+.contact-section {
+    background-color: transparent;
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.dark-theme .contact-section {
+    background-color: transparent;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.contact-info-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-intro-desc {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin: 16px 0 36px;
+}
+
+.direct-contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.method-card {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.method-icon {
+    width: 48px;
+    height: 48px;
+    background-color: rgba(var(--primary-rgb), 0.08);
+    color: var(--primary-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.method-card h5 {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.method-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.contact-form-col {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 36px;
+    box-shadow: var(--card-shadow);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+}
+
+.btn-block {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* 11. Footer Section */
+.main-footer {
+    background-color: transparent;
+    border-top: 1px solid var(--border-color);
+    padding: 48px 0;
+}
+
+body.dark-theme .main-footer {
+    background-color: transparent;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-logo .logo-text {
+    font-size: 20px;
+}
+
+.footer-copy {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.footer-address {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.footer-sns-links {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-sns-links a {
+    width: 56px;
+    height: 56px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: transform var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.footer-sns-links a.sns-youtube svg,
+.footer-sns-links a.sns-facebook svg,
+.footer-sns-links a.sns-instagram svg,
+.footer-sns-links a.sns-threads svg {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-sns-links a.sns-naver svg,
+.footer-sns-links a.sns-linkedin svg,
+.footer-sns-links a.sns-x svg {
+    width: 27px;
+    height: 27px;
+}
+
+.footer-sns-links a:hover {
+    transform: translateY(-3px);
+}
+
+.sns-youtube:hover {
+    color: #ff0000 !important;
+    border-color: rgba(255, 0, 0, 0.4) !important;
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.2) !important;
+}
+
+.sns-naver:hover {
+    color: #03c75a !important;
+    border-color: rgba(3, 199, 90, 0.4) !important;
+    box-shadow: 0 0 12px rgba(3, 199, 90, 0.2) !important;
+}
+
+.sns-linkedin:hover {
+    color: #0077b5 !important;
+    border-color: rgba(0, 119, 181, 0.4) !important;
+    box-shadow: 0 0 12px rgba(0, 119, 181, 0.2) !important;
+}
+
+.sns-facebook:hover {
+    color: #1877f2 !important;
+    border-color: rgba(24, 119, 242, 0.4) !important;
+    box-shadow: 0 0 12px rgba(24, 119, 242, 0.2) !important;
+}
+
+.sns-instagram:hover {
+    color: #e1306c !important;
+    border-color: rgba(225, 48, 108, 0.4) !important;
+    box-shadow: 0 0 12px rgba(225, 48, 108, 0.2) !important;
+}
+
+.sns-threads:hover, .sns-x:hover {
+    color: var(--text-primary) !important;
+    border-color: var(--text-primary) !important;
+    box-shadow: 0 0 12px rgba(15, 23, 42, 0.15) !important;
+}
+
+body.dark-theme .sns-threads:hover, body.dark-theme .sns-x:hover {
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* 12. Responsive Breakpoints */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 42px;
+    }
+    .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .profile-card {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    .mobile-menu-btn {
+        display: flex;
+    }
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    .hero-badge {
+        align-self: center;
+    }
+    .hero-actions-btns {
+        justify-content: center;
+    }
+    .services-grid, .research-grid, .channel-grid, .video-grid {
+        grid-template-columns: 1fr;
+    }
+    .service-card-content {
+        padding: 30px 24px;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    .footer-container {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+    }
+    .footer-left {
+        align-items: center;
+    }
+    .footer-sns-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
+
+/* 13. Premium Background Floating Orbs & Scroll Reveal Animations */
+
+/* Floating Glow Orbs */
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: -2;
+    background: var(--accent-gradient);
+    animation: floatOrb 25s infinite alternate ease-in-out;
+    transition: opacity var(--transition-normal);
+}
+
+body.dark-theme .glow-orb {
+    opacity: 0.12; /* Slightly brighter in dark theme for deep neon glow */
+}
+
+.orb-1 {
+    width: 500px;
+    height: 500px;
+    top: 15%;
+    left: -150px;
+}
+
+.orb-2 {
+    width: 600px;
+    height: 600px;
+    top: 55%;
+    right: -200px;
+    animation-duration: 35s;
+    animation-delay: -5s;
+}
+
+.orb-3 {
+    width: 400px;
+    height: 400px;
+    top: 85%;
+    left: 10%;
+    animation-duration: 30s;
+    animation-delay: -10s;
+}
+
+@keyframes floatOrb {
+    0% {
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-50px) scale(1.08) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0) scale(1) rotate(360deg);
+    }
+}
+
+/* Scroll Reveal Animations styling */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform, opacity;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Enhanced Hover Card Glows */
+.service-card:hover, .research-card:hover, .channel-card:hover, .video-card:hover {
+    box-shadow: 0 20px 45px -10px rgba(0, 71, 171, 0.15), 
+                0 0 15px -3px rgba(0, 71, 171, 0.08);
+}
+
+body.dark-theme .service-card:hover, 
+body.dark-theme .research-card:hover, 
+body.dark-theme .channel-card:hover, 
+body.dark-theme .video-card:hover {
+    box-shadow: 0 20px 45px -10px rgba(0, 102, 255, 0.25), 
+                0 0 20px -3px rgba(0, 102, 255, 0.15);
+}
+
+/* 14. Multilingual Toggle Styles & Layout */
+.lang-selector {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 2px 8px;
+    border-radius: 12px;
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.lang-btn:hover {
+    color: var(--text-primary);
+}
+
+.lang-btn.active {
+    color: white;
+    background: var(--accent-gradient);
+    font-weight: 700;
+}
+
+.lang-divider {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    color: var(--border-color);
+    user-select: none;
+}
+
+.mobile-lang-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Hide inactive language elements natively via CSS */
+html[lang="ko"] .lang-en {
+    display: none !important;
+}
+html[lang="en"] .lang-ko {
+    display: none !important;
+}
+
+/* ==========================================================================
+   15. Unified Email Contact Styles
+   ========================================================================== */
+
+.contact-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 60px 40px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    backdrop-filter: blur(var(--backdrop-blur));
+    transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--hover-shadow);
+}
+
+.contact-card .section-subtitle {
+    margin-bottom: 8px;
+}
+
+.contact-card .section-title {
+    margin-bottom: 24px;
+}
+
+.contact-card .contact-intro-desc {
+    max-width: 650px;
+    margin: 0 auto 40px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.mail-inquiry-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: rgba(0, 71, 171, 0.04);
+    border: 1px solid rgba(0, 71, 171, 0.15);
+    border-radius: 16px;
+    padding: 36px;
+    margin-bottom: 40px;
+}
+
+body.dark-theme .mail-inquiry-box {
+    background: rgba(0, 102, 255, 0.05);
+    border: 1px solid rgba(0, 102, 255, 0.2);
+}
+
+.mail-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: 'Outfit', sans-serif;
+}
+
+.mail-badge i {
+    width: 24px;
+    height: 24px;
+}
+
+.btn-mail-contact {
+    padding: 16px 32px;
+    font-size: 17px;
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: 0 10px 25px -5px rgba(var(--primary-rgb), 0.3);
+}
+
+.direct-contact-methods-horizontal {
+    border-top: 1px solid var(--border-color);
+    padding-top: 36px;
+    display: flex;
+    justify-content: center;
+}
+
+.method-card-inline {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+    max-width: 600px;
+}
+
+.method-card-inline .method-icon {
+    width: 54px;
+    height: 54px;
+    background-color: rgba(var(--primary-rgb), 0.08);
+    color: var(--primary-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.method-card-inline h5 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.method-card-inline p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .contact-card {
+        padding: 40px 24px;
+    }
+    
+    .mail-badge {
+        font-size: 18px;
+    }
+    
+    .btn-mail-contact {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+    
+    .method-card-inline {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+}
