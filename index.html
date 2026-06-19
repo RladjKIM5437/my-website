@@ -65,6 +65,10 @@
                     <i data-lucide="moon" class="theme-icon-dark"></i>
                     <i data-lucide="sun" class="theme-icon-light" style="display: none;"></i>
                 </button>
+                <!-- Masking Toggle Button -->
+                <button id="maskToggle" class="mask-toggle-btn" aria-label="Toggle Sensitive Data Masking">
+                    <i data-lucide="eye"></i>
+                </button>
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Menu">
                     <i data-lucide="menu" class="menu-icon"></i>
                     <i data-lucide="x" class="close-icon" style="display: none;"></i>
@@ -206,14 +210,14 @@
                     <div class="profile-card reveal">
                         <div class="profile-photo-wrapper">
                             <div class="profile-image-container">
-                                <img src="profile.jpg" alt="대표 김대중" class="profile-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <img src="profile.jpg" alt="김대중 대표 / CEO Kim Dae-jung" class="profile-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                 <div class="profile-avatar-fallback" style="display:none;">
                                     <i data-lucide="user" class="avatar-icon"></i>
                                 </div>
                             </div>
                             <div class="profile-name-tag">
-                                <h3 class="lang-ko">김대중</h3>
-                                <h3 class="lang-en">Kim Dae-jung</h3>
+                                <h3 class="lang-ko"><span class="maskable" data-original="김대중" data-masked="김*중">김대중</span></h3>
+                                <h3 class="lang-en"><span class="maskable" data-original="Kim Dae-jung" data-masked="Kim *">Kim Dae-jung</span></h3>
                                 <p class="lang-ko">BIM Consultant / AUCTOR 대표</p>
                                 <p class="lang-en">BIM Consultant / CEO of AUCTOR</p>
                             </div>
@@ -222,11 +226,11 @@
                         <div class="profile-meta-list">
                             <div class="meta-item">
                                 <i data-lucide="mail"></i>
-                                <span>leo.kim@auctor.co.kr</span>
+                                <span><span class="maskable" data-original="leo.kim@auctor.co.kr" data-masked="l***.k**@auctor.co.kr">leo.kim@auctor.co.kr</span></span>
                             </div>
                             <div class="meta-item">
                                 <i data-lucide="linkedin"></i>
-                                <a href="https://www.linkedin.com/in/cadking" target="_blank">linkedin.com/in/cadking</a>
+                                <a href="https://www.linkedin.com/in/cadking" target="_blank" class="maskable-link" data-original-href="https://www.linkedin.com/in/cadking" data-masked-href="#" data-original-text="linkedin.com/in/cadking" data-masked-text="linkedin.com/in/c******">linkedin.com/in/cadking</a>
                             </div>
                             <div class="meta-item">
                                 <i data-lucide="book-open"></i>
@@ -284,10 +288,10 @@
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-date">2023.09 - Present</div>
                                 <div class="timeline-info">
-                                    <h4 class="timeline-title lang-ko">옥토르 (AUCTOR) | 대표 & BIM 컨설턴트</h4>
-                                    <h4 class="timeline-title lang-en">AUCTOR | CEO & BIM Consultant</h4>
-                                    <p class="timeline-text lang-ko">BIM 프로젝트 PM 및 설계 아웃소싱 관리, 스마트 팜 모델 구축(농협 양평, 양재), Revit & Navisworks 기업/기관 맞춤형 교육 총괄.</p>
-                                    <p class="timeline-text lang-en">BIM project management, outsourcing control, Smart Farm modeling (Nonghyup Yangpyeong, Yangjae), and custom Revit & Navisworks training for companies/institutions.</p>
+                                    <h4 class="timeline-title lang-ko"><span class="maskable" data-original="옥토르 (AUCTOR)" data-masked="*토르 (*UCTOR)">옥토르 (AUCTOR)</span> | 대표 & BIM 컨설턴트</h4>
+                                    <h4 class="timeline-title lang-en"><span class="maskable" data-original="AUCTOR" data-masked="*UCTOR">AUCTOR</span> | CEO & BIM Consultant</h4>
+                                    <p class="timeline-text lang-ko">BIM 프로젝트 PM 및 설계 아웃소싱 관리, 스마트 팜 모델 구축(<span class="maskable" data-original="농협 양평, 양재" data-masked="농* *평, *재">농협 양평, 양재</span>), Revit & Navisworks 기업/기관 맞춤형 교육 총괄.</p>
+                                    <p class="timeline-text lang-en">BIM project management, outsourcing control, Smart Farm modeling (<span class="maskable" data-original="Nonghyup Yangpyeong, Yangjae" data-masked="N******* Yangpyeong, Yangjae">Nonghyup Yangpyeong, Yangjae</span>), and custom Revit & Navisworks training for companies/institutions.</p>
                                 </div>
                             </div>
                             <div class="timeline-item">
@@ -304,18 +308,18 @@
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-date">2026.04 - Present</div>
                                 <div class="timeline-info">
-                                    <h4 class="timeline-title lang-ko">현대건설 기술교육원 | BIM 강의</h4>
-                                    <h4 class="timeline-title lang-en">Hyundai E&C Technical Education Institute | BIM Lecture</h4>
-                                    <p class="timeline-text lang-ko">현대건설 기술교육원 내 BIM 실무 중심 교육 진행.</p>
-                                    <p class="timeline-text lang-en">Conducting practical and hands-on BIM lectures for Hyundai E&C vocational programs.</p>
+                                    <h4 class="timeline-title lang-ko"><span class="maskable" data-original="현대건설" data-masked="현*건설">현대건설</span> 기술교육원 | BIM 강의</h4>
+                                    <h4 class="timeline-title lang-en"><span class="maskable" data-original="Hyundai E&C" data-masked="H****** E&C">Hyundai E&C</span> Technical Education Institute | BIM Lecture</h4>
+                                    <p class="timeline-text lang-ko"><span class="maskable" data-original="현대건설" data-masked="현*건설">현대건설</span> 기술교육원 내 BIM 실무 중심 교육 진행.</p>
+                                    <p class="timeline-text lang-en">Conducting practical and hands-on BIM lectures for <span class="maskable" data-original="Hyundai E&C" data-masked="H****** E&C">Hyundai E&C</span> vocational programs.</p>
                                 </div>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-date">2020.07 - 2025.06</div>
                                 <div class="timeline-info">
-                                    <h4 class="timeline-title lang-ko">대연건설㈜ | BIM Manager / 부장</h4>
-                                    <h4 class="timeline-title lang-en">Daeyeon Construction Co., Ltd | BIM Manager / GM</h4>
+                                    <h4 class="timeline-title lang-ko"><span class="maskable" data-original="대연건설(주)" data-masked="대*건설">대연건설㈜</span> | BIM Manager / 부장</h4>
+                                    <h4 class="timeline-title lang-en"><span class="maskable" data-original="Daeyeon Construction Co., Ltd" data-masked="D****** Construction Co., Ltd">Daeyeon Construction Co., Ltd</span> | BIM Manager / GM</h4>
                                     <p class="timeline-text lang-ko">아파트형 공장, 골프장 클럽 하우스, 플랜트 설비 등 BIM 모델 작성 및 간섭 검수 총괄 관리.</p>
                                     <p class="timeline-text lang-en">Supervised BIM modeling, drawing check, and interference detection for factories, clubhouses, and industrial facilities.</p>
                                 </div>
@@ -380,80 +384,84 @@
             <div class="services-grid">
                 <!-- Service 1: BIM Education -->
                 <div class="service-card reveal">
-                    <div class="service-icon-wrapper">
-                        <i data-lucide="graduation-cap"></i>
+                    <div class="service-image-wrapper">
+                        <img src="bim_education.jpg" alt="BIM 전문 교육" class="service-card-image">
                     </div>
-                    <h3 class="lang-ko">BIM 전문 교육</h3>
-                    <h3 class="lang-en">BIM Training Courses</h3>
-                    <p class="service-intro lang-ko">Revit & Navisworks 실무 중심 교육</p>
-                    <p class="service-intro lang-en">Practical Revit & Navisworks Training</p>
-                    <p class="service-desc lang-ko">
-                        NCS 기준에 맞춘 실무 BIM 교육부터 대기업(삼성물산, LG전자 등) 기술 지원 및 출강 교육을 담당해 왔습니다. 단순한 프로그램 사용법이 아닌, 도면화/Family 구축/MEP 설비 모델링/공정 시뮬레이션 등 실무와 연계된 고도화 교육을 제공합니다.
-                    </p>
-                    <p class="service-desc lang-en">
-                        We deliver practical BIM lectures based on NCS standards, along with corporate training for major companies (Samsung C&T, LG Electronics, etc.). We focus on real-world pipelines including Family creation, MEP utilities modeling, and schedule simulation.
-                    </p>
-                    <ul class="service-features">
-                        <li>
-                            <i data-lucide="check"></i>
-                            <span class="lang-ko">Revit Architecture / Structure / MEP 교육</span>
-                            <span class="lang-en">Revit Architecture / Structure / MEP Master Classes</span>
-                        </li>
-                        <li>
-                            <i data-lucide="check"></i>
-                            <span class="lang-ko">Navisworks 공정 간섭 검토 실무</span>
-                            <span class="lang-en">Navisworks Interference & Clash Detection</span>
-                        </li>
-                        <li>
-                            <i data-lucide="check"></i>
-                            <span class="lang-ko">기업 맞춤형 Family 라이브러리 구축 및 컨설팅</span>
-                            <span class="lang-en">Custom Family Library Development & Consulting</span>
-                        </li>
-                        <li>
-                            <i data-lucide="check"></i>
-                            <span class="lang-ko">공공기관 & 국비 지원 교육 프로그램 개발</span>
-                            <span class="lang-en">National & Public Vocational Programs Planning</span>
-                        </li>
-                    </ul>
+                    <div class="service-card-content">
+                        <h3 class="lang-ko">BIM 전문 교육</h3>
+                        <h3 class="lang-en">BIM Training Courses</h3>
+                        <p class="service-intro lang-ko">Revit & Navisworks 실무 중심 교육</p>
+                        <p class="service-intro lang-en">Practical Revit & Navisworks Training</p>
+                        <p class="service-desc lang-ko">
+                            NCS 기준에 맞춘 실무 BIM 교육부터 주요 기관 및 대기업(LH공사, DL이엔씨, LG 전자, 삼성물산, 한국기술교육대학교 등) 기술 지원 및 출강 교육을 담당해 왔습니다. 단순한 프로그램 사용법이 아닌, 도면화/Family 구축/MEP 설비 모델링/공정 시뮬레이션 등 실무와 연계된 고도화 교육을 제공합니다.
+                        </p>
+                        <p class="service-desc lang-en">
+                            We deliver practical BIM lectures based on NCS standards, along with training and technical support for major organizations and companies (LH Corporation, DL E&C, LG Electronics, Samsung C&T, Korea University of Technology and Education, etc.). We focus on real-world pipelines including Family creation, MEP utilities modeling, and schedule simulation.
+                        </p>
+                        <ul class="service-features">
+                            <li>
+                                <i data-lucide="check"></i>
+                                <span class="lang-ko">Revit Architecture / Structure / MEP 교육</span>
+                                <span class="lang-en">Revit Architecture / Structure / MEP Master Classes</span>
+                            </li>
+                            <li>
+                                <i data-lucide="check"></i>
+                                <span class="lang-ko">Navisworks 공정 간섭 검토 실무</span>
+                                <span class="lang-en">Navisworks Interference & Clash Detection</span>
+                            </li>
+                            <li>
+                                <i data-lucide="check"></i>
+                                <span class="lang-ko">기업 맞춤형 Family 라이브러리 구축 및 컨설팅</span>
+                                <span class="lang-en">Custom Family Library Development & Consulting</span>
+                            </li>
+                            <li>
+                                <i data-lucide="check"></i>
+                                <span class="lang-ko">공공기관 & 국비 지원 교육 프로그램 개발</span>
+                                <span class="lang-en">National & Public Vocational Programs Planning</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Service 2: BIM Outsourcing -->
                 <div class="service-card reveal">
-                    <div class="service-icon-wrapper">
-                        <i data-lucide="file-spreadsheet"></i>
+                    <div class="service-image-wrapper">
+                        <img src="bim_outsourcing.jpg" alt="BIM 프로젝트 아웃소싱" class="service-card-image">
                     </div>
-                    <h3 class="lang-ko">BIM 프로젝트 아웃소싱</h3>
-                    <h3 class="lang-en">BIM Project Outsourcing</h3>
-                    <p class="service-intro lang-ko">정밀한 3D 모델 구축 및 기술 지원</p>
-                    <p class="service-intro lang-en">Accurate 3D Modeling & Technical Support</p>
-                    <p class="service-desc lang-ko">
-                        다양한 건축·구조·설비 용역 프로젝트를 대행하여 진행합니다. 시공 단계에서의 간섭을 사전 예방하고, 정밀한 내역 및 물량 산출로 비용을 최적화할 수 있도록 업계 최고 수준의 모델 품질을 약속합니다.
-                    </p>
-                    <p class="service-desc lang-en">
-                        We undertake diverse architectural, structural, and MEP modeling contracts. We minimize construction phase clashes beforehand and optimize building costs through high-precision quantity estimation and advanced spatial coordination.
-                    </p>
-                    <ul class="service-features">
-                        <li>
-                            <i data-lucide="check"></i>
-                            <span class="lang-ko">연수원, 수영장, 아파트 등 다수 구조 모델링</span>
-                            <span class="lang-en">Structural modeling for training centers, pools, apartments</span>
-                        </li>
-                        <li>
-                            <i data-lucide="check"></i>
-                            <span class="lang-ko">공장 및 플랜트 기계/배관(MEP) 모델링</span>
-                            <span class="lang-en">High-tech Plant MEP utility & piping modeling</span>
-                        </li>
-                        <li>
-                            <i data-lucide="check"></i>
-                            <span class="lang-ko">GS 파르나스 호텔 커튼월 등 상세 디테일 지원</span>
-                            <span class="lang-en">Curtain wall detail design support (e.g. GS Parnas Hotel)</span>
-                        </li>
-                        <li>
-                            <i data-lucide="check"></i>
-                            <span class="lang-ko">해외 공장 BIM 구축 및 글로벌 협업 전환 설계</span>
-                            <span class="lang-en">Global factory BIM modeling & conversion (Hyundai/Kia Motors)</span>
-                        </li>
-                    </ul>
+                    <div class="service-card-content">
+                        <h3 class="lang-ko">BIM 프로젝트 아웃소싱</h3>
+                        <h3 class="lang-en">BIM Project Outsourcing</h3>
+                        <p class="service-intro lang-ko">정밀한 3D 모델 구축 및 기술 지원</p>
+                        <p class="service-intro lang-en">Accurate 3D Modeling & Technical Support</p>
+                        <p class="service-desc lang-ko">
+                            다양한 건축·구조·설비 용역 프로젝트를 대행하여 진행합니다. 시공 단계에서의 간섭을 사전 예방하고, 정밀한 내역 및 물량 산출로 비용을 최적화할 수 있도록 업계 최고 수준의 모델 품질을 약속합니다.
+                        </p>
+                        <p class="service-desc lang-en">
+                            We undertake diverse architectural, structural, and MEP modeling contracts. We minimize construction phase clashes beforehand and optimize building costs through high-precision quantity estimation and advanced spatial coordination.
+                        </p>
+                        <ul class="service-features">
+                            <li>
+                                <i data-lucide="check"></i>
+                                <span class="lang-ko">연수원, 수영장, 아파트 등 다수 구조 모델링</span>
+                                <span class="lang-en">Structural modeling for training centers, pools, apartments</span>
+                            </li>
+                            <li>
+                                <i data-lucide="check"></i>
+                                <span class="lang-ko">공장 및 플랜트 기계/배관(MEP) 모델링</span>
+                                <span class="lang-en">High-tech Plant MEP utility & piping modeling</span>
+                            </li>
+                            <li>
+                                <i data-lucide="check"></i>
+                                <span class="lang-ko">GS 파르나스 호텔 커튼월 등 상세 디테일 지원</span>
+                                <span class="lang-en">Curtain wall detail design support (e.g. GS Parnas Hotel)</span>
+                            </li>
+                            <li>
+                                <i data-lucide="check"></i>
+                                <span class="lang-ko">해외 공장 BIM 구축 및 글로벌 협업 전환 설계</span>
+                                <span class="lang-en">Global factory BIM modeling & conversion (Hyundai/Kia Motors)</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -474,9 +482,8 @@
             <div class="research-grid">
                 <!-- Research Card 1: Smart Farm -->
                 <div class="research-card reveal">
-                    <div class="research-image-placeholder">
-                        <i data-lucide="sprout" class="research-card-icon"></i>
-                        <span>Smart Farm Research</span>
+                    <div class="research-image-wrapper">
+                        <img src="smart_farm.jpg" alt="Smart Farm Research" class="research-card-image">
                     </div>
                     <div class="research-card-content">
                         <h3 class="lang-ko">스마트 팜 (Smart Farm) 설계 & 최적화</h3>
@@ -497,9 +504,8 @@
 
                 <!-- Research Card 2: Modular Construction -->
                 <div class="research-card reveal">
-                    <div class="research-image-placeholder">
-                        <i data-lucide="layout-grid" class="research-card-icon"></i>
-                        <span>Modular Construction</span>
+                    <div class="research-image-wrapper">
+                        <img src="modular.jpg" alt="Modular Construction" class="research-card-image">
                     </div>
                     <div class="research-card-content">
                         <h3 class="lang-ko">모듈러 공법 (Modular Construction)</h3>
@@ -622,98 +628,43 @@
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info-col reveal">
-                    <span class="section-subtitle">CONTACT US</span>
-                    <h2 class="section-title lang-ko">BIM 프로젝트 및 교육 문의</h2>
-                    <h2 class="section-title lang-en">Inquiries (Projects & Training)</h2>
-                    <p class="contact-intro-desc lang-ko">
-                        Revit/Navisworks 강의 출강, 패밀리 구축 컨설팅, BIM 모델링 외주 용역 등 상담이 필요하신 내용을 남겨주시면 성심껏 답변드리겠습니다.
-                    </p>
-                    <p class="contact-intro-desc lang-en">
-                        For Revit/Navisworks lectures, family library consulting, or BIM outsourcing projects, please leave your inquiry below. We will get back to you promptly.
-                    </p>
+            <div class="contact-card reveal">
+                <span class="section-subtitle">CONTACT US</span>
+                <h2 class="section-title lang-ko">BIM 프로젝트 및 교육 문의</h2>
+                <h2 class="section-title lang-en">Inquiries (Projects & Training)</h2>
+                
+                <p class="contact-intro-desc lang-ko">
+                    Revit/Navisworks 강의 출강, 패밀리 구축 컨설팅, BIM 모델링 외주 용역 등 상담이 필요하신 내용을 아래 메일 주소로 보내주시면 확인 후 성심껏 신속하게 답변해 드리겠습니다.
+                </p>
+                <p class="contact-intro-desc lang-en">
+                    For Revit/Navisworks lectures, family library consulting, or BIM outsourcing projects, please send your inquiries to the email address below. We will get back to you promptly.
+                </p>
 
-                    <div class="direct-contact-methods">
-                        <div class="method-card">
-                            <div class="method-icon"><i data-lucide="mail"></i></div>
-                            <div>
-                                <h5 class="lang-ko">이메일 문의</h5>
-                                <h5 class="lang-en">Email Us</h5>
-                                <p>leo.kim@auctor.co.kr</p>
-                            </div>
-                        </div>
-                        <div class="method-card">
-                            <div class="method-icon"><i data-lucide="map-pin"></i></div>
-                            <div>
-                                <h5 class="lang-ko">회사 및 연구실 위치</h5>
-                                <h5 class="lang-en">Office & Lab Location</h5>
-                                <p class="lang-ko">
-                                    Office - 인천광역시 부평구 갈월서로 45, 21335<br>
-                                    Lab - 한국기술교육대학교 2공학관 스마트 건설 연구실
-                                </p>
-                                <p class="lang-en">
-                                    Office - 45, Garwolseo-ro, Bupyeong-gu, Incheon, 21335<br>
-                                    Lab - Smart Construction Research Lab, 2nd Engineering Building, KUTE
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="mail-inquiry-box">
+                    <span class="mail-badge"><i data-lucide="mail"></i> <span class="maskable" data-original="leo.kim@auctor.co.kr" data-masked="l***.k**@auctor.co.kr">leo.kim@auctor.co.kr</span></span>
+                    <a href="mailto:leo.kim@auctor.co.kr" class="btn btn-primary btn-mail-contact maskable-link-href" data-original-href="mailto:leo.kim@auctor.co.kr" data-masked-href="#">
+                        <span class="lang-ko">메일로 문의 주세요</span>
+                        <span class="lang-en">Send Email Inquiry</span>
+                        <i data-lucide="send"></i>
+                    </a>
                 </div>
 
-                <div class="contact-form-col reveal">
-                    <form id="contactForm" class="contact-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">
-                                    <span class="lang-ko">이름 / 회사명</span>
-                                    <span class="lang-en">Name / Company</span>
-                                </label>
-                                <input type="text" id="name" name="name" placeholder="홍길동 / 옥토르" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">
-                                    <span class="lang-ko">이메일 주소</span>
-                                    <span class="lang-en">Email Address</span>
-                                </label>
-                                <input type="email" id="email" name="email" placeholder="example@domain.com" required>
-                            </div>
+                <div class="direct-contact-methods-horizontal">
+                    <div class="method-card-inline">
+                        <div class="method-icon"><i data-lucide="map-pin"></i></div>
+                        <div>
+                            <h5 class="lang-ko">회사 및 연구실 위치</h5>
+                            <h5 class="lang-en">Office & Lab Location</h5>
+                            <p class="lang-ko">
+                                Office - <span class="maskable" data-original="인천광역시 부평구 갈월서로 45" data-masked="인천광역시 부평구 ******">인천광역시 부평구 갈월서로 45</span>, 21335<br>
+                                Lab - 한국기술교육대학교 2공학관 스마트 건설 연구실
+                            </p>
+                            <p class="lang-en">
+                                Office - <span class="maskable" data-original="45, Garwolseo-ro, Bupyeong-gu, Incheon" data-masked="******, Bupyeong-gu, Incheon">45, Garwolseo-ro, Bupyeong-gu, Incheon</span>, 21335<br>
+                                Lab - Smart Construction Research Lab, 2nd Engineering Building, KUTE
+                            </p>
                         </div>
-                        <div class="form-group">
-                            <label for="subject">
-                                <span class="lang-ko">문의 유형</span>
-                                <span class="lang-en">Inquiry Type</span>
-                            </label>
-                            <select id="subject" name="subject" required>
-                                <option value="" disabled selected class="lang-ko">선택해 주세요</option>
-                                <option value="" disabled selected class="lang-en">Please select</option>
-                                
-                                <option value="education" class="lang-ko">BIM 교육 출강 / 실무 강의 문의</option>
-                                <option value="education" class="lang-en">BIM Training / Lecture Inquiry</option>
-                                
-                                <option value="project" class="lang-ko">BIM 모델링 외주 / 프로젝트 문의</option>
-                                <option value="project" class="lang-en">BIM Modeling / Project Outsourcing</option>
-                                
-                                <option value="research" class="lang-ko">스마트 팜 & 모듈러 공법 공동 연구 문의</option>
-                                <option value="research" class="lang-en">Smart Farm & Modular Joint Research</option>
-                                
-                                <option value="other" class="lang-ko">기타 문의사항</option>
-                                <option value="other" class="lang-en">Other Inquiries</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">
-                                <span class="lang-ko">상세 내용</span>
-                                <span class="lang-en">Message Details</span>
-                            </label>
-                            <textarea id="message" name="message" rows="5" placeholder="문의하실 구체적인 일정, 대상, 프로젝트 규모 등을 입력해 주세요." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">
-                            <span class="lang-ko">문의 메일 보내기</span>
-                            <span class="lang-en">Submit Inquiry</span>
-                            <i data-lucide="send"></i>
-                        </button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -727,14 +678,32 @@
                     <span class="logo-text">AUCTOR</span>
                 </div>
                 <p class="footer-copy">© 2026 AUCTOR. All Rights Reserved.</p>
-                <p class="footer-address lang-ko">대표: 김대중 | 개인정보책임자: 김대중 | 대표 이메일: leo.kim@auctor.co.kr | 주소: 인천광역시 부평구 갈월서로 45 (21335)</p>
-                <p class="footer-address lang-en">CEO: Kim Dae-jung | Information Officer: Kim Dae-jung | Email: leo.kim@auctor.co.kr | Address: 45, Garwolseo-ro, Bupyeong-gu, Incheon (21335)</p>
+                <p class="footer-address lang-ko">대표: <span class="maskable" data-original="김대중" data-masked="김*중">김대중</span> | 개인정보책임자: <span class="maskable" data-original="김대중" data-masked="김*중">김대중</span> | 대표 이메일: <span class="maskable" data-original="leo.kim@auctor.co.kr" data-masked="l***.k**@auctor.co.kr">leo.kim@auctor.co.kr</span> | 주소: <span class="maskable" data-original="인천광역시 부평구 갈월서로 45" data-masked="인천광역시 부평구 ******">인천광역시 부평구 갈월서로 45</span> (21335)</p>
+                <p class="footer-address lang-en">CEO: <span class="maskable" data-original="Kim Dae-jung" data-masked="Kim *">Kim Dae-jung</span> | Information Officer: <span class="maskable" data-original="Kim Dae-jung" data-masked="Kim *">Kim Dae-jung</span> | Email: <span class="maskable" data-original="leo.kim@auctor.co.kr" data-masked="l***.k**@auctor.co.kr">leo.kim@auctor.co.kr</span> | Address: <span class="maskable" data-original="45, Garwolseo-ro, Bupyeong-gu, Incheon" data-masked="******, Bupyeong-gu, Incheon">45, Garwolseo-ro, Bupyeong-gu, Incheon</span> (21335)</p>
             </div>
             <div class="footer-right">
                 <div class="footer-sns-links">
-                    <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i data-lucide="youtube"></i></a>
-                    <a href="https://cafe.naver.com/pseb" target="_blank" rel="noopener noreferrer" aria-label="Naver Cafe"><i data-lucide="users"></i></a>
-                    <a href="https://www.linkedin.com/in/cadking" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                    <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="sns-youtube">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                    <a href="https://cafe.naver.com/pseb" target="_blank" rel="noopener noreferrer" aria-label="Naver Cafe" class="sns-naver">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M16.2 3H21v18h-4.8l-8.4-12v12H3V3h4.8l8.4 12V3z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/cadking" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="sns-linkedin">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/auctorbim" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="sns-facebook">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/auctorbim" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="sns-instagram">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                    <a href="https://www.threads.net/@auctorbim" target="_blank" rel="noopener noreferrer" aria-label="Threads" class="sns-threads">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.77 0 3.42-.46 4.86-1.27.4-.23.51-.74.26-1.13-.25-.38-.76-.48-1.13-.24C14.73 20.08 13.4 20.5 12 20.5c-4.69 0-8.5-3.81-8.5-8.5S7.31 3.5 12 3.5s8.5 3.81 8.5 8.5c0 1.83-.82 2.87-2.02 2.87-.71 0-1.23-.46-1.23-1.3v-4.18c0-.6-.35-1.14-.9-1.39-.56-.25-1.2-.18-1.68.2l-.76.62c-.68-.69-1.63-1.07-2.61-1.07-2.07 0-3.75 1.68-3.75 3.75s1.68 3.75 3.75 3.75c.98 0 1.93-.38 2.61-1.07l.15.15c.67.67 1.6 1.07 2.61 1.07 2.39 0 3.78-1.92 3.78-4.62 0-5.52-4.48-10-10-10zm-1.3 12.3c-1.24 0-2.25-1.01-2.25-2.25s1.01-2.25 2.25-2.25 2.25 1.01 2.25 2.25-1.01 2.25-2.25 2.25z"/></svg>
+                    </a>
+                    <a href="https://x.com/auctor0815" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="sns-x">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -853,25 +822,55 @@
             }
         }
 
-        // Contact Form mailto redirection
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subjectSelect = document.getElementById('subject');
-            const subjectText = subjectSelect.options[subjectSelect.selectedIndex].text;
-            const message = document.getElementById('message').value;
+        // Masking helper function for names/companies
+        const maskToggleBtn = document.getElementById('maskToggle');
+        let isMasked = localStorage.getItem('masked') === 'true';
 
-            // Pre-populate mailto link details
-            const mailtoUrl = `mailto:leo.kim@auctor.co.kr?subject=${encodeURIComponent('[AUCTOR 문의] ' + subjectText)}&body=${encodeURIComponent('보내는 분: ' + name + '\n회신 이메일: ' + email + '\n\n[문의 내용]\n' + message)}`;
+        function setMasking(masked) {
+            isMasked = masked;
+            localStorage.setItem('masked', masked ? 'true' : 'false');
+            
+            // Mask texts
+            document.querySelectorAll('.maskable').forEach(el => {
+                const orig = el.getAttribute('data-original');
+                const mask = el.getAttribute('data-masked');
+                el.textContent = masked ? mask : orig;
+            });
 
-            // Open user's native email client
-            window.location.href = mailtoUrl;
+            // Mask links (both text and href)
+            document.querySelectorAll('.maskable-link').forEach(link => {
+                const origText = link.getAttribute('data-original-text');
+                const maskedText = link.getAttribute('data-masked-text');
+                const origHref = link.getAttribute('data-original-href');
+                const maskedHref = link.getAttribute('data-masked-href');
+                
+                link.textContent = masked ? maskedText : origText;
+                link.setAttribute('href', masked ? maskedHref : origHref);
+            });
 
-            alert(`감사합니다, ${name}님! 입력하신 정보로 메일 작성 창이 실행됩니다. 메일 창에서 [보내기] 버튼을 누르시면 leo.kim@auctor.co.kr로 메일이 발송됩니다.`);
-            contactForm.reset();
-        });
+            // Mask href-only links
+            document.querySelectorAll('.maskable-link-href').forEach(link => {
+                const origHref = link.getAttribute('data-original-href');
+                const maskedHref = link.getAttribute('data-masked-href');
+                link.setAttribute('href', masked ? maskedHref : origHref);
+            });
+
+            // Update button icon
+            if (maskToggleBtn) {
+                maskToggleBtn.innerHTML = masked ? '<i data-lucide="eye-off"></i>' : '<i data-lucide="eye"></i>';
+                lucide.createIcons();
+            }
+        }
+
+        if (maskToggleBtn) {
+            maskToggleBtn.addEventListener('click', () => {
+                setMasking(!isMasked);
+            });
+        }
+
+        // Initialize masking on load
+        setMasking(isMasked);
+
 
         // Scroll Reveal logic
         const revealElements = document.querySelectorAll('.reveal');
