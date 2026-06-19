@@ -5,23 +5,23 @@
 
 /* 1. Theme Configuration & Global Variables */
 :root {
-    /* Colors (Light Mode Defaults) */
-    --primary-color: #0284c7;        /* Sky Blue Accent */
-    --primary-hover: #0369a1;
-    --primary-rgb: 2, 132, 199;
+    /* Colors (Cobalt Blue & White Theme) */
+    --primary-color: #0047AB;        /* Cobalt Blue Accent */
+    --primary-hover: #003682;
+    --primary-rgb: 0, 71, 171;
     
-    --bg-main: #f8fafc;              /* Very light gray-blue */
-    --bg-surface: rgba(255, 255, 255, 0.85);
+    --bg-main: #ffffff;              /* Crisp White */
+    --bg-surface: rgba(244, 247, 252, 0.85); /* Cool Light Gray-Blue */
     --bg-card: #ffffff;
-    --border-color: rgba(226, 232, 240, 0.8);
+    --border-color: rgba(200, 215, 235, 0.6);
     
     --text-primary: #0f172a;        /* Deep Slate */
-    --text-secondary: #475569;      /* Muted Gray */
-    --text-muted: #94a3b8;
+    --text-secondary: #334155;      /* Slate Gray */
+    --text-muted: #64748b;
     
-    --accent-gradient: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
-    --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
-    --hover-shadow: 0 20px 40px -15px rgba(2, 132, 199, 0.12);
+    --accent-gradient: linear-gradient(135deg, #0047AB 0%, #0076ff 100%);
+    --card-shadow: 0 10px 30px -10px rgba(0, 71, 171, 0.08);
+    --hover-shadow: 0 20px 40px -15px rgba(0, 71, 171, 0.15);
     --backdrop-blur: 12px;
     
     /* Transitions */
@@ -30,20 +30,20 @@
     --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Dark Mode Variables Override */
+/* Dark Mode Variables Override (Deep Cobalt & White Text) */
 body.dark-theme {
-    --bg-main: #0b0f19;              /* Deep Space Blue/Black */
-    --bg-surface: rgba(15, 23, 42, 0.8);
-    --bg-card: #111827;              /* Deep Slate */
-    --border-color: rgba(255, 255, 255, 0.08);
+    --bg-main: #060b16;              /* Deep Navy Space */
+    --bg-surface: rgba(13, 21, 39, 0.8); /* Dark Cobalt Surface */
+    --bg-card: #0d1527;              /* Deep Navy Slate */
+    --border-color: rgba(0, 71, 171, 0.2);
     
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
+    --text-primary: #ffffff;         /* Pure White */
+    --text-secondary: #cbd5e1;      /* Cool Gray */
     --text-muted: #64748b;
     
-    --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #2dd4bf 100%);
-    --card-shadow: 0 10px 35px -10px rgba(0, 0, 0, 0.4);
-    --hover-shadow: 0 20px 40px -15px rgba(56, 189, 248, 0.15);
+    --accent-gradient: linear-gradient(135deg, #0066ff 0%, #3b82f6 100%);
+    --card-shadow: 0 10px 35px -10px rgba(0, 0, 0, 0.5);
+    --hover-shadow: 0 20px 40px -15px rgba(0, 102, 255, 0.2);
 }
 
 /* 2. Base & Reset Styles */
@@ -65,6 +65,10 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     transition: background-color var(--transition-normal), color var(--transition-normal);
+    
+    /* Subtle Architectural CAD Dot-Grid Background */
+    background-image: radial-gradient(rgba(0, 71, 171, 0.04) 1.5px, transparent 1.5px);
+    background-size: 32px 32px;
 }
 
 .container {
@@ -519,6 +523,7 @@ img {
 }
 
 .card-featured-image-wrapper {
+    display: block;
     position: relative;
     border-radius: 10px;
     overflow: hidden;
@@ -625,12 +630,29 @@ section {
     padding-bottom: 24px;
     border-bottom: 1px solid var(--border-color);
 }
-
-.profile-avatar {
+.profile-image-container {
     width: 70px;
     height: 70px;
-    background: var(--accent-gradient);
     border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border-color);
+    background-color: var(--bg-card);
+    flex-shrink: 0;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-avatar-fallback {
+    width: 100%;
+    height: 100%;
+    background: var(--accent-gradient);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1453,4 +1475,88 @@ section {
     .footer-left {
         align-items: center;
     }
+}
+
+/* 13. Premium Background Floating Orbs & Scroll Reveal Animations */
+
+/* Floating Glow Orbs */
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: -2;
+    background: var(--accent-gradient);
+    animation: floatOrb 25s infinite alternate ease-in-out;
+    transition: opacity var(--transition-normal);
+}
+
+body.dark-theme .glow-orb {
+    opacity: 0.12; /* Slightly brighter in dark theme for deep neon glow */
+}
+
+.orb-1 {
+    width: 500px;
+    height: 500px;
+    top: 15%;
+    left: -150px;
+}
+
+.orb-2 {
+    width: 600px;
+    height: 600px;
+    top: 55%;
+    right: -200px;
+    animation-duration: 35s;
+    animation-delay: -5s;
+}
+
+.orb-3 {
+    width: 400px;
+    height: 400px;
+    top: 85%;
+    left: 10%;
+    animation-duration: 30s;
+    animation-delay: -10s;
+}
+
+@keyframes floatOrb {
+    0% {
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-50px) scale(1.08) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0) scale(1) rotate(360deg);
+    }
+}
+
+/* Scroll Reveal Animations styling */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform, opacity;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Enhanced Hover Card Glows */
+.service-card:hover, .research-card:hover, .channel-card:hover, .video-card:hover {
+    box-shadow: 0 20px 45px -10px rgba(0, 71, 171, 0.15), 
+                0 0 15px -3px rgba(0, 71, 171, 0.08);
+}
+
+body.dark-theme .service-card:hover, 
+body.dark-theme .research-card:hover, 
+body.dark-theme .channel-card:hover, 
+body.dark-theme .video-card:hover {
+    box-shadow: 0 20px 45px -10px rgba(0, 102, 255, 0.25), 
+                0 0 20px -3px rgba(0, 102, 255, 0.15);
 }
