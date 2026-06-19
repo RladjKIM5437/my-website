@@ -3,600 +3,679 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AUCTOR BIM - BIM 전문가 김대중</title>
-    <style>
-        /* Base Styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-        }
-
-        body {
-            color: #333333;
-            background-color: #fcfcfc;
-            line-height: 1.6;
-        }
-
-        a {
-            text-transform: none;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        li {
-            list-style: none;
-        }
-
-        /* Container */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 1px 10px rgba(0,0,0,0.05);
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 800;
-            color: #1a1a1a;
-            letter-spacing: -0.5px;
-        }
-
-        .logo span {
-            color: #2b5a9e;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            font-size: 15px;
-            font-weight: 600;
-            color: #555555;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #2b5a9e;
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 70px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-            padding: 80px 0;
-            text-align: center;
-            border-bottom: 1px solid #eef1f6;
-        }
-
-        .hero-title {
-            font-size: 42px;
-            font-weight: 800;
-            color: #111111;
-            line-height: 1.3;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
-
-        .hero-subtitle {
-            font-size: 18px;
-            color: #666666;
-            max-width: 700px;
-            margin: 0 auto 35px auto;
-            font-weight: 400;
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            font-size: 15px;
-            font-weight: 600;
-            border-radius: 6px;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background-color: #2b5a9e;
-            color: #ffffff;
-        }
-
-        .btn-primary:hover {
-            background-color: #1e4375;
-        }
-
-        .btn-secondary {
-            background-color: #ffffff;
-            color: #333333;
-            border: 1px solid #cccccc;
-        }
-
-        .btn-secondary:hover {
-            background-color: #f5f5f5;
-        }
-
-        /* Section Layout */
-        section {
-            padding: 80px 0;
-        }
-
-        .section-bg {
-            background-color: #f7f9fc;
-        }
-
-        .section-title {
-            font-size: 28px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-            color: #111111;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 3px;
-            background-color: #2b5a9e;
-            margin: 12px auto 0 auto;
-            border-radius: 2px;
-        }
-
-        /* Profile Block */
-        .profile-wrapper {
-            display: flex;
-            flex-direction: row;
-            gap: 40px;
-            align-items: flex-start;
-        }
-
-        @media (max-width: 768px) {
-            .profile-wrapper {
-                flex-direction: column;
-            }
-            .nav-links {
-                display: none;
-            }
-            .hero-title {
-                font-size: 32px;
-            }
-        }
-
-        .profile-info {
-            flex: 1;
-        }
-
-        .profile-info h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #111111;
-        }
-
-        .profile-tag {
-            display: inline-block;
-            background-color: #eef3fa;
-            color: #2b5a9e;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .profile-desc {
-            font-size: 16px;
-            color: #555555;
-            margin-bottom: 25px;
-            text-align: justify;
-        }
-
-        .research-box {
-            background-color: #ffffff;
-            border-left: 4px solid #2b5a9e;
-            padding: 20px;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-        }
-
-        .research-box h4 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #2b5a9e;
-        }
-
-        /* Services Grid */
-        .grid-2 {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-            border-collapse: separate;
-            border-spacing: 20px 0;
-        }
-
-        .grid-cell {
-            display: table-cell;
-            background: #ffffff;
-            padding: 35px;
-            border-radius: 8px;
-            border: 1px solid #eaeaea;
-            vertical-align: top;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-        }
-
-        @media (max-width: 768px) {
-            .grid-2, .grid-cell {
-                display: block;
-                width: 100%;
-                margin-bottom: 20px;
-            }
-        }
-
-        .service-icon {
-            font-size: 32px;
-            margin-bottom: 15px;
-            color: #2b5a9e;
-        }
-
-        .service-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #111111;
-        }
-
-        .service-list li {
-            position: relative;
-            padding-left: 15px;
-            margin-bottom: 10px;
-            font-size: 15px;
-            color: #555555;
-        }
-
-        .service-list li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: #2b5a9e;
-            font-weight: bold;
-        }
-
-        /* Projects Table */
-        .project-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background: #ffffff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-        }
-
-        .project-table th, .project-table td {
-            padding: 15px 20px;
-            text-align: left;
-            border-bottom: 1px solid #eeeeee;
-        }
-
-        .project-table th {
-            background-color: #2b5a9e;
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 15px;
-        }
-
-        .project-table td {
-            font-size: 14px;
-            color: #444444;
-        }
-
-        .project-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .project-category {
-            font-weight: 600;
-            color: #2b5a9e;
-        }
-
-        /* YouTube Showcase */
-        .video-grid {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-            border-collapse: separate;
-            border-spacing: 20px 0;
-        }
-
-        .video-card {
-            display: table-cell;
-            background: #ffffff;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #eaeaea;
-            vertical-align: top;
-        }
-
-        @media (max-width: 768px) {
-            .video-grid, .video-card {
-                display: block;
-                width: 100%;
-                margin-bottom: 20px;
-            }
-        }
-
-        .video-placeholder {
-            width: 100%;
-            height: 180px;
-            background-color: #222222;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            font-weight: bold;
-            flex-direction: column;
-            gap: 8px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="%23ffffff"><path d="M8 5v14l11-7z"/></svg>') center/cover;
-        }
-
-        .video-content {
-            padding: 20px;
-        }
-
-        .video-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #111111;
-            margin-bottom: 8px;
-        }
-
-        .video-text {
-            font-size: 14px;
-            color: #666666;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #1a1a1a;
-            color: #aaaaaa;
-            padding: 50px 0;
-            font-size: 14px;
-        }
-
-        .footer-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .footer-logo {
-            color: #ffffff;
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .footer-info p {
-            margin-bottom: 6px;
-        }
-
-        .footer-links a {
-            display: block;
-            margin-bottom: 8px;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: #ffffff;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #333333;
-            width: 100%;
-            color: #666666;
-        }
-    </style>
+    <title>AUCTOR - 스마트 건설 & BIM 엔지니어링 파트너</title>
+    <meta name="description" content="AUCTOR는 Revit/Navisworks 전문 교육, BIM 프로젝트 아웃소싱 및 스마트 팜, 모듈러 공법 연구 개발을 선도하는 전문 엔지니어링 기업입니다.">
+    <!-- Google Fonts: Inter & Outfit & Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
+    <!-- Header & Navigation -->
+    <header class="main-header">
         <div class="container header-container">
-            <div class="logo">AUCTOR <span>BIM</span></div>
-            <nav class="nav-links">
-                <a href="#about">소개</a>
-                <a href="#services">주요 업무</a>
-                <a href="#projects">프로젝트</a>
-                <a href="#youtube">유튜브 채널</a>
+            <a href="#" class="logo-area">
+                <img src="logo.jpg" alt="AUCTOR Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="logo-fallback-icon" style="display:none;"><i data-lucide="building-2"></i></span>
+                <span class="logo-text">AUCTOR</span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="#about" class="nav-link">대표 소개</a>
+                <a href="#services" class="nav-link">주요 서비스</a>
+                <a href="#projects" class="nav-link">프로젝트 실적</a>
+                <a href="#media" class="nav-link">미디어 & 카페</a>
+                <a href="#contact" class="nav-link contact-btn-nav">문의하기</a>
             </nav>
+
+            <div class="header-actions">
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <i data-lucide="moon" class="theme-icon-dark"></i>
+                    <i data-lucide="sun" class="theme-icon-light" style="display: none;"></i>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Menu">
+                    <i data-lucide="menu" class="menu-icon"></i>
+                    <i data-lucide="x" class="close-icon" style="display: none;"></i>
+                </button>
+            </div>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1 class="hero-title">AUCTOR BIM TV<br>실무 중심의 BIM 교육 및 프로젝트 파트너</h1>
-            <p class="hero-subtitle">12년 이상의 현업 경력을 바탕으로 한 최고 수준의 Revit, Navisworks 맞춤형 교육 및 정밀한 BIM 설계 외주 용역 서비스를 제공합니다.</p>
-            <div class="hero-buttons">
-                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" class="btn btn-primary">유튜브 채널 방문</a>
-                <a href="https://cafe.naver.com/pseb" target="_blank" class="btn btn-secondary">네이버 공식 카페</a>
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <nav class="mobile-nav-links">
+            <a href="#about" class="mobile-nav-link">대표 소개</a>
+            <a href="#services" class="mobile-nav-link">주요 서비스</a>
+            <a href="#projects" class="mobile-nav-link">프로젝트 실적</a>
+            <a href="#media" class="mobile-nav-link">미디어 & 카페</a>
+            <a href="#contact" class="mobile-nav-link mobile-contact-btn">문의하기</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-bg-visual">
+            <div class="visual-line line1"></div>
+            <div class="visual-line line2"></div>
+            <div class="visual-line line3"></div>
+            <div class="visual-circle circle1"></div>
+            <div class="visual-circle circle2"></div>
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span class="badge-text">BIM & SMART CONSTRUCTION PARTNER</span>
+                </div>
+                <h1 class="hero-title">
+                    스마트 건설과<br>
+                    <span class="text-gradient">BIM 엔지니어링</span>의 미래
+                </h1>
+                <p class="hero-desc">
+                    AUCTOR는 오토데스크 Revit 및 Navisworks 실무 교육, 고품질 BIM 프로젝트 외주 모델링, 그리고 학계와 연계한 스마트 팜 & 모듈러 공법 연구를 통해 건설 산업의 디지털 트랜스포메이션을 실현합니다.
+                </p>
+                <div class="hero-actions-btns">
+                    <a href="#contact" class="btn btn-primary">
+                        <span>프로젝트/교육 문의</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                        <i data-lucide="youtube"></i>
+                        <span>유튜브 채널</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual-card-wrapper">
+                <div class="hero-visual-card">
+                    <div class="card-inner-header">
+                        <div class="window-dot red"></div>
+                        <div class="window-dot yellow"></div>
+                        <div class="window-dot green"></div>
+                        <span class="window-title">AUCTOR BIM Project Status</span>
+                    </div>
+                    <div class="card-inner-body">
+                        <div class="project-stat-grid">
+                            <div class="stat-item">
+                                <span class="stat-number">12+</span>
+                                <span class="stat-label">실무 경력 (년)</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">교육 출강/컨설팅</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">30+</span>
+                                <span class="stat-label">BIM 프로젝트 수행</span>
+                            </div>
+                        </div>
+                        <div class="card-featured-image-wrapper">
+                            <img src="AUCTOR BIM TV.jpg" alt="AUCTOR BIM TV Banner" class="featured-image" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80';">
+                            <div class="featured-image-overlay">
+                                <span class="overlay-title">AUCTOR BIM TV</span>
+                                <p class="overlay-subtitle">실무 중심 BIM 지식 공유 커뮤니티 운영</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="about">
+    <!-- About CEO Section -->
+    <section id="about" class="about-section">
         <div class="container">
-            <h2 class="section-title">대표 소개</h2>
-            <div class="profile-wrapper">
-                <div class="profile-info">
-                    <h3>김대중 대표</h3>
-                    <div class="profile-tag">BIM 전문가 / 건축공학 박사과정</div>
-                    <p class="profile-desc">
-                        안녕하세요! 옥토르(AUCTOR) BIM 대표 김대중입니다. 저는 10년이 넘는 시간 동안 건축설계 현장 및 전문 교육 기관에서 BIM(Building Information Modeling) 기술의 실무 적용과 확산을 주도해 왔습니다. 단군소프트, 윤플러스건축사사무소, 대연건설 등에서 축적한 탄탄한 프로젝트 관리 역량을 바탕으로, 기업 및 개인에게 가장 핵심적인 최적의 솔루션을 제공합니다.
+            <div class="section-header text-center">
+                <span class="section-subtitle">CEO PROFILE</span>
+                <h2 class="section-title">전문성과 연구력을 겸비한 리더</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="about-grid">
+                <!-- Left Column: Quick Profile & Credentials -->
+                <div class="profile-card-col">
+                    <div class="profile-card">
+                        <div class="profile-photo-wrapper">
+                            <div class="profile-avatar">
+                                <i data-lucide="user" class="avatar-icon"></i>
+                            </div>
+                            <div class="profile-name-tag">
+                                <h3>김대중</h3>
+                                <p>BIM Consultant / AUCTOR 대표</p>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-meta-list">
+                            <div class="meta-item">
+                                <i data-lucide="mail"></i>
+                                <span>sword76@naver.com</span>
+                            </div>
+                            <div class="meta-item">
+                                <i data-lucide="book-open"></i>
+                                <span>저서: Easy BIM 시리즈 (필명: 페이서킴)</span>
+                            </div>
+                        </div>
+
+                        <div class="profile-credentials">
+                            <h4>대표 보유 기술 & 자격</h4>
+                            <div class="tech-tags">
+                                <span class="tag">BIM Project PM</span>
+                                <span class="tag">Autodesk Revit</span>
+                                <span class="tag">Navisworks</span>
+                                <span class="tag">AutoCAD Expert</span>
+                                <span class="tag">Twinmotion</span>
+                                <span class="tag">3D Modeling</span>
+                            </div>
+                            <ul class="cert-list">
+                                <li><i data-lucide="check-circle-2"></i> 직업훈련교사 3급 (건축설계)</li>
+                                <li><i data-lucide="check-circle-2"></i> 실내건축산업기사</li>
+                                <li><i data-lucide="check-circle-2"></i> 전산응용기계제도기능사</li>
+                                <li><i data-lucide="check-circle-2"></i> Autodesk Certified User</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Academic & Careers Timeline -->
+                <div class="timeline-col">
+                    <div class="timeline-tabs">
+                        <button class="tab-btn active" onclick="switchTimeline('career')">실무 & 강의 경력</button>
+                        <button class="tab-btn" onclick="switchTimeline('education')">학력 & 연구 정보</button>
+                    </div>
+
+                    <!-- Career Timeline -->
+                    <div class="timeline-content active" id="careerTimeline">
+                        <div class="timeline-list">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2023.09 - 현재</div>
+                                <div class="timeline-info">
+                                    <h4 class="timeline-title">옥토르 (AUCTOR) | 대표</h4>
+                                    <p class="timeline-text">BIM 프로젝트 총괄 관리 및 스마트 팜 모델 구축(농협 양평, 양재), Revit & Navisworks 기업/기관 실무 과정 총괄 운영.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2018.01 - 현재</div>
+                                <div class="timeline-info">
+                                    <h4 class="timeline-title">건설기술교육원 | BIM 분야 교수</h4>
+                                    <p class="timeline-text">BIM 전문가 양성 과정, BIM 융합 과정 및 스마트 과정 등 직무 교육 운영.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2020.07 - 2025.06</div>
+                                <div class="timeline-info">
+                                    <h4 class="timeline-title">대연건설㈜ | 부장 · 설계엔지니어</h4>
+                                    <p class="timeline-text">아파트형 공장, 클럽 하우스, 플랜트 설비 등 대규모 건축 프로젝트 BIM 모델 작성 및 간섭 검수 총괄.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2017.11 - 2019.08</div>
+                                <div class="timeline-info">
+                                    <h4 class="timeline-title">윤플러스건축사사무소 | 팀장 · 설계엔지니어</h4>
+                                    <p class="timeline-text">공동 주택, 상업 시설 등 다수 프로젝트 BIM 설계 및 정밀 내역 산출 수행.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2015.05 - 2017.09</div>
+                                <div class="timeline-info">
+                                    <h4 class="timeline-title">알앤비(RnB)학원 | 강사 및 본부장</h4>
+                                    <p class="timeline-text">BIM 전문 국비 교육 커리큘럼 설계, 교재 개발 및 교육 진행.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2014.04 - 2015.05</div>
+                                <div class="timeline-info">
+                                    <h4 class="timeline-title">단군소프트 | 오토데스크사업팀 팀장</h4>
+                                    <p class="timeline-text">대기업 및 엔지니어링사 대상 BIM 기술지원 인프라 구축 및 기술 용역 수행.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education Timeline -->
+                    <div class="timeline-content" id="educationTimeline">
+                        <div class="timeline-list">
+                            <div class="timeline-item highlight">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2026.03 - 현재</div>
+                                <div class="timeline-info">
+                                    <h4 class="timeline-title">한국기술교육대학교 대학원 | 건축공학 박사과정 재학</h4>
+                                    <p class="timeline-text"><strong>핵심 연구분야: 스마트 팜 (Smart Farm) 및 모듈러 공법 (Modular Construction)</strong></p>
+                                    <p class="timeline-subtext">첨단 ICT 설비 기술과 프리패브 유닛 공법을 전통 건축공학과 결합하는 융합 연구를 수행하고 있습니다.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">석사 졸업</div>
+                                <div class="timeline-info">
+                                    <h4 class="timeline-title">한국기술교육대학교 대학원 | 건축공학 석사 졸업</h4>
+                                    <p class="timeline-text">건축 시공 및 BIM 설계 자동화 관련 연구 수행.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">학사 졸업</div>
+                                <div class="timeline-info">
+                                    <h4 class="timeline-title">경희대학교 | 농학 학사 졸업 (부전공: 건축공학)</h4>
+                                    <p class="timeline-text">생명공학 메커니즘 학습 및 건축공학 연계 학사 이수.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">전문학사 졸업</div>
+                                <div class="timeline-info">
+                                    <h4 class="timeline-title">순천제일대학 | 건축설비 전문학사 졸업</h4>
+                                    <p class="timeline-text">건축 환경 기계, 전기, 배관(MEP) 설비 설계 이론 기초 정립.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">OUR SERVICES</span>
+                <h2 class="section-title">스마트 건설을 실현하는 핵심 솔루션</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1: BIM Education -->
+                <div class="service-card">
+                    <div class="service-icon-wrapper">
+                        <i data-lucide="graduation-cap"></i>
+                    </div>
+                    <h3>BIM 전문 교육 (메인 비즈니스)</h3>
+                    <p class="service-intro">Revit & Navisworks 실무 중심 맞춤형 교육</p>
+                    <p class="service-desc">
+                        NCS 기준에 맞춘 정규 교육 프로그램부터 삼성물산 기술 교육, 창원 LG전자 Revit MEP Family 구축 출강 등 수많은 기업 컨설팅 노하우를 녹여냈습니다. 현업에서 즉시 사용 가능한 실무 파이프라인을 전수합니다.
                     </p>
-                    <div class="research-box">
-                        <h4>🎓 현재 연구 분야 (한국기술교육대학교 대학원 박사과정)</h4>
-                        <p class="profile-desc" style="margin-bottom:0; font-size:15px;">
-                            건설 산업의 디지털 전환 및 스마트화에 기여하기 위해 <strong>스마트 팜 모델 구축</strong> 및 <strong>모듈러 공법(모듈화 건축)</strong>과 BIM 기술의 결합을 깊이 있게 연구하고 있습니다.
+                    <ul class="service-features">
+                        <li><i data-lucide="check"></i> Revit Architecture / Structure / MEP 마스터 과정</li>
+                        <li><i data-lucide="check"></i> Navisworks를 통한 시공 전 정밀 간섭 검토 및 공정 관리</li>
+                        <li><i data-lucide="check"></i> 기업 맞춤형 전용 패밀리(Family) 라이브러리 개발 자문</li>
+                        <li><i data-lucide="check"></i> 건설기술교육원 스마트 과정 등 고도화 직무 훈련 프로그램</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2: BIM Outsourcing -->
+                <div class="service-card">
+                    <div class="service-icon-wrapper">
+                        <i data-lucide="file-spreadsheet"></i>
+                    </div>
+                    <h3>BIM 프로젝트 아웃소싱 (외주 용역)</h3>
+                    <p class="service-intro">정밀한 3D 모델 구축 및 엔지니어링 데이터 산출</p>
+                    <p class="service-desc">
+                        풍부한 필드 엔지니어링 경력을 바탕으로 다양한 건축물 및 설비 프로젝트 외주 용역을 대행합니다. 시공 중 발생할 수 있는 리스크를 3D 공간 상에서 100% 사전 필터링하여 시공 효율성을 극대화합니다.
+                    </p>
+                    <ul class="service-features">
+                        <li><i data-lucide="check"></i> 연수원, 아파트, 공공시설 등 대형 프로젝트 구조 모델링</li>
+                        <li><i data-lucide="check"></i> 플랜트 기계, 배관 및 MEP 하이테크 설비 모델 구축</li>
+                        <li><i data-lucide="check"></i> 대형 빌딩(GS 파르나스 호텔 등) 외관 커튼월 상세 설계 지원</li>
+                        <li><i data-lucide="check"></i> 글로벌 제조시설(현대·기아차 해외 공장) BIM 전환 설계</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Showcase Section (스마트팜 & 모듈러 공법 대대적 강화) -->
+    <section id="research" class="research-section" style="background-color: var(--bg-hover, #f8fafc); padding: 80px 0;">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">RESEARCH & INNOVATION</span>
+                <h2 class="section-title">스마트 팜 & 모듈러 공법 융합 연구</h2>
+                <p class="section-header-desc" style="color: #666; margin-top: 10px;">박사과정 중심 연구 과제와 실무 비즈니스의 결합</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="research-grid" style="display: flex; gap: 30px; margin-top: 40px; flex-wrap: wrap;">
+                <!-- Research Card 1: Smart Farm -->
+                <div class="research-card" style="flex: 1; min-width: 300px; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+                    <div class="research-image-placeholder" style="font-size: 40px; color: #2b5a9e; margin-bottom: 20px;">
+                        <i data-lucide="sprout"></i>
+                    </div>
+                    <div class="research-card-content">
+                        <h3 style="font-size: 20px; font-weight:700; margin-bottom: 15px;">스마트 팜 (Smart Farm) 설계 & 구축</h3>
+                        <p class="research-desc-text" style="color:#555; font-size:15px; line-height:1.7; text-align: justify;">
+                            농협 양평, 농협 양재 스마트 팜 모델 구축 프로젝트를 직접 관리한 실무 노하우를 담았습니다. 정보통신기술(ICT)을 활용하여 작물 재배 환경을 디지털로 정밀 제어하는 최첨단 농업 시설의 공간 설계 및 시뮬레이션을 최적화합니다.
                         </p>
+                        <div class="research-keywords" style="margin-top: 20px; display: flex; gap: 8px;">
+                            <span class="kwd" style="background: #eef3fa; color: #2b5a9e; padding: 4px 8px; border-radius: 4px; font-size: 13px; font-weight: 600;">#스마트팜BIM</span>
+                            <span class="kwd" style="background: #eef3fa; color: #2b5a9e; padding: 4px 8px; border-radius: 4px; font-size: 13px; font-weight: 600;">#농협프로젝트</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research Card 2: Modular Construction -->
+                <div class="research-card" style="flex: 1; min-width: 300px; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+                    <div class="research-image-placeholder" style="font-size: 40px; color: #2b5a9e; margin-bottom: 20px;">
+                        <i data-lucide="layout-grid"></i>
+                    </div>
+                    <div class="research-card-content">
+                        <h3 style="font-size: 20px; font-weight:700; margin-bottom: 15px;">모듈러 공법 (Modular Construction)</h3>
+                        <p class="research-desc-text" style="color:#555; font-size:15px; line-height:1.7; text-align: justify;">
+                            건축 구조물의 70~80% 이상을 공장에서 고품질 유닛 형태로 사전 제작한 뒤 현장에서 조립·시공하는 선진국형 OSC(Off-Site Construction) 공법입니다. DfMA(제조 기반 설계) 개념을 도입하여 정밀도 제어 및 현장 공기 단축 방안을 연구합니다.
+                        </p>
+                        <div class="research-keywords" style="margin-top: 20px; display: flex; gap: 8px;">
+                            <span class="kwd" style="background: #eef3fa; color: #2b5a9e; padding: 4px 8px; border-radius: 4px; font-size: 13px; font-weight: 600;">#모듈러건축</span>
+                            <span class="kwd" style="background: #eef3fa; color: #2b5a9e; padding: 4px 8px; border-radius: 4px; font-size: 13px; font-weight: 600;">#OSC공법</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="section-bg">
+    <!-- Projects List Table Section (추가 믹스) -->
+    <section id="projects" class="projects-table-section" style="padding: 80px 0;">
         <div class="container">
-            <h2 class="section-title">주요 비즈니스 분야</h2>
-            <div class="grid-2">
-                <div class="grid-cell">
-                    <div class="service-icon">📖</div>
-                    <h3 class="service-title">BIM 전문 교육 (메인 서비스)</h3>
-                    <ul class="service-list">
-                        <li>Autodesk Revit / Navisworks 수준별 맞춤 교육</li>
-                        <li>국비지원 교육 과정 및 건설기술교육원 스마트 과정 위탁 운영</li>
-                        <li>기업 대상 Revit MEP Family 구축 및 맞춤형 기술 지원</li>
-                        <li>'Easy BIM Series' 교재 기반의 체계적인 커리큘럼</li>
-                    </ul>
-                </div>
-                <div class="grid-cell">
-                    <div class="service-icon">🏗️</div>
-                    <h3 class="service-title">BIM 프로젝트 용역 (외주 수행)</h3>
-                    <ul class="service-list">
-                        <li>건축물(아파트, 연수원, 공공시설 등) 정밀 구조 및 MEP 모델링</li>
-                        <li>설계 오류 사전 진단을 위한 대규모 간섭 검토 및 최적화</li>
-                        <li>첨단 미래 농업을 위한 스마트 팜 BIM 모델 구축 (농협 프로젝트 등)</li>
-                        <li>해외 공장 전환 설계 및 커튼월 3D 구축 지원</li>
-                    </ul>
-                </div>
+            <div class="section-header text-center">
+                <span class="section-subtitle">PORTFOLIO</span>
+                <h2 class="section-title">대표 프로젝트 및 인프라 구축 실적</h2>
+                <div class="section-divider"></div>
             </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">주요 프로젝트 및 교육 실적</h2>
-            <table class="project-table">
-                <thead>
-                    <tr>
-                        <th style="width: 25%;">분야</th>
-                        <th>수행 프로젝트 및 교육 내용</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="project-category">스마트 건설</td>
-                        <td>농협 양평 & 양재 스마트 팜 모델 구축 프로젝트 관리</td>
-                    </tr>
-                    <tr>
-                        <td class="project-category">구조/건축 모델링</td>
-                        <td>오산 롯데 연수원, 춘천 NHN 연수원, LH 김해 율하 아파트 BIM 구조 모델링</td>
-                    </tr>
-                    <tr>
-                        <td class="project-category">공공/상업 시설</td>
-                        <td>순천시 수영장 MEP 간섭 최적화 모델링, GS 파르나스 호텔 커튼 월 구축 지원</td>
-                    </tr>
-                    <tr>
-                        <td class="project-category">글로벌 제조시설</td>
-                        <td>현대 다이모스 해외 공장 구축, 현대·기아차 멕시코 공장 전환 설계 파견 업무</td>
-                    </tr>
-                    <tr>
-                        <td class="project-category">기업 교육 출강</td>
-                        <td>삼성물산 BIM 기술 교육, 창원 LG전자 Revit MEP Family 구축 및 기술 지원</td>
-                    </tr>
-                    <tr>
-                        <td class="project-category">국가 사업 참여</td>
-                        <td>국토교통부 건설인적자원개발위원회 BIM 교재 개발 참여</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <section id="youtube" class="section-bg">
-        <div class="container">
-            <h2 class="section-title">AUCTOR BIM TV 최신 동영상</h2>
-            <p style="text-align: center; margin-top: -30px; margin-bottom: 40px; color: #666666;">유튜브 채널에서 제공하는 실무 노하우 및 강의 영상을 만나보세요.</p>
             
+            <div style="overflow-x: auto; margin-top: 30px;">
+                <table style="width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+                    <thead>
+                        <tr style="background-color: #2b5a9e; color: #fff;">
+                            <th style="padding: 15px 20px; text-align: left; font-weight:600;">수행 분야</th>
+                            <th style="padding: 15px 20px; text-align: left; font-weight:600;">상세 프로젝트 및 컨설팅 명칭</th>
+                        </tr>
+                    </thead>
+                    <tbody style="font-size: 14px; color: #444;">
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 15px 20px; font-weight: 600; color: #2b5a9e;">구조/설비 모델링 용역</td>
+                            <td style="padding: 15px 20px;">오산 롯데 연수원, 춘천 NHN 연수원, LH 김해 율하 아파트 구조 BIM 모델링 / 순천시 수영장 MEP 간섭 최적화</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 15px 20px; font-weight: 600; color: #2b5a9e;">글로벌 하이테크 공장</td>
+                            <td style="padding: 15px 20px;">현대 다이모스 해외 공장 BIM 인프라 구축, 현대·기아자동차 멕시코 법인 공장 전환 설계 파견 프로젝트 총괄</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 15px 20px; font-weight: 600; color: #2b5a9e;">스마트 미래 건축</td>
+                            <td style="padding: 15px 20px;">농협 양평 스마트 팜 및 농협 양재 복합 스마트 팜 모델 솔루션 구축 지원</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 15px 20px; font-weight: 600; color: #2b5a9e;">대기업 기술 자문</td>
+                            <td style="padding: 15px 20px;">삼성물산 본사 BIM 엔지니어링 기술 교육 지원, 창원 LG전자 Revit MEP 전용 패밀리 라이브러리 마스터 가이드 구축</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 15px 20px; font-weight: 600; color: #2b5a9e;">정부 국책 교재 집필</td>
+                            <td style="padding: 15px 20px;">국토교통부 건설인적자원개발위원회 표준 BIM 공인 교재 개발 및 집필 참여</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube & Naver Cafe Section -->
+    <section id="media" class="media-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">COMMUNITY & MEDIA</span>
+                <h2 class="section-title">AUCTOR BIM 미디어 & 커뮤니티</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Naver Cafe & Youtube Intro Cards -->
+            <div class="channel-grid">
+                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="channel-card youtube-card">
+                    <div class="channel-icon-bg">
+                        <i data-lucide="youtube"></i>
+                    </div>
+                    <div class="channel-info-text">
+                        <h3>AUCTOR BIM TV 유튜브</h3>
+                        <p>Revit, Navisworks 실무 강좌와 AutoCAD 팁 등 실무 노하우를 가장 빠르게 업로드하는 BIM 영상 교육 채널입니다.</p>
+                        <span class="btn-channel-go">구독하러 가기 <i data-lucide="external-link"></i></span>
+                    </div>
+                </a>
+
+                <a href="https://cafe.naver.com/pseb" target="_blank" rel="noopener noreferrer" class="channel-card cafe-card">
+                    <div class="channel-icon-bg">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <div class="channel-info-text">
+                        <h3>네이버 카페 (PSEB)</h3>
+                        <p>현업 BIM 실무자 및 학습자들이 긴밀하게 모여 질문을 해결하고 최신 실무 자재 패밀리 데이터를 나누는 공유 커뮤니티입니다.</p>
+                        <span class="btn-channel-go">카페 방문하기 <i data-lucide="external-link"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- YouTube Video Placeholders -->
+            <h3 class="video-grid-title text-center"><i data-lucide="play-square"></i> 추천 유튜브 실무 교육 영상</h3>
             <div class="video-grid">
-                <div class="video-card">
-                    <a href="https://www.youtube.com/@BIM_Ch1" target="_blank">
-                        <div class="video-placeholder">
-                            <span>AUCTOR BIM TV 강의 보기</span>
+                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="video-card">
+                    <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&w=400&q=80');">
+                        <div class="play-overlay">
+                            <i data-lucide="play"></i>
                         </div>
-                    </a>
-                    <div class="video-content">
-                        <h4 class="video-title">Revit 기초 및 실무 모델링 가이드</h4>
-                        <p class="video-text">BIM 설계의 시작인 레빗(Revit)의 기본 인터페이스부터 실무 팁까지 체계적으로 설명합니다.</p>
+                    </div>
+                    <div class="video-details">
+                        <h4>[Revit 실무] 레빗 기초부터 다지는 3D 건축 설계 입문</h4>
+                        <p>현업 워크플로우에 기초한 기본 인터페이스 템플릿 세팅 공략</p>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="video-card">
+                    <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=400&q=80');">
+                        <div class="play-overlay">
+                            <i data-lucide="play"></i>
+                        </div>
+                    </div>
+                    <div class="video-details">
+                        <h4>[Navisworks] 공정 시뮬레이션 및 간섭 체크 검수 가이드</h4>
+                        <p>시공 오차 발생률을 0%에 가깝게 통제하는 디지털 트윈 활용 비법</p>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" class="video-card">
+                    <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80');">
+                        <div class="play-overlay">
+                            <i data-lucide="play"></i>
+                        </div>
+                    </div>
+                    <div class="video-details">
+                        <h4>[Revit Family] 고수처럼 다루는 매개변수 패밀리 작성 기법</h4>
+                        <p>정확한 물량 및 내역 산출과 도면 연동을 유도하는 가변형 객체 설계</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info-col">
+                    <span class="section-subtitle">CONTACT US</span>
+                    <h2 class="section-title">BIM 프로젝트 및 교육 문의</h2>
+                    <p class="contact-intro-desc">
+                        Revit/Navisworks 오프라인 출강 훈련, 기업 라이브러리 인프라 구축 솔루션 자문, BIM 모델링 프로젝트 아웃소싱 용역 의뢰 등 비즈니스 요구사항을 남겨주시면 면밀히 검토 후 연락드리겠습니다.
+                    </p>
+
+                    <div class="direct-contact-methods">
+                        <div class="method-card">
+                            <div class="method-icon"><i data-lucide="mail"></i></div>
+                            <div>
+                                <h5>이메일 직접 문의</h5>
+                                <p>sword76@naver.com</p>
+                            </div>
+                        </div>
+                        <div class="method-card">
+                            <div class="method-icon"><i data-lucide="map-pin"></i></div>
+                            <div>
+                                <h5>본사 및 연구실 정보</h5>
+                                <p>인천광역시 부평구 갈월서로 (AUCTOR 엔지니어링) / 한국기술교육대학교 건축공학과 스마트 건설 연구 연계</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="video-card">
-                    <a href="https://www.youtube.com/@BIM_Ch1" target="_blank">
-                        <div class="video-placeholder">
-                            <span>AUCTOR BIM TV 강의 보기</span>
+
+                <div class="contact-form-col">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">이름 / 회사명</label>
+                                <input type="text" id="name" name="name" placeholder="홍길동 / 옥토르" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">이메일 주소</label>
+                                <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+                            </div>
                         </div>
-                    </a>
-                    <div class="video-content">
-                        <h4 class="video-title">Navisworks 공정 검토 및 간섭 체크</h4>
-                        <p class="video-text">시공 전 리스크를 완벽하게 제어할 수 있는 나비스웍스(Navisworks) 핵심 활용법 동영상입니다.</p>
-                    </div>
+                        <div class="form-group">
+                            <label for="subject">문의 유형</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>선택해 주세요</option>
+                                <option value="education">BIM 교육 출강 / 실무 강의 문의</option>
+                                <option value="project">BIM 모델링 외주 / 프로젝트 문의</option>
+                                <option value="research">스마트 팜 & 모듈러 공법 공동 연구 문의</option>
+                                <option value="other">기타 문의사항</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">상세 내용</label>
+                            <textarea id="message" name="message" rows="5" placeholder="문의하실 구체적인 일정, 교육 대상, 프로젝트 규모 정보를 입력해 주세요." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <span>문의 접수 완료하기</span>
+                            <i data-lucide="send"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container footer-wrapper">
-            <div class="footer-info">
-                <div class="footer-logo">AUCTOR BIM</div>
-                <p>대표자: 김대중 | 이메일: sword76@naver.com</p>
-                <p>주소: 인천광역시 부평구 갈월서로</p>
-                <p>필명: 페이서킴 (Easy BIM Series 저자)</p>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <span class="logo-text">AUCTOR</span>
+                </div>
+                <p class="footer-copy">© 2026 AUCTOR. All Rights Reserved.</p>
+                <p class="footer-address">대표: 김대중 | 개인정보책임자: 김대중 | 대표 이메일: sword76@naver.com</p>
             </div>
-            <div class="footer-links">
-                <h4 style="color: #ffffff; margin-bottom: 15px; font-size: 15px;">Quick Links</h4>
-                <a href="https://www.youtube.com/@BIM_Ch1" target="_blank">유튜브 채널 (AUCTOR BIM TV)</a>
-                <a href="https://cafe.naver.com/pseb" target="_blank">네이버 카페 (AutoCAD/BIM 전문 카페)</a>
+            <div class="footer-right">
+                <div class="footer-sns-links">
+                    <a href="https://www.youtube.com/@BIM_Ch1" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i data-lucide="youtube"></i></a>
+                    <a href="https://cafe.naver.com/pseb" target="_blank" rel="noopener noreferrer" aria-label="Naver Cafe"><i data-lucide="users"></i></a>
+                </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 AUCTOR BIM. All Rights Reserved.
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Theme Toggle logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIconDark = document.querySelector('.theme-icon-dark');
+        const themeIconLight = document.querySelector('.theme-icon-light');
+
+        const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            themeIconDark.style.display = 'none';
+            themeIconLight.style.display = 'block';
+        } else {
+            document.body.classList.remove('dark-theme');
+            themeIconDark.style.display = 'block';
+            themeIconLight.style.display = 'none';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.body.classList.toggle('dark-theme');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            if (isDark) {
+                themeIconDark.style.display = 'none';
+                themeIconLight.style.display = 'block';
+            } else {
+                themeIconDark.style.display = 'block';
+                themeIconLight.style.display = 'none';
+            }
+        });
+
+        // Mobile Menu logic
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const menuIcon = mobileMenuBtn.querySelector('.menu-icon');
+        const closeIcon = mobileMenuBtn.querySelector('.close-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = mobileDrawer.classList.toggle('open');
+            if (isOpen) {
+                menuIcon.style.display = 'none';
+                closeIcon.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            } else {
+                menuIcon.style.display = 'block';
+                closeIcon.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.remove('open');
+                menuIcon.style.display = 'block';
+                closeIcon.style.display = 'none';
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Timeline Tab switching
+        function switchTimeline(tab) {
+            const careerBtn = document.querySelector('.timeline-tabs button:nth-child(1)');
+            const eduBtn = document.querySelector('.timeline-tabs button:nth-child(2)');
+            const careerTimeline = document.getElementById('careerTimeline');
+            const eduTimeline = document.getElementById('educationTimeline');
+
+            if (tab === 'career') {
+                careerBtn.classList.add('active');
+                eduBtn.classList.remove('active');
+                careerTimeline.classList.add('active');
+                eduTimeline.classList.remove('active');
+            } else {
+                careerBtn.classList.remove('active');
+                eduBtn.classList.add('active');
+                careerTimeline.classList.remove('active');
+                eduTimeline.classList.add('active');
+            }
+        }
+
+        // Contact Form alert simulation
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+
+            alert(`감사합니다, ${name}님! 문의 내용이 정상적으로 접수되었습니다. 대표 이메일(sword76@naver.com)로 빠르게 답변 드리겠습니다.`);
+            contactForm.reset();
+        });
+    </script>
 </body>
 </html>
